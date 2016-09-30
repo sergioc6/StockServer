@@ -8,8 +8,8 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="#">
-                    <img src="assets/img/logo.png" width="90" height="60"/>
+                <a class="navbar-brand" href="<?php echo base_url('Inicio'); ?>">
+                    <img src="<?php echo base_url('assets/img/logo.png'); ?>" width="90" height="60"/>
                 </a>
             </div>
 
@@ -19,8 +19,8 @@
             </span>
         </div>
     </div>
-    
-    
+
+
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse navbar-collapse">
@@ -28,37 +28,28 @@
 
 
                 <li>
-                    <a href="#" ><i class="fa fa-truck "></i> Proveedores</a>
+                    <a href="<?php echo base_url('Proveedores/Proveedores_view'); ?>" ><i class="fa fa-truck "></i> Proveedores</a>
                 </li>
 
 
                 <li>
-                    <a href="#"><i class="fa fa-wrench "></i> Insumos</a>
+                    <a href="<?php echo base_url('Insumos/Insumos_view'); ?>"><i class="fa fa-wrench "></i> Insumos</a>
                 </li>
 
                 <li>
-                    <a href="#"><i class="fa fa-shopping-cart"></i> Compras</a>
+                    <a href="<?php echo base_url('Compras/Compras_view'); ?>"><i class="fa fa-shopping-cart"></i> Compras</a>
                 </li>
 
+                <li>
+                    <a href="#"><i class="fa fa-users"></i> Operarios</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-download"></i> Backup</a>
+                </li>
 
             </ul>
         </div>
 
     </nav>
-    <!-- /. NAV SIDE  -->
-    <div id="page-wrapper" >
-        <div id="page-inner">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>BLANK PAGE </h2>   
-                </div>
-            </div>              
-            <!-- /. ROW  -->
-            <hr />
-
-            <!-- /. ROW  -->           
-        </div>
-        <!-- /. PAGE INNER  -->
-    </div>
-    <!-- /. PAGE WRAPPER  -->
 </div>
