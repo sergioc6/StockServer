@@ -57,7 +57,24 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="localidad">Tipo de Insumo:</label>  
                             <div class="col-md-4">
+                                <select>
+                                    <?php foreach ($tipos_insumos as $tipo) { ?>
+                                        <option value="<?php echo $tipo->id_tipoinsumo; ?>"><?php echo $tipo->tipo; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
 
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="localidad">Sector en Depósito:</label>  
+                            <div class="col-md-4">
+                                <select>
+                                    <?php foreach ($sectores as $sector) { ?>
+                                        <option value="<?php echo $sector->id_sector; ?>"><?php echo $sector->sector_deposti; ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
 
@@ -99,6 +116,6 @@
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
-
+        
     </body>
 </html>

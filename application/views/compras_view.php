@@ -39,8 +39,8 @@
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                     <div class="div-square">
                         <a href="blank.html" >
-                        <i class="fa fa-circle-o-notch fa-3x"></i>
-                        <h5>Contactar proveedor</h5>
+                        <i class="fa fa-shopping-cart fa-3x"></i>
+                        <h5>Relizar Compra</h5>
                         </a>
                     </div>
                 </div> 

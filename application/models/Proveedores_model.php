@@ -37,14 +37,29 @@ class Proveedores_model extends CI_Model {
         return $query->result();
     }
 
+    /**
+     * Retorna el proveedor del ID pasado como parametro
+     * @param type $id_prov
+     * @return type
+     */
     public function obtenerProveedorPorID($id_prov) {
         $query = $this->db->query('SELECT * FROM proveedores WHERE id_proveedor=' . $id_prov);
         return $query->result()[0];
     }
 
+    /**
+     * Retorna el proveedor del nombre pasado como parametro
+     * @param type $nom_prov
+     * @return type
+     */
     public function obtenerProveedorPorNombre($nom_prov) {
-        $query = $this->db->query('SELECT * FROM proveedores WHERE nombre_proveedor="' . $nom_prov.'"');
+        $query = $this->db->query('SELECT * FROM proveedores WHERE nombre_proveedor="' . $nom_prov . '"');
         return $query->result()[0];
+    }
+    
+    
+    public function deleteProveedorPorID($id_prov) {
+        $this->db->query('DELETE FROM proveedores WHERE id_proveedor='.$id_prov);
     }
 
 }

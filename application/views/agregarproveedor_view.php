@@ -14,6 +14,9 @@
         <!-- CUSTOM STYLES-->
         <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet" />
 
+        <!-- CUSTOM STYLES-->
+        <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css'); ?>" rel="stylesheet" />
+
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -38,7 +41,7 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="nombre">Nombre del proveedor</label>  
+                            <label class="col-md-4 control-label" for="nombre">Nombre del proveedor:</label>  
                             <div class="col-md-4">
                                 <input id="nombre" name="nombre" type="text" placeholder="" class="form-control input-md">
 
@@ -56,7 +59,7 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="email">Email</label>  
+                            <label class="col-md-4 control-label" for="email">Email:</label>  
                             <div class="col-md-4">
                                 <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
 
@@ -76,12 +79,13 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="telefono">Teléfono</label>  
+                            <label class="col-md-4 control-label" for="telefono">Teléfono:</label>  
                             <div class="col-md-4">
                                 <input id="telefono" name="telefono" type="text" placeholder="" class="form-control input-md">
 
                             </div>
                         </div>
+
 
                         <!-- Button -->
                         <div class="form-group">
@@ -120,6 +124,26 @@
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
+        <!-- DATATABLE SCRIPTS -->
+        <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
 
+        <script>
+            $(document).ready(function () {
+                $('#tabla_insumos').dataTable();
+                $('#addbtn').click(addrow);
+            });
+
+            function addrow() {
+                $('#tabla_insumos').dataTable().fnAddData([
+                    $('#fname').val(),
+                    $('#lname').val(),
+                    $('#email').val(),
+                    $('#email').val(),
+                    $('#email').val(),
+                    $('#email').val()
+                ]);
+
+            }
+        </script>
     </body>
 </html>

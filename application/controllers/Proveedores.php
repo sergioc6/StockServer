@@ -34,4 +34,11 @@ class Proveedores extends CI_Controller {
         }
         
         
+        public function eliminarProveedor($id_prov) {
+            $this->load->model('Proveedores_model');
+            $this->Proveedores_model->deleteProveedorPorID($id_prov);
+            
+            redirect(base_url('Proveedores/Proveedores_view'));
+        }
+        
 }
