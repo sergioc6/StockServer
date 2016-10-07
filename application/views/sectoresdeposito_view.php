@@ -29,7 +29,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Sectores de insumos</h2>   
+                        <h2>Sectores de Insumos</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
@@ -40,7 +40,7 @@
                         <div class="div-square">
                             <a href="<?php echo base_url('Insumos/agregarsector_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
-                                <h5>Agregar sector</h5>
+                                <h5>Agregar Sector</h5>
                             </a>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                     <a title="Editar Proveedor" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
                                     <a title="Eliminar Proveedor" href="<?php echo base_url('Proveedores/eliminarProveedor/' . $sector->id_sector); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
-                            </tr>r
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>

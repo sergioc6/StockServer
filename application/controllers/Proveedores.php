@@ -36,5 +36,14 @@ class Proveedores extends CI_Controller {
 
         redirect(base_url('Proveedores/Proveedores_view'));
     }
+    
+    
+    
+    public function cargarInsumosProveedor_view() {
+        $this->load->model('Proveedores_model');
+        $data['proveedores'] = $this->Proveedores_model->obtenerProveedores();
+        
+        $this->load->view('cargarinsumosproveedor_view',$data);
+    }
 
 }
