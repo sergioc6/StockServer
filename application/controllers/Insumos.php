@@ -48,5 +48,23 @@ class Insumos extends CI_Controller {
         
         $this->load->view('sectoresdeposito_view', $data);
     }
+    
+    public function agregarsector_view() {
+        $this->load->view('agregarsector_view');        
+    }
+    
+    public function agregarSector() {
+        $nombre_sector = $this->input->post('nombre_sector');
+        $latitud = $this->input->post('latitud');
+        $longitud = $this->input->post('longitud');
+        
+        $this->load->model('Insumos_model');
+        $this->Insumos_model->agregarSector($nombre_sector, $latitud, $longitud);
+        
+        $data['nuevo_sector'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
+        $this->load->view('agregarsector_success_view', $data);
+        
+        
+    }
 
 }

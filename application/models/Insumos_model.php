@@ -56,5 +56,20 @@ class Insumos_model extends CI_Model {
     public function deleteInsumo($id_insumo) {
         $this->db->query('DELETE FROM insumos WHERE id_insumo=' . $id_insumo);
     }
+    
+    public function agregarSector($sector_deposito, $latitud, $longitud) {
+        $data = array(
+            'id_sector' => 0,
+            'sector_deposito' => $sector_deposito,
+            'latitud' => $latitud,
+            'longitud' => $longitud
+        );
+        $this->db->insert('sector_insumos', $data);
+    }
+    
+    public function obtenerSectorPorNombre($nombre_sector) {
+        $query = $this->db->query('SELECT * FROM sector_insumos WHERE sector_deposito=\'' . $nombre_sector.'\'');
+        return $query->result()[0];
+    }
 
 }

@@ -89,8 +89,8 @@
 
                         <!-- Button -->
                         <div class="form-group">
-                            <div class="col-md-4 center-block">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Agregar Proveedor</button>
+                            <div class="col-md-4 col-md-offset-4">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-block">Agregar Proveedor</button>
                             </div>
                         </div>
 

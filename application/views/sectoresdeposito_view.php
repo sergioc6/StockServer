@@ -29,23 +29,24 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Proveedores</h2>   
+                        <h2>Sectores de insumos</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
                 <div class="row text-center pad-top" style="margin-bottom: 20px;">
+                    
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="<?php echo base_url('Proveedores/agregarproveedor_view'); ?>" >
+                            <a href="<?php echo base_url('Insumos/agregarsector_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
-                                <h5>Sectores de Insumos</h5>
+                                <h5>Agregar sector</h5>
                             </a>
                         </div>
-                    </div> 
-
+                    </div>
+                    
                 </div>
-
+                
                 <table id="proveedores" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>

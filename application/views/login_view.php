@@ -58,10 +58,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
     
 
     <div class="omb_login">
-        <h3 class="omb_authTitle">Ingresar</h3>
 
         <div class="row omb_row-sm-offset-3">
-            <div class="col-xs-12 col-sm-6">    
+            <div class="col-md-5 col-md-offset-3">
+                <h3 class="omb_authTitle" style="text-align: center;">Ingresar</h3>
                 <form class="omb_loginForm" action="" autocomplete="off" method="POST">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -75,7 +75,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                     </div>
                     <span class="help-block"></span>
 
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </div>    
+                    </div>
+                    
                 </form>
             </div>
         </div>          
