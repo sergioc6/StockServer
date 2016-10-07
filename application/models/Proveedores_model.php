@@ -56,10 +56,25 @@ class Proveedores_model extends CI_Model {
         $query = $this->db->query('SELECT * FROM proveedores WHERE nombre_proveedor="' . $nom_prov . '"');
         return $query->result()[0];
     }
-    
-    
+
+    /**
+     * Elimina de la BD el proveedor de ID pasado como parametro.
+     * @param int $id_prov
+     */
     public function deleteProveedorPorID($id_prov) {
-        $this->db->query('DELETE FROM proveedores WHERE id_proveedor='.$id_prov);
+        $this->db->query('DELETE FROM proveedores WHERE id_proveedor=' . $id_prov);
+    }
+
+    /**
+     * Devuelve los insumos asignados a un determinado ID de proveedor.
+     * @param type $id_prov
+     * @return type
+     */
+    public function obtenerInsumosPorProveedor($id_prov) {
+        $query = $this->db->query('SELECT * FROM insumoxproveedor ip '
+                . '         LEFT JOIN insumos i ON ip.id_insumo=i.id_insumo '
+                . '         WHERE id_proveedor=' . $id_prov);
+        return $query->result();
     }
 
 }
