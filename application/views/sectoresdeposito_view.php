@@ -29,75 +29,61 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Insumos</h2>   
+                        <h2>Proveedores</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
-
-
                 <div class="row text-center pad-top" style="margin-bottom: 20px;">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="<?php echo base_url('Insumos/agregarinsumo_view'); ?>" >
+                            <a href="<?php echo base_url('Proveedores/agregarproveedor_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
-                                <h5>Agregar Insumo</h5>
+                                <h5>Sectores de Insumos</h5>
                             </a>
                         </div>
                     </div> 
 
-
-
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                        <div class="div-square">
-                            <a href="<?php echo base_url('Insumos/sectoresinsumos_view'); ?>" >
-                                <i class="fa fa-archive fa-3x"></i>
-                                <h5>Sectores de Insumos</h5>
-                            </a>
-                        </div>                   
-                    </div>
                 </div>
 
-                <table id="example" class="display" cellspacing="0" width="100%">
+                <table id="proveedores" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Cód. Insumo</th>
-                            <th>Insumo</th>
-                            <th>Tipo</th>
                             <th>Sector</th>
+                            <th>Latitud</th>
+                            <th>Longitud</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Cód. Insumo</th>
-                            <th>Insumo</th>
-                            <th>Tipo</th>
                             <th>Sector</th>
+                            <th>Latitud</th>
+                            <th>Longitud</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($insumos as $insumo) { ?>
+                        <?php foreach ($sectores as $sector) { ?>
                             <tr>
-                                <td><?php echo $insumo->id_insumo; ?></td>
-                                <td><?php echo $insumo->nombre_insumo; ?></td>
-                                <td><?php echo $insumo->tipo; ?></td>
-                                <td><?php echo $insumo->sector_deposito; ?></td>
+                                <td><?php echo $sector->sector_deposito; ?></td>
+                                <td><?php echo $sector->latitud; ?></td>
+                                <td><?php echo $sector->longitud; ?></td>
                                 <td class="text-center">
-                                    <a title="Ver Insumo" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-wrench"></span></a> 
-                                    <a title="Editar Insumo" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
-                                    <a title="Eliminar Insumo" href="<?php echo base_url('Insumos/eliminarInsumo/' . $insumo->id_insumo); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a title="Ver Proveedor" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-truck"></span></a> 
+                                    <a title="Editar Proveedor" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
+                                    <a title="Eliminar Proveedor" href="<?php echo base_url('Proveedores/eliminarProveedor/' . $sector->id_sector); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
-                            </tr>
+                            </tr>r
                         <?php } ?>
                     </tbody>
                 </table>
-
                 <!-- /. ROW  -->           
             </div>
             <!-- /. PAGE INNER  -->
         </div>
+
+
 
         <?php include 'footer.php'; ?>
 
@@ -115,7 +101,8 @@
 
         <!-- DATATABLES SCRIPTS -->
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/activar_datatables.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/dataTableProveedores.js'); ?>"></script>
+
 
     </body>
 </html>

@@ -26,6 +26,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
         <title>Sistema de Gestión de Stock</title>
 
+        <!--Pulling Awesome Font -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
         <!-- Bootstrap Core CSS -->
         <link href= "<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
@@ -41,42 +44,45 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         <!-- Custom Fonts -->
         <link href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css">
 
+        <!-- Login styles -->
+        <link href="<?php echo base_url('assets/css/style_login.css'); ?>" rel="stylesheet" type="text/css">
+
     </head>
 
 
     <body>
-        <div class="container">  
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
 
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+<div class="container">
+    
 
-                    <div class="login-panel panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Por favor inicie sesión:</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form role="form" id="login_form" method="post" action="<?php echo site_url("Login_controller/do_login") ?>">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="Usuario" name="usuario" id="email" type="email" autofocus>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="Contraseña" name="Password" id="password" type="password">
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox" value="Recordarme">Recordarme
-                                        </label>
-                                    </div>
+    <div class="omb_login">
+        <h3 class="omb_authTitle">Ingresar</h3>
 
-                                    <input class="btn btn-block btn-primary center-block" type="submit" value="Ingresar" />
-                                </fieldset>
-                            </form>
-                        </div>
+        <div class="row omb_row-sm-offset-3">
+            <div class="col-xs-12 col-sm-6">    
+                <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" name="username" placeholder="email address">
                     </div>
-                </div>
+                    <span class="help-block"></span>
+                                        
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input  type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <span class="help-block"></span>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                </form>
             </div>
+        </div>          
+    </div>
+
+
+
         </div>
 
         <!-- jQuery -->

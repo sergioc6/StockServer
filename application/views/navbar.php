@@ -41,7 +41,7 @@
                 </li>
 
                 <li>
-                    <a href="#"><i class="fa fa-users"></i> Operarios</a>
+                    <a href="<?php echo base_url('Operarios/Operarios_view'); ?>"><i class="fa fa-users"></i> Operarios</a>
                 </li>
 
                 <li>

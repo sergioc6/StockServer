@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
@@ -26,55 +26,46 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Agregar Insumo</h2>   
+                        <h2>Agregar Operario</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
 
-                <form class="form-horizontal" method="post" action="<?php echo base_url('Insumos/agregarInsumo'); ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('Operarios/agregarOperario'); ?>">
                     <fieldset>
 
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="nombre">Nombre del Insumo:</label>  
+                            <label class="col-md-4 control-label" for="Apellido">Apellido:</label>  
                             <div class="col-md-4">
-                                <input id="nombre" name="nombre" type="text" placeholder="" class="form-control input-md">
+                                <input id="apellido" name="apellido" type="text" placeholder="Apellido" class="form-control input-md">
 
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="descripcion">Descripción:</label>  
+                            <label class="col-md-4 control-label" for="Nombre">Nombre:</label>  
                             <div class="col-md-4">
-                                <textarea name="descripcion" id="comment" class="form-control" rows="5"></textarea>
+                                <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control input-md">
                             </div>
                         </div>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="localidad">Tipo de Insumo:</label>  
+                            <label class="col-md-4 control-label" for="Email">Email:</label>  
                             <div class="col-md-4">
-                                <select name="tipo">
-                                    <?php foreach ($tipos_insumos as $tipo) { ?>
-                                        <option value="<?php echo $tipo->id_tipoinsumo; ?>"><?php echo $tipo->tipo; ?></option>
-                                    <?php } ?>
-                                </select>
+                                <input id="email" name="email" type="mail" placeholder="Email" class="form-control input-md">
                             </div>
                         </div>
 
-
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="localidad">Sector en Depósito:</label>  
+                            <label class="col-md-4 control-label" for="Password">Contraseña:</label>  
                             <div class="col-md-4">
-                                <select name="sector">
-                                    <?php foreach ($sectores as $sector) { ?>
-                                        <option value="<?php echo $sector->id_sector; ?>"><?php echo $sector->sector_deposito; ?></option>
-                                    <?php } ?>
-                                </select>
+                                <input id="pass" name="pass" type="password" placeholder="Contraseña" class="form-control input-md">
                             </div>
                         </div>
 
@@ -82,7 +73,7 @@
                         <!-- Button -->
                         <div class="form-group">
                             <div class="col-md-4 center-block">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Agregar Insumo</button>
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Agregar Usuario</button>
                             </div>
                         </div>
 
@@ -116,6 +107,6 @@
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
-        
+
     </body>
 </html>

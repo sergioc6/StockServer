@@ -7,19 +7,46 @@ class Insumos extends CI_Controller {
     }
 
     public function Insumos_view() {
-        $this->load->view('insumos_view');
+        $this->load->model('Insumos_model');
+        $data['insumos'] = $this->Insumos_model->obtenerInsumos();
+
+        $this->load->view('insumos_view', $data);
     }
-    
+
     public function agregarinsumo_view() {
         $this->load->model('Insumos_model');
         $data['sectores'] = $this->Insumos_model->obtenerSectoresDeInsumos();
         $data['tipos_insumos'] = $this->Insumos_model->obtenerTiposDeInsumos();
-        
+
         $this->load->view('agregarinsumo_view', $data);
+    }
+
+    public function agregarInsumo() {
+        $nombre = $this->input->post('nombre');
+        $descripcion = $this->input->post('descripcion');
+        $sector = $this->input->post('sector');
+        $tipo = $this->input->post('tipo');
+
+        $this->load->model('Insumos_model');
+        $this->Insumos_model->insertarInsumo($nombre, $descripcion, $sector, $tipo);
+
+        $data['nuevo_insumo'] = $this->Insumos_model->obtenerInsumoPorNombre($nombre);
+        $this->load->view('agregarinsumo_success_view', $data);
+    }
+
+    public function eliminarInsumo($id_insumo) {
+        $this->load->model('Insumos_model');
+        $this->Insumos_model->deleteInsumo($id_insumo);
+
+        redirect(base_url('Insumos/Insumos_view'));
     }
     
     
-    
-    
+    public function sectoresinsumos_view() {
+        $this->load->model('Insumos_model');
+        $data['sectores'] = $this->Insumos_model->obtenerSectoresDeInsumos();
+        
+        $this->load->view('sectoresdeposito_view', $data);
+    }
 
 }
