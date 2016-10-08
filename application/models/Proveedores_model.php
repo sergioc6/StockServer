@@ -77,4 +77,19 @@ class Proveedores_model extends CI_Model {
         return $query->result();
     }
 
+    public function cargarInsumoAProveedor($precio, $demora_dias, $id_insumo, $id_proveedor) {
+        $data = array(
+            'id_insumoxprov' => 0,
+            'precio' => $precio,
+            'demora_dias' => $demora_dias,
+            'id_insumo' => $id_insumo,
+            'id_proveedor' => $id_proveedor
+        );
+
+        $this->db->insert('insumoxproveedor', $data);
+    }
+
+    
+    
+    
 }

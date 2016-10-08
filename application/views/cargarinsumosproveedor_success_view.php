@@ -44,6 +44,10 @@
                 <form class="form-horizontal" method="post" action="<?php echo base_url('Proveedores/cargarInsumosProveedor'); ?>">
                     <fieldset>
 
+                        <div class="alert alert-success">
+                            <strong>Insumo cargado!</strong> Se ha cargado con èxito el insumo al proveedor.
+                        </div>
+
                         <input id="id_proveedor" name="id_proveedor" type="hidden" placeholder="" class="form-control input-md" readonly="" value="<?php echo $proveedor->id_proveedor; ?>">
 
                             <!-- Text input-->
