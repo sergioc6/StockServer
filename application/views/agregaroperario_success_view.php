@@ -38,6 +38,16 @@
 
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        
+                        <!-- Foto Socio-->
+                        <div class="form-group">
+                            <?php if ($nuevo_operario->foto_operario == NULL) { ?>
+                            <img class="img-thumbnail center-block" src="<?php echo base_url('fotos/fotos_operarios/default.png'); ?>" width="250" height="250">  
+                            <?php } else { ?>
+                            <img class="img-thumbnail center-block" src="<?php echo base_url('fotos/fotos_operarios/' . $nuevo_operario->foto_operario); ?>" width="225" height="225">  
+                            <?php } ?>
+                        </div>
+                        
                         <ul>
                             <li><b>Apellido: </b><?php echo $nuevo_operario->apellido; ?></li>
                             <li><b>Nombre: </b><?php echo $nuevo_operario->nombre; ?></li>

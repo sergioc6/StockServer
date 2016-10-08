@@ -38,6 +38,15 @@
 
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        <!-- Foto Socio-->
+                        <div class="form-group">
+                            <?php if ($nuevo_sector->foto_sector == NULL) { ?>
+                            <img class="img-thumbnail center-block" src="<?php echo base_url('fotos/fotos_sectores/default.jpg'); ?>" width="250" height="250">  
+                            <?php } else { ?>
+                            <img class="img-thumbnail center-block" src="<?php echo base_url('fotos/fotos_sectores/' . $nuevo_sector->foto_sector); ?>" width="225" height="225">  
+                            <?php } ?>
+                        </div>
+                        
                         <ul>
                             <li><b>Código del sector: </b><?php echo $nuevo_sector->id_sector; ?></li>
                             <li><b>Nombre del sector: </b><?php echo $nuevo_sector->sector_deposito; ?></li>

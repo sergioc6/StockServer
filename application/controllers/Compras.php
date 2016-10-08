@@ -9,5 +9,7 @@ class Compras extends CI_Controller {
     public function Compras_view() {
         $this->load->view('compras_view');
     }
+    
+    
 
 }

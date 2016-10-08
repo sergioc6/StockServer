@@ -32,7 +32,7 @@
                 <!-- /. ROW  -->
                 <hr />
 
-                <form class="form-horizontal" method="post" action="<?php echo base_url('Operarios/agregarOperario'); ?>">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url('Operarios/agregarOperario'); ?>">
                     <fieldset>
 
 
@@ -69,44 +69,60 @@
                             </div>
                         </div>
 
-
-                        <!-- Button -->
+                        <!-- File Button Foto Operario --> 
                         <div class="form-group">
-                            <div class="col-md-4 center-block">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Agregar Usuario</button>
+                            <label class="col-md-4 control-label" for="fotoButton">Foto del Operario:</label>
+                            <div class="col-md-6 center-block">
+                                <input id="fotoOperario" name="fotoOperario" onChange="showMyImage(this)" class="input-file" accept="image/*" type="file">
+                            </div>
+                            <div>
+                                <br>
+                                <br>
+                            </div>
+                            <div class="form-group text-center">
+                                <img src="<?php echo base_url('fotos/fotos_operarios/default.png'); ?>" class="form-group" id="thumbnil" style="width:20%; margin: 0 auto" alt="image"/>
                             </div>
                         </div>
 
 
-
-                    </fieldset>
-                </form>
-
-
-
-
-
+                                        <!-- Button -->
+                                        <div class="form-group">
+                                            <div class="col-md-4 col-md-offset-4">
+                                                <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-block">Agregar Operario</button>
+                                            </div>
+                                        </div>
 
 
-                <!-- /. ROW  -->           
-            </div>
-            <!-- /. PAGE INNER  -->
-        </div>
 
-        <?php include 'footer.php'; ?>
-
-        <!-- /. WRAPPER  -->
-        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-
-        <!-- JQUERY SCRIPTS -->
-        <script src="<?php echo base_url('assets/js/jquery-1.10.2.js'); ?>"></script>
-
-        <!-- BOOTSTRAP SCRIPTS -->
-        <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-
-        <!-- CUSTOM SCRIPTS -->
-        <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+                                        </fieldset>
+                                        </form>
 
 
-    </body>
-</html>
+
+
+
+
+
+                                        <!-- /. ROW  -->           
+                                        </div>
+                                        <!-- /. PAGE INNER  -->
+                                        </div>
+
+                                        <?php include 'footer.php'; ?>
+
+                                        <!-- /. WRAPPER  -->
+                                        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+
+                                        <!-- JQUERY SCRIPTS -->
+                                        <script src="<?php echo base_url('assets/js/jquery-1.10.2.js'); ?>"></script>
+
+                                        <!-- BOOTSTRAP SCRIPTS -->
+                                        <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+
+                                        <!-- CUSTOM SCRIPTS -->
+                                        <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+                                        <script src="<?php echo base_url('assets/js/showMyImage.js'); ?>"></script>
+
+
+                                        </body>
+                                        </html>

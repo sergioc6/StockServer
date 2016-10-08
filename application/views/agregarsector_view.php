@@ -35,7 +35,7 @@
                 <!-- /. ROW  -->
                 <hr />
 
-                <form class="form-horizontal" method="post" action="<?php echo base_url('Insumos/agregarSector'); ?>">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url('Insumos/agregarSector'); ?>">
                     <fieldset>
 
 
@@ -63,6 +63,21 @@
                             <div class="col-md-4">
                                 <input id="longitud" name="longitud" type="number" placeholder="" class="form-control input-md">
 
+                            </div>
+                        </div>
+                        
+                        <!-- File Button Foto Sector --> 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="fotoButton">Foto del Sector:</label>
+                            <div class="col-md-6 center-block">
+                                <input id="fotoSector" name="fotoSector" onchange="showMyImage(this)" class="input-file" accept="image/*" type="file">
+                            </div>
+                            <div>
+                                <br>
+                                <br>
+                            </div>
+                            <div class="form-group text-center">
+                                <img src="<?php echo base_url('fotos/fotos_sectores/default.jpg'); ?>" class="form-group" id="thumbnil" style="width:20%; margin: 0 auto" alt="image"/>
                             </div>
                         </div>
 
@@ -102,6 +117,8 @@
 
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+        
+        <script src="<?php echo base_url('assets/js/showMyImage.js'); ?>"></script>
 
         <!-- DATATABLE SCRIPTS -->
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>

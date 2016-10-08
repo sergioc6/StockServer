@@ -58,12 +58,31 @@ class Insumos extends CI_Controller {
         $latitud = $this->input->post('latitud');
         $longitud = $this->input->post('longitud');
         
-        $this->load->model('Insumos_model');
-        $this->Insumos_model->agregarSector($nombre_sector, $latitud, $longitud);
-        
-        $data['nuevo_sector'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
-        $this->load->view('agregarsector_success_view', $data);
-        
+        if ($_FILES["fotoSector"]["error"] != 0) {
+                
+                $this->load->model('Insumos_model');
+                $this->Insumos_model->agregarSector($nombre_sector, $latitud, $longitud, null);
+                
+            } else {
+                $this->load->model('Insumos_model');
+                $id_sector = $this->Insumos_model->agregarSector($nombre_sector, $latitud, $longitud, null);
+                
+                $config['upload_path'] = './fotos/fotos_operarios/';
+                $config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
+                $config['file_name'] = $id_sector;
+                $config['overwrite'] = TRUE;
+
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('fotoOperario')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $data = array('upload_data' => $this->upload->data());
+                    $foto_path = $id_sector . $this->upload->data('file_ext');
+                    $this->Operarios_model->cargarFotoASector($id_sector, $foto_path);
+                }
+                $data['nuevo_sector'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
+                $this->load->view('agregarsector_success_view', $data);
+        }
         
     }
 

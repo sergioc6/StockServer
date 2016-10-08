@@ -34,6 +34,7 @@ class Insumos_model extends CI_Model {
         );
 
         $this->db->insert('insumos', $data);
+        return $this->db->insert_id();
     }
 
     public function obtenerInsumoPorNombre($nombre_insumo) {
@@ -65,11 +66,20 @@ class Insumos_model extends CI_Model {
             'longitud' => $longitud
         );
         $this->db->insert('sector_insumos', $data);
+        return $this->db->insert_id();
     }
     
     public function obtenerSectorPorNombre($nombre_sector) {
         $query = $this->db->query('SELECT * FROM sector_insumos WHERE sector_deposito=\'' . $nombre_sector.'\'');
         return $query->result()[0];
+    }
+    
+    public function cargarFotoASector($id_sector, $foto_path) {
+        $data = array(
+            'foto_sector' => $foto_path
+        );
+        $this->db->where('id_sector', $id_sector);
+        $this->db->update('sector_insumos', $data);
     }
 
 }
