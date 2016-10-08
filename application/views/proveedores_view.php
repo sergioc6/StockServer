@@ -46,7 +46,7 @@
                     
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="<?php echo base_url('Proveedores/cargarinsumosproveedor_view'); ?>" >
+                            <a href="<?php echo base_url('Proveedores/selectProveedor_view'); ?>" >
                                 <i class="fa fa-wrench fa-3x"></i>
                                 <h5>Cargar Insumos a Proveedor</h5>
                             </a>
