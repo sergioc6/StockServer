@@ -89,7 +89,17 @@ class Proveedores_model extends CI_Model {
         $this->db->insert('insumoxproveedor', $data);
     }
 
-    
-    
-    
+    public function editarProveedor($id_proveedor, $nombre_proveedor, $telefono, $localidad, $direccion, $email) {
+        $data = array(
+            'nombre_proveedor' => $nombre_proveedor,
+            'telefono' => $telefono,
+            'localidad' => $localidad,
+            'direccion' => $direccion,
+            'email' => $email
+        );
+
+        $this->db->where('id_proveedor', $id_proveedor);
+        $this->db->update('proveedores', $data);
+    }
+
 }

@@ -67,8 +67,8 @@ class Proveedores extends CI_Controller {
 
         $this->load->model('Proveedores_model');
         $this->Proveedores_model->cargarInsumoAProveedor($precio, $demora_dias, $id_insumo, $id_proveedor);
-        
-        redirect(base_url('Proveedores/cargarInsumosProvSucces_view/'.$id_proveedor));
+
+        redirect(base_url('Proveedores/cargarInsumosProvSucces_view/' . $id_proveedor));
     }
 
     public function cargarInsumosProvSucces_view($id_prov) {
@@ -79,6 +79,29 @@ class Proveedores extends CI_Controller {
         $data['insumos'] = $this->Insumos_model->obtenerInsumos();
 
         $this->load->view('cargarinsumosproveedor_success_view', $data);
+    }
+
+    public function editarProveedor_view($id_prov) {
+        $this->load->model('Proveedores_model');
+        $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
+
+        $this->load->view('editarproveedor_view', $data);
+    }
+
+    public function editarProveedor() {
+        $id_proveedor = $this->input->post('id_proveedor');
+        $nombre = $this->input->post('nombre');
+        $localidad = $this->input->post('localidad');
+        $email = $this->input->post('email');
+        $direccion = $this->input->post('direccion');
+        $telefono = $this->input->post('telefono');
+
+        $this->load->model('Proveedores_model');
+        $this->Proveedores_model->editarProveedor($id_proveedor, $nombre, $telefono, $localidad, $direccion, $email);
+        
+        $data['proveedor_edit'] = $this->Proveedores_model->obtenerProveedorPorID($id_proveedor);
+
+        $this->load->view('editarproveedor_success_view', $data);
     }
 
 }

@@ -45,7 +45,7 @@
                 </li>
 
                 <li>
-                    <a href="#"><i class="fa fa-download"></i> Backup</a>
+                    <a href="<?php echo base_url('Backup/Backup_view'); ?>"><i class="fa fa-download"></i> Backup</a>
                 </li>
 
             </ul>

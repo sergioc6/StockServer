@@ -95,6 +95,14 @@
                         </div>
 
 
+                        <!-- Button Volver-->
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-4">
+                                <a class="btn btn-default btn-block" href="<?php echo base_url('Proveedores/Proveedores_view'); ?>">Volver</a>
+                            </div>
+                        </div>
+
+
 
                     </fieldset>
                 </form>
