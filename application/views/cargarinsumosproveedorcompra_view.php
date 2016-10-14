@@ -29,7 +29,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Cargar Insumos a Proveedor</h2>   
+                        <h2>Seleccionar Insumos a comprar</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
@@ -38,10 +38,10 @@
 
                 <ul class="nav nav-tabs">
                     <li><a class="btn btn-link disabled" href="#">Seleccionar Proveedor</a></li>
-                    <li class="active"><a data-toggle="tab" href="#">Cargar Insumos</a></li>
+                    <li class="active"><a data-toggle="tab" href="#">Seleccionar insumos a comprar</a></li>
                 </ul>
 
-                <form class="form-horizontal" method="post" action="<?php echo base_url('Proveedores/cargarInsumosProveedor'); ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/cargarInsumosProveedorAComprar'); ?>">
                     <fieldset>
 
                         <input id="id_proveedor" name="id_proveedor" type="hidden" placeholder="" class="form-control input-md" readonly="" value="<?php echo $proveedor->id_proveedor; ?>">
@@ -69,27 +69,17 @@
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="nombre">Precio del Insumo ($):</label>  
+                                <label class="col-md-4 control-label" for="nombre">Cantidad:</label>  
                                 <div class="col-md-4">
-                                    <input id="precio" name="precio" type="number" placeholder="" class="form-control input-md" min="0">
-
+                                    <input id="cantidad" name="cantidad" type="number" placeholder="" class="form-control input-md" min="0">
                                 </div>
                             </div>
 
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="nombre">Días de demora:</label>  
-                                <div class="col-md-4">
-                                    <input id="dias_demora" name="dias_demora" type="number" placeholder="" class="form-control input-md" value="0" min="0">
-
-                                </div>
-                            </div>
-
-
+                            
                             <ul class="pager">
-                                <li><a href="<?php echo base_url('Proveedores/selectProveedor_view'); ?>">Volver</a></li>
-                                <li><input type="submit" value="Cargar Insumo"></li>
-                                <li><a href="<?php echo base_url('Proveedores/Proveedores_view'); ?>">Finalizar Carga</a></li>
+                                <li><a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>">Volver</a></li>
+                                <li><input type="submit" value="Cargar Insumo al carrito"></li>
+                                <li><a href="<?php echo base_url('Compras/Compras_view'); ?>">Finalizar Carga</a></li>
                             </ul>
 
                     </fieldset>
