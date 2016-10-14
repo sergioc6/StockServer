@@ -55,6 +55,22 @@
 
                         <!-- Text input-->
                         <div class="form-group">
+                            <label class="col-md-4 control-label" for="descripcion">Stock Mínimo:</label>  
+                            <div class="col-md-4">
+                                <input id="stock_min" name="stock_min" type="number" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="descripcion">Stock Máximo:</label>  
+                            <div class="col-md-4">
+                                <input id="stock_max" name="stock_max" type="number" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
                             <label class="col-md-4 control-label" for="localidad">Tipo de Insumo:</label>  
                             <div class="col-md-4">
                                 <select name="tipo">
@@ -79,10 +95,17 @@
                         </div>
 
 
-                        <!-- Button -->
+                        <!-- Button Submit-->
                         <div class="form-group">
                             <div class="col-md-4 col-md-offset-4">
                                 <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-block">Agregar Insumo</button>
+                            </div>
+                        </div>
+
+                        <!-- Button Volver -->
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-4">
+                                <a class="btn btn-block btn-default" href="<?php echo base_url('Insumos/Insumos_view'); ?>">Volver</a>  
                             </div>
                         </div>
 
@@ -116,6 +139,6 @@
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
-        
+
     </body>
 </html>
