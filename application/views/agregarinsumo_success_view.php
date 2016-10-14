@@ -42,6 +42,8 @@
                             <li><b>Código del Insumo: </b><?php echo $nuevo_insumo->id_insumo; ?></li>
                             <li><b>Nombre del Insumo: </b><?php echo $nuevo_insumo->nombre_insumo; ?></li>
                             <li><b>Descripción: </b><?php echo $nuevo_insumo->descripcion; ?></li>
+                            <li><b>Stock mínimo: </b><?php echo $nuevo_insumo->stock_min; ?></li>
+                            <li><b>Stock màximo: </b><?php echo $nuevo_insumo->stock_max; ?></li>
                             <li><b>Tipo de Insumo: </b><?php echo $nuevo_insumo->tipo; ?></li>
                             <li><b>Sector en depósito: </b><?php echo $nuevo_insumo->sector_deposito; ?></li>
                         </ul>
