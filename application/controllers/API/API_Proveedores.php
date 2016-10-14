@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
- * Description of API
+ * Description of API_Proveedores
  *
  * @author SergioC
  */
-class API extends CI_Controller {
+class Api_proveedores extends Api_base {
 
+    
+    
+    
     public function obtenerProveedores() {
         $this->load->model('Proveedores_model');
         $proveedores = $this->Proveedores_model->obtenerProveedores();

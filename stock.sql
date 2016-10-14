@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2016 a las 08:14:52
+-- Tiempo de generación: 14-10-2016 a las 09:23:01
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -31,6 +31,16 @@ CREATE TABLE `backups` (
   `fecha_hora` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `backups`
+--
+
+INSERT INTO `backups` (`id_backup`, `fecha_hora`) VALUES
+(1, '2016-10-08 08:35:22'),
+(2, '2016-10-08 08:41:36'),
+(3, '2016-10-08 08:44:03'),
+(4, '2016-10-08 08:45:15');
+
 -- --------------------------------------------------------
 
 --
@@ -41,6 +51,8 @@ CREATE TABLE `insumos` (
   `id_insumo` int(11) NOT NULL,
   `nombre_insumo` varchar(35) NOT NULL,
   `descripcion` text NOT NULL,
+  `stock_min` int(11) NOT NULL,
+  `stock_max` int(11) NOT NULL,
   `id_tipoinsumo` int(12) NOT NULL,
   `id_sector` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -49,8 +61,8 @@ CREATE TABLE `insumos` (
 -- Volcado de datos para la tabla `insumos`
 --
 
-INSERT INTO `insumos` (`id_insumo`, `nombre_insumo`, `descripcion`, `id_tipoinsumo`, `id_sector`) VALUES
-(2, 'Sergio Cabral', 'jhgjhgjh', 1, 1);
+INSERT INTO `insumos` (`id_insumo`, `nombre_insumo`, `descripcion`, `stock_min`, `stock_max`, `id_tipoinsumo`, `id_sector`) VALUES
+(2, 'Sergio Cabral', 'jhgjhgjh', 0, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -65,6 +77,13 @@ CREATE TABLE `insumoxproveedor` (
   `id_insumo` int(12) NOT NULL,
   `id_proveedor` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `insumoxproveedor`
+--
+
+INSERT INTO `insumoxproveedor` (`id_insumoxprov`, `precio`, `demora_dias`, `id_insumo`, `id_proveedor`) VALUES
+(1, 321, 1, 2, 13);
 
 -- --------------------------------------------------------
 
@@ -157,6 +176,12 @@ INSERT INTO `tipo_insumo` (`id_tipoinsumo`, `tipo`) VALUES
 --
 
 --
+-- Indices de la tabla `backups`
+--
+ALTER TABLE `backups`
+  ADD PRIMARY KEY (`id_backup`);
+
+--
 -- Indices de la tabla `insumos`
 --
 ALTER TABLE `insumos`
@@ -207,6 +232,11 @@ ALTER TABLE `tipo_insumo`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `backups`
+--
+ALTER TABLE `backups`
+  MODIFY `id_backup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT de la tabla `insumos`
 --
 ALTER TABLE `insumos`
@@ -215,12 +245,12 @@ ALTER TABLE `insumos`
 -- AUTO_INCREMENT de la tabla `insumoxproveedor`
 --
 ALTER TABLE `insumoxproveedor`
-  MODIFY `id_insumoxprov` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_insumoxprov` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `operarios`
 --
 ALTER TABLE `operarios`
-  MODIFY `id_operario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_operario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
