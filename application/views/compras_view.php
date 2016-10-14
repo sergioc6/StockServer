@@ -18,7 +18,7 @@
         <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css'); ?>" rel="stylesheet" />
         
         <!-- GOOGLE FONTS-->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="<?php echo base_url('assets/css/open_sans.css'); ?>" rel='stylesheet' type='text/css' />
 
     </head>
     <body>
@@ -38,7 +38,7 @@
             <div class="row text-center pad-top" style="margin-bottom: 20px;">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                     <div class="div-square">
-                        <a href="#" >
+                        <a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>" >
                         <i class="fa fa-shopping-cart fa-3x"></i>
                         <h5>Realizar Compra</h5>
                         </a>

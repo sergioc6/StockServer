@@ -18,7 +18,7 @@
         <link href="<?php echo base_url('assets/css/select2.min.css'); ?>" rel="stylesheet" />
 
         <!-- GOOGLE FONTS-->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="<?php echo base_url('assets/css/open_sans.css'); ?>" rel='stylesheet' type='text/css' />
 
     </head>
     <body>
@@ -41,13 +41,17 @@
                     <li class="active"><a data-toggle="tab" href="#">Cargar Insumos</a></li>
                 </ul>
 
-                <form class="form-horizontal" method="post" action="<?php echo base_url('Proveedores/cargarInsumosProveedor'); ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/cargarInsumosProveedorAComprar'); ?>">
                     <fieldset>
+
+                        <div class="alert alert-success">
+                            <strong>Insumo cargado!</strong> Se ha cargado con èxito el insumo al proveedor.
+                        </div>
 
                         <input id="id_proveedor" name="id_proveedor" type="hidden" placeholder="" class="form-control input-md" readonly="" value="<?php echo $proveedor->id_proveedor; ?>">
 
                             <!-- Text input-->
-                            <div class="form-group" style="margin-top: 10px;">
+                            <div class="form-group">
                                 <label class="col-md-4 control-label" for="nombre">Proveedor:</label>  
                                 <div class="col-md-4">
                                     <input id="proveedor" name="proveedor" type="text" placeholder="" class="form-control input-md" readonly="" value="<?php echo $proveedor->nombre_proveedor; ?>">
@@ -87,9 +91,9 @@
 
 
                             <ul class="pager">
-                                <li><a href="<?php echo base_url('Proveedores/selectProveedor_view'); ?>">Volver</a></li>
+                                <li><a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>">Volver</a></li>
                                 <li><input type="submit" value="Cargar Insumo"></li>
-                                <li><a href="<?php echo base_url('Proveedores/Proveedores_view'); ?>">Finalizar Carga</a></li>
+                                <li><a href="<?php echo base_url('Compras/Compras_view'); ?>">Finalizar Carga</a></li>
                             </ul>
 
                     </fieldset>

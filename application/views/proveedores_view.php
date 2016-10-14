@@ -18,7 +18,7 @@
         <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css'); ?>" rel="stylesheet" />
 
         <!-- GOOGLE FONTS-->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="<?php echo base_url('assets/css/open_sans.css'); ?>" rel='stylesheet' type='text/css' />
 
     </head>
     <body>
@@ -39,7 +39,7 @@
                         <div class="div-square">
                             <a href="<?php echo base_url('Proveedores/agregarproveedor_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
-                                <h5>Agregar Proveedor</h5>
+                                <h6>Agregar Proveedor</h6>
                             </a>
                         </div>
                     </div> 
@@ -48,7 +48,7 @@
                         <div class="div-square">
                             <a href="<?php echo base_url('Proveedores/selectProveedor_view'); ?>" >
                                 <i class="fa fa-wrench fa-3x"></i>
-                                <h5>Cargar Insumos a Proveedor</h5>
+                                <h6>Cargar Insumos a Proveedor</h6>
                             </a>
                         </div>
                     </div> 

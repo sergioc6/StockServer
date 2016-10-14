@@ -18,7 +18,7 @@
         <link href="<?php echo base_url('assets/css/select2.min.css'); ?>" rel="stylesheet" />
 
         <!-- GOOGLE FONTS-->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="<?php echo base_url('assets/css/open_sans.css'); ?>" rel='stylesheet' type='text/css' />
 
     </head>
     <body>

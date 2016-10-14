@@ -29,7 +29,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Cargar Insumos a Proveedor</h2>   
+                        <h2>Comprar a proveedor</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
@@ -38,10 +38,10 @@
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#">Seleccionar Proveedor</a></li>
-                    <li><a class="btn btn-link disabled" href="#">Cargar Insumos</a></li>
+                    <li><a class="btn btn-link disabled" href="#">Seleccionar insumos a comprar</a></li>
                 </ul>
 
-                <form class="form-horizontal" method="post" action="<?php echo base_url('Proveedores/seleccionarProveedor'); ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/seleccionarProveedorCompra'); ?>">
                     <fieldset>
 
                         <!-- Select input Proveedores-->
