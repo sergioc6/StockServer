@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2016 a las 09:23:01
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.6.23
+-- Tiempo de generación: 14-10-2016 a las 16:46:45
+-- Versión del servidor: 5.6.14
+-- Versión de PHP: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `stock`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `backups`
 --
 
-CREATE TABLE `backups` (
+CREATE TABLE IF NOT EXISTS `backups` (
   `id_backup` int(11) NOT NULL,
   `fecha_hora` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -44,18 +44,38 @@ INSERT INTO `backups` (`id_backup`, `fecha_hora`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE IF NOT EXISTS `compras` (
+  `id_compra` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `id_prov` int(11) NOT NULL,
+  `monto` float NOT NULL,
+  PRIMARY KEY (`id_compra`),
+  UNIQUE KEY `id_compra` (`id_compra`),
+  KEY `id_prov` (`id_prov`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `insumos`
 --
 
-CREATE TABLE `insumos` (
-  `id_insumo` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `insumos` (
+  `id_insumo` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_insumo` varchar(35) NOT NULL,
   `descripcion` text NOT NULL,
   `stock_min` int(11) NOT NULL,
   `stock_max` int(11) NOT NULL,
   `id_tipoinsumo` int(12) NOT NULL,
-  `id_sector` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_sector` int(12) NOT NULL,
+  PRIMARY KEY (`id_insumo`),
+  UNIQUE KEY `nombre_insumo` (`nombre_insumo`),
+  KEY `id_tipoinsumo` (`id_tipoinsumo`),
+  KEY `id_sector` (`id_sector`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `insumos`
@@ -70,20 +90,38 @@ INSERT INTO `insumos` (`id_insumo`, `nombre_insumo`, `descripcion`, `stock_min`,
 -- Estructura de tabla para la tabla `insumoxproveedor`
 --
 
-CREATE TABLE `insumoxproveedor` (
-  `id_insumoxprov` int(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `insumoxproveedor` (
+  `id_insumoxprov` int(12) NOT NULL AUTO_INCREMENT,
   `precio` float NOT NULL,
   `demora_dias` int(12) NOT NULL,
   `id_insumo` int(12) NOT NULL,
-  `id_proveedor` int(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_proveedor` int(12) NOT NULL,
+  PRIMARY KEY (`id_insumoxprov`),
+  UNIQUE KEY `id_insumo_2` (`id_insumo`,`id_proveedor`),
+  KEY `id_proveedor` (`id_proveedor`),
+  KEY `id_insumo` (`id_insumo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `insumoxproveedor`
+-- Estructura de tabla para la tabla `insumo_deposito`
 --
 
-INSERT INTO `insumoxproveedor` (`id_insumoxprov`, `precio`, `demora_dias`, `id_insumo`, `id_proveedor`) VALUES
-(1, 321, 1, 2, 13);
+CREATE TABLE IF NOT EXISTS `insumo_deposito` (
+  `id_ins_dep` int(11) NOT NULL AUTO_INCREMENT,
+  `id_insumo` int(11) NOT NULL,
+  `id_compra` int(11) NOT NULL,
+  PRIMARY KEY (`id_ins_dep`),
+  UNIQUE KEY `id_ins_dep` (`id_ins_dep`),
+  KEY `id_insumo` (`id_insumo`,`id_compra`),
+  KEY `id_insumo_2` (`id_insumo`),
+  KEY `id_compra` (`id_compra`),
+  KEY `id_compra_2` (`id_compra`),
+  KEY `id_insumo_3` (`id_insumo`),
+  KEY `id_compra_3` (`id_compra`),
+  KEY `id_compra_4` (`id_compra`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -91,14 +129,16 @@ INSERT INTO `insumoxproveedor` (`id_insumoxprov`, `precio`, `demora_dias`, `id_i
 -- Estructura de tabla para la tabla `operarios`
 --
 
-CREATE TABLE `operarios` (
-  `id_operario` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `operarios` (
+  `id_operario` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(60) NOT NULL,
   `pass` varchar(60) NOT NULL,
   `apellido` varchar(60) NOT NULL,
   `nombre` varchar(60) NOT NULL,
-  `foto_operario` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `foto_operario` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_operario`),
+  UNIQUE KEY `id_usuario` (`id_operario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 -- --------------------------------------------------------
 
@@ -106,14 +146,16 @@ CREATE TABLE `operarios` (
 -- Estructura de tabla para la tabla `proveedores`
 --
 
-CREATE TABLE `proveedores` (
-  `id_proveedor` int(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `proveedores` (
+  `id_proveedor` int(12) NOT NULL AUTO_INCREMENT,
   `nombre_proveedor` varchar(35) NOT NULL,
   `telefono` varchar(20) NOT NULL,
   `localidad` varchar(40) NOT NULL,
   `direccion` varchar(35) NOT NULL,
-  `email` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(35) NOT NULL,
+  PRIMARY KEY (`id_proveedor`),
+  UNIQUE KEY `nombre_proveedor` (`nombre_proveedor`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `proveedores`
@@ -129,13 +171,15 @@ INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`, `telefono`, `loca
 -- Estructura de tabla para la tabla `sector_insumos`
 --
 
-CREATE TABLE `sector_insumos` (
-  `id_sector` int(12) NOT NULL,
+CREATE TABLE IF NOT EXISTS `sector_insumos` (
+  `id_sector` int(12) NOT NULL AUTO_INCREMENT,
   `sector_deposito` varchar(35) NOT NULL,
   `latitud` double NOT NULL,
   `longitud` double NOT NULL,
-  `foto_sector` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `foto_sector` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_sector`),
+  UNIQUE KEY `sector_deposito` (`sector_deposito`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `sector_insumos`
@@ -155,10 +199,12 @@ INSERT INTO `sector_insumos` (`id_sector`, `sector_deposito`, `latitud`, `longit
 -- Estructura de tabla para la tabla `tipo_insumo`
 --
 
-CREATE TABLE `tipo_insumo` (
-  `id_tipoinsumo` int(12) NOT NULL,
-  `tipo` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `tipo_insumo` (
+  `id_tipoinsumo` int(12) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_tipoinsumo`),
+  UNIQUE KEY `tipo` (`tipo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `tipo_insumo`
@@ -171,101 +217,6 @@ INSERT INTO `tipo_insumo` (`id_tipoinsumo`, `tipo`) VALUES
 (3, 'Pinturas'),
 (5, 'Terminaciones');
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `backups`
---
-ALTER TABLE `backups`
-  ADD PRIMARY KEY (`id_backup`);
-
---
--- Indices de la tabla `insumos`
---
-ALTER TABLE `insumos`
-  ADD PRIMARY KEY (`id_insumo`),
-  ADD UNIQUE KEY `nombre_insumo` (`nombre_insumo`),
-  ADD KEY `id_tipoinsumo` (`id_tipoinsumo`),
-  ADD KEY `id_sector` (`id_sector`);
-
---
--- Indices de la tabla `insumoxproveedor`
---
-ALTER TABLE `insumoxproveedor`
-  ADD PRIMARY KEY (`id_insumoxprov`),
-  ADD UNIQUE KEY `id_insumo_2` (`id_insumo`,`id_proveedor`),
-  ADD KEY `id_proveedor` (`id_proveedor`),
-  ADD KEY `id_insumo` (`id_insumo`);
-
---
--- Indices de la tabla `operarios`
---
-ALTER TABLE `operarios`
-  ADD PRIMARY KEY (`id_operario`),
-  ADD UNIQUE KEY `id_usuario` (`id_operario`);
-
---
--- Indices de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`id_proveedor`),
-  ADD UNIQUE KEY `nombre_proveedor` (`nombre_proveedor`);
-
---
--- Indices de la tabla `sector_insumos`
---
-ALTER TABLE `sector_insumos`
-  ADD PRIMARY KEY (`id_sector`),
-  ADD UNIQUE KEY `sector_deposito` (`sector_deposito`);
-
---
--- Indices de la tabla `tipo_insumo`
---
-ALTER TABLE `tipo_insumo`
-  ADD PRIMARY KEY (`id_tipoinsumo`),
-  ADD UNIQUE KEY `tipo` (`tipo`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `backups`
---
-ALTER TABLE `backups`
-  MODIFY `id_backup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `insumos`
---
-ALTER TABLE `insumos`
-  MODIFY `id_insumo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `insumoxproveedor`
---
-ALTER TABLE `insumoxproveedor`
-  MODIFY `id_insumoxprov` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `operarios`
---
-ALTER TABLE `operarios`
-  MODIFY `id_operario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  MODIFY `id_proveedor` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT de la tabla `sector_insumos`
---
-ALTER TABLE `sector_insumos`
-  MODIFY `id_sector` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT de la tabla `tipo_insumo`
---
-ALTER TABLE `tipo_insumo`
-  MODIFY `id_tipoinsumo` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --
@@ -283,6 +234,13 @@ ALTER TABLE `insumos`
 ALTER TABLE `insumoxproveedor`
   ADD CONSTRAINT `fk_insumo` FOREIGN KEY (`id_insumo`) REFERENCES `insumos` (`id_insumo`),
   ADD CONSTRAINT `fk_proveedorinsumo` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`);
+
+--
+-- Filtros para la tabla `insumo_deposito`
+--
+ALTER TABLE `insumo_deposito`
+  ADD CONSTRAINT `fk_idcompra` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id_compra`),
+  ADD CONSTRAINT `fk_idinsumo` FOREIGN KEY (`id_insumo`) REFERENCES `insumos` (`id_insumo`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
