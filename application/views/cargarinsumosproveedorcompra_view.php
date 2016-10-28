@@ -75,10 +75,34 @@
                                 </div>
                             </div>
 
-                            
+                            <div class="form-group">
+                                <div class="col-md-4 col-md-offset-4">
+                                    <input type="submit" value="Cargar Insumo al carrito">
+                                </div>
+                            </div>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="col-md-1">Cod. Insumo</th>
+                                        <th>Insumo</th>
+                                        <th class="col-md-1">Cantidad</th>
+                                        <th class="col-md-1">Precio U.</th>
+                                        <th class="col-md-1">Precio Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                    </tr>
+                                </tbody>    
+                            </table>
+
+
+
+
                             <ul class="pager">
                                 <li><a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>">Volver</a></li>
-                                <li><input type="submit" value="Cargar Insumo al carrito"></li>
                                 <li><a href="<?php echo base_url('Compras/Compras_view'); ?>">Finalizar Carga</a></li>
                             </ul>
 

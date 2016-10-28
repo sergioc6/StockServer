@@ -11,7 +11,10 @@
  *
  * @author SergioC
  */
-class API_Insumos extends API_base{
+include 'API_Base.php';
+
+
+class API_Insumos extends API_Base{
    
     
     

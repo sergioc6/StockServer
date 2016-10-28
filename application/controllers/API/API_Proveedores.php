@@ -11,10 +11,10 @@
  *
  * @author SergioC
  */
-class Api_proveedores extends Api_base {
+include 'API_Base.php';
 
-    
-    
+class API_Proveedores extends API_Base {
+        
     
     public function obtenerProveedores() {
         $this->load->model('Proveedores_model');
