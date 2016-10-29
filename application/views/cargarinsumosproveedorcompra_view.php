@@ -39,9 +39,10 @@
                 <ul class="nav nav-tabs">
                     <li><a class="btn btn-link disabled" href="#">Seleccionar Proveedor</a></li>
                     <li class="active"><a data-toggle="tab" href="#">Seleccionar insumos a comprar</a></li>
+                    <li><a class="btn btn-link disabled" href="#">Confirmar Compra</a></li>
                 </ul>
 
-                <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/cargarInsumosProveedorAComprar'); ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/cargarInsumoACompra'); ?>">
                     <fieldset>
 
                         <input id="id_proveedor" name="id_proveedor" type="hidden" placeholder="" class="form-control input-md" readonly="" value="<?php echo $proveedor->id_proveedor; ?>">
@@ -92,9 +93,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-
-                                    </tr>
+                                    <?php foreach ($this->cart->contents() as $item) { ?>
+                                        <tr>
+                                            <th><?php echo $item['id']; ?></th>
+                                            <th><?php echo $item['name']; ?></th>
+                                            <th><?php echo $item['qty']; ?></th>
+                                            <th>$<?php echo $item['price']; ?></th>
+                                            <th>$<?php echo $item['precio_tot']; ?></th>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>    
                             </table>
 
@@ -103,7 +110,7 @@
 
                             <ul class="pager">
                                 <li><a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>">Volver</a></li>
-                                <li><a href="<?php echo base_url('Compras/Compras_view'); ?>">Finalizar Carga</a></li>
+                                <li><a href="<?php echo base_url('Compras/Compras_view'); ?>">Siguiente</a></li>
                             </ul>
 
                     </fieldset>

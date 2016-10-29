@@ -107,4 +107,12 @@ class Insumos_model extends CI_Model {
         $this->db->update('insumos', $data);
     }
 
+    public function obtenerPrecioDeInsumoYProv($id_insumo, $id_prov) {
+        $query = $this->db->query('SELECT i.id_insumo, i.nombre_insumo, i.id_tipoinsumo, ip.precio
+                            FROM insumos i
+                            LEFT JOIN insumoxproveedor ip ON i.id_insumo=ip.id_insumo
+                            WHERE i.id_insumo=' . $id_insumo . ' AND ip.id_proveedor=' . $id_prov);
+        return $query->result()[0];
+    }
+
 }

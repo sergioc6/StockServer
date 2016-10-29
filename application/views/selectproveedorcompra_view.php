@@ -39,6 +39,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#">Seleccionar Proveedor</a></li>
                     <li><a class="btn btn-link disabled" href="#">Seleccionar insumos a comprar</a></li>
+                    <li><a class="btn btn-link disabled" href="#">Confirmar Compra</a></li>
                 </ul>
 
                 <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/seleccionarProveedorCompra'); ?>">
