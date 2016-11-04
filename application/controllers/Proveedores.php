@@ -9,11 +9,11 @@ class Proveedores extends CI_Controller {
     public function Proveedores_view() {
         $this->load->model('Proveedores_model');
         $data['proveedores'] = $this->Proveedores_model->obtenerProveedores();
-        $this->load->view('proveedores_view', $data);
+        $this->load->view('proveedores/proveedores_view', $data);
     }
 
     public function agregarproveedor_view() {
-        $this->load->view('agregarproveedor_view');
+        $this->load->view('proveedores/agregarproveedor_view');
     }
 
     public function agregarProveedor() {
@@ -27,7 +27,7 @@ class Proveedores extends CI_Controller {
         $this->Proveedores_model->insertarProveedor($nombre, $telefono, $localidad, $direccion, $email);
         $data['nuevo_proveedor'] = $this->Proveedores_model->obtenerProveedorPorNombre($nombre);
 
-        $this->load->view('agregarproveedor_success_view', $data);
+        $this->load->view('proveedores/agregarproveedor_success_view', $data);
     }
 
     public function eliminarProveedor($id_prov) {
@@ -41,7 +41,7 @@ class Proveedores extends CI_Controller {
         $this->load->model('Proveedores_model');
         $data['proveedores'] = $this->Proveedores_model->obtenerProveedores();
 
-        $this->load->view('selectproveedor_view', $data);
+        $this->load->view('proveedores/selectproveedor_view', $data);
     }
 
     public function seleccionarProveedor() {
@@ -56,7 +56,7 @@ class Proveedores extends CI_Controller {
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
         $data['insumos'] = $this->Insumos_model->obtenerInsumos();
 
-        $this->load->view('cargarinsumosproveedor_view', $data);
+        $this->load->view('proveedores/cargarinsumosproveedor_view', $data);
     }
 
     public function cargarInsumosProveedor() {
@@ -78,14 +78,14 @@ class Proveedores extends CI_Controller {
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
         $data['insumos'] = $this->Insumos_model->obtenerInsumos();
 
-        $this->load->view('cargarinsumosproveedor_success_view', $data);
+        $this->load->view('proveedores/cargarinsumosproveedor_success_view', $data);
     }
 
     public function editarProveedor_view($id_prov) {
         $this->load->model('Proveedores_model');
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
 
-        $this->load->view('editarproveedor_view', $data);
+        $this->load->view('proveedores/editarproveedor_view', $data);
     }
 
     public function editarProveedor() {
@@ -101,7 +101,7 @@ class Proveedores extends CI_Controller {
         
         $data['proveedor_edit'] = $this->Proveedores_model->obtenerProveedorPorID($id_proveedor);
 
-        $this->load->view('editarproveedor_success_view', $data);
+        $this->load->view('proveedores/editarproveedor_success_view', $data);
     }
 
 }

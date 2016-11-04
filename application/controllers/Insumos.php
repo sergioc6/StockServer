@@ -10,7 +10,7 @@ class Insumos extends CI_Controller {
         $this->load->model('Insumos_model');
         $data['insumos'] = $this->Insumos_model->obtenerInsumos();
 
-        $this->load->view('insumos_view', $data);
+        $this->load->view('insumos/insumos_view', $data);
     }
 
     public function agregarinsumo_view() {
@@ -18,7 +18,7 @@ class Insumos extends CI_Controller {
         $data['sectores'] = $this->Insumos_model->obtenerSectoresDeInsumos();
         $data['tipos_insumos'] = $this->Insumos_model->obtenerTiposDeInsumos();
 
-        $this->load->view('agregarinsumo_view', $data);
+        $this->load->view('insumos/agregarinsumo_view', $data);
     }
 
     public function agregarInsumo() {
@@ -33,7 +33,7 @@ class Insumos extends CI_Controller {
         $this->Insumos_model->insertarInsumo($nombre, $descripcion, $stock_min, $stock_max, $sector, $tipo);
 
         $data['nuevo_insumo'] = $this->Insumos_model->obtenerInsumoPorNombre($nombre);
-        $this->load->view('agregarinsumo_success_view', $data);
+        $this->load->view('insumos/agregarinsumo_success_view', $data);
     }
 
     public function eliminarInsumo($id_insumo) {
@@ -47,11 +47,11 @@ class Insumos extends CI_Controller {
         $this->load->model('Insumos_model');
         $data['sectores'] = $this->Insumos_model->obtenerSectoresDeInsumos();
 
-        $this->load->view('sectoresdeposito_view', $data);
+        $this->load->view('insumos/sectoresdeposito_view', $data);
     }
 
     public function agregarsector_view() {
-        $this->load->view('agregarsector_view');
+        $this->load->view('insumos/agregarsector_view');
     }
 
     public function agregarSector() {
@@ -81,7 +81,7 @@ class Insumos extends CI_Controller {
                 $this->Operarios_model->cargarFotoASector($id_sector, $foto_path);
             }
             $data['nuevo_sector'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
-            $this->load->view('agregarsector_success_view', $data);
+            $this->load->view('insumos/agregarsector_success_view', $data);
         }
     }
 
@@ -91,7 +91,7 @@ class Insumos extends CI_Controller {
         $data['sectores'] = $this->Insumos_model->obtenerSectoresDeInsumos();
         $data['tipos_insumos'] = $this->Insumos_model->obtenerTiposDeInsumos();
 
-        $this->load->view('editarinsumo_view', $data);
+        $this->load->view('insumos/editarinsumo_view', $data);
     }
 
     public function editarInsumo() {
@@ -107,7 +107,7 @@ class Insumos extends CI_Controller {
         $this->Insumos_model->editarInsumo($id_insumo, $nombre_insumo, $descripcion, $stock_min, $stock_max, $sector, $tipo_insumo);
 
         $data['insumo_edit'] = $this->Insumos_model->obtenerInsumoPorID($id_insumo);
-        $this->load->view('editarinsumo_success_view', $data);
+        $this->load->view('insumos/editarinsumo_success_view', $data);
     }
 
 }

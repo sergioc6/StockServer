@@ -23,7 +23,7 @@
     </head>
     <body>
 
-        <?php include 'navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
         <div id="page-inner">
@@ -44,24 +44,6 @@
                         </a>
                     </div>
                 </div> 
-                 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="#" >
-                        <i class="fa fa-envelope-o fa-3x"></i>
-                        <h5>Listado de insumos</h5>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html" >
-                        <i class="fa fa-lightbulb-o fa-3x"></i>
-                        <h5>Imprimir</h5>
-                        </a>
-                    </div>                   
-                </div>
             </div>
 
         <table id="example" class="display" cellspacing="0" width="100%">
@@ -108,7 +90,7 @@
         <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

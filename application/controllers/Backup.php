@@ -17,7 +17,7 @@ class Backup extends CI_Controller {
         $this->load->model('Backup_model');
         $data['backup'] = $this->Backup_model->obtenerUltimoBackup();
 
-        $this->load->view('backup_view', $data);
+        $this->load->view('backup/backup_view', $data);
     }
 
     public function realizarBackup() {

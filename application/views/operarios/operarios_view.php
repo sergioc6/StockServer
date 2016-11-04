@@ -23,13 +23,13 @@
     </head>
     <body>
 
-        <?php include 'navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Proveedores</h2>   
+                        <h2>Operarios</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
@@ -37,56 +37,42 @@
                 <div class="row text-center pad-top" style="margin-bottom: 20px;">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="<?php echo base_url('Proveedores/agregarproveedor_view'); ?>" >
+                            <a href="<?php echo base_url('Operarios/agregaroperario_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
-                                <h6>Agregar Proveedor</h6>
+                                <h5>Agregar Operario</h5>
                             </a>
                         </div>
                     </div> 
-                    
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                        <div class="div-square">
-                            <a href="<?php echo base_url('Proveedores/selectProveedor_view'); ?>" >
-                                <i class="fa fa-wrench fa-3x"></i>
-                                <h6>Cargar Insumos a Proveedor</h6>
-                            </a>
-                        </div>
-                    </div> 
+
                 </div>
 
-                <table id="proveedores" class="display" cellspacing="0" width="100%">
+                <table id="operarios" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Nombre proveedor</th>
-                            <th>Localidad</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
+                            <th>Apellido</th>
+                            <th>Nombre</th>
                             <th>Email</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Nombre proveedor</th>
-                            <th>Localidad</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
+                            <th>Apellido</th>
+                            <th>Nombre</th>
                             <th>Email</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($proveedores as $proveedor) { ?>
+                        <?php foreach ($operarios as $operario) { ?>
                             <tr>
-                                <td><?php echo $proveedor->nombre_proveedor; ?></td>
-                                <td><?php echo $proveedor->localidad; ?></td>
-                                <td><?php echo $proveedor->direccion; ?></td>
-                                <td><?php echo $proveedor->telefono; ?></td>
-                                <td><?php echo $proveedor->email; ?></td>
+                                <td><?php echo $operario->apellido; ?></td>
+                                <td><?php echo $operario->nombre; ?></td>
+                                <td><?php echo $operario->email; ?></td>
                                 <td class="text-center">
-                                    <a title="Ver Proveedor" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-truck"></span></a> 
-                                    <a title="Editar Proveedor" class='btn btn-info btn-xs' href="<?php echo base_url('Proveedores/editarProveedor_view/' . $proveedor->id_proveedor); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
-                                    <a title="Eliminar Proveedor" href="<?php echo base_url('Proveedores/eliminarProveedor/' . $proveedor->id_proveedor); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a title="Ver Operario" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-truck"></span></a> 
+                                    <a title="Editar Operario" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
+                                    <a title="Eliminar Operario" href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -99,7 +85,7 @@
 
 
 
-        <?php include 'footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -115,7 +101,7 @@
 
         <!-- DATATABLES SCRIPTS -->
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/dataTableProveedores.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/dataTableOperarios.js'); ?>"></script>
 
 
     </body>

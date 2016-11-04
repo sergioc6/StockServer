@@ -7,7 +7,7 @@ class Compras extends CI_Controller {
     }
 
     public function Compras_view() {
-        $this->load->view('compras_view');
+        $this->load->view('compras/compras_view');
     }
 
     public function selectProveedorCompra_view() {
@@ -15,7 +15,7 @@ class Compras extends CI_Controller {
         $this->load->model('Proveedores_model');
         $data['proveedores'] = $this->Proveedores_model->obtenerProveedores();
 
-        $this->load->view('selectproveedorcompra_view', $data);
+        $this->load->view('compras/selectproveedorcompra_view', $data);
     }
 
     public function seleccionarProveedorCompra() {
@@ -31,7 +31,7 @@ class Compras extends CI_Controller {
         $data['insumos'] = $this->Insumos_model->obtenerInsumos();
 
 
-        $this->load->view('cargarinsumosproveedorcompra_view', $data);
+        $this->load->view('compras/cargarinsumosproveedorcompra_view', $data);
     }
 
     public function cargarInsumoACompra() {
@@ -42,17 +42,18 @@ class Compras extends CI_Controller {
         //Busco el INSUMO en la BD
         $this->load->model('Insumos_model');
         $insumo = $this->Insumos_model->obtenerPrecioDeInsumoYProv($id_insumo, $id_proveedor);
-        $this->agregarInsumoACarrito($insumo, $cantidad);
+        $this->agregarInsumoACarrito($insumo, $cantidad, $id_proveedor);
 
         //var_dump($this->cart->contents());
 
         redirect(base_url('Compras/cargarInsumosProvSucces_view/' . $id_proveedor));
     }
 
-    private function agregarInsumoACarrito($insumo, $cantidad) {
+    private function agregarInsumoACarrito($insumo, $cantidad, $id_proveedor) {
         $data = array(
             'id' => $insumo->id_insumo,
             'name' => $insumo->nombre_insumo,
+            'id_proveedor' => $id_proveedor,
             'qty' => $cantidad,
             'price' => $insumo->precio,
             'precio_tot' => $cantidad * $insumo->precio
@@ -67,7 +68,7 @@ class Compras extends CI_Controller {
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
         $data['insumos'] = $this->Insumos_model->obtenerInsumos();
 
-        $this->load->view('cargarinsumosproveedorcompra_success_view', $data);
+        $this->load->view('compras/cargarinsumosproveedorcompra_success_view', $data);
     }
 
 }

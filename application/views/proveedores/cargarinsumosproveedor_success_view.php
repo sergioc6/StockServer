@@ -18,12 +18,12 @@
         <link href="<?php echo base_url('assets/css/select2.min.css'); ?>" rel="stylesheet" />
 
         <!-- GOOGLE FONTS-->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="<?php echo base_url('assets/css/open_sans.css'); ?>" rel='stylesheet' type='text/css' />
 
     </head>
     <body>
 
-        <?php include 'navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -44,10 +44,14 @@
                 <form class="form-horizontal" method="post" action="<?php echo base_url('Proveedores/cargarInsumosProveedor'); ?>">
                     <fieldset>
 
+                        <div class="alert alert-success">
+                            <strong>Insumo cargado!</strong> Se ha cargado con èxito el insumo al proveedor.
+                        </div>
+
                         <input id="id_proveedor" name="id_proveedor" type="hidden" placeholder="" class="form-control input-md" readonly="" value="<?php echo $proveedor->id_proveedor; ?>">
 
                             <!-- Text input-->
-                            <div class="form-group" style="margin-top: 10px;">
+                            <div class="form-group">
                                 <label class="col-md-4 control-label" for="nombre">Proveedor:</label>  
                                 <div class="col-md-4">
                                     <input id="proveedor" name="proveedor" type="text" placeholder="" class="form-control input-md" readonly="" value="<?php echo $proveedor->nombre_proveedor; ?>">
@@ -101,7 +105,7 @@
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

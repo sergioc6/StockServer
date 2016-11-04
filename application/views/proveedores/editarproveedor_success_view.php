@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
@@ -20,49 +20,45 @@
     </head>
     <body>
 
-        <?php include 'navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Backup</h2>   
+                        <h2>Editar Proveedor</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
 
-                <div class="alert alert-info">
-                    <strong>Atención!</strong> Se recomienda hacer backups de la Base de Datos periódicamente, de modo de garantizar la seguridad de los datos.
+                <div class="alert alert-success">
+                    <strong>Proveedor editado con éxito!</strong> Los cambios en el proveedor ya se encuentran registrados en el sistema.
                 </div>
 
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <ul>
-                            <?php if ($backup->id_backup == NULL) { ?>
-                                <li><b>Fecha y hora del último Backup:</b> NUNCA.</li>
-                                <li><b>Realizado por: </b></li>
-                            <?php } else { ?>
-                                <li><b>Fecha y hora del último Backup: </b><?php echo $backup->fecha_hora; ?></li>
-                                <li><b>Realizado por: </b></li>
-                            <?php } ?>
+                            <li><b>Nombre del Proveedor: </b><?php echo $proveedor_edit->nombre_proveedor; ?></li>
+                            <li><b>Localidad: </b><?php echo $proveedor_edit->localidad; ?></li>
+                            <li><b>Dirección: </b><?php echo $proveedor_edit->direccion; ?></li>
+                            <li><b>Teléfono: </b><?php echo $proveedor_edit->telefono; ?></li>
+                            <li><b>Email: </b><?php echo $proveedor_edit->email; ?></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Button -->
-                <div class="form-group">
-                    <div class="col-md-4 col-md-offset-4">
-                        <a class="btn btn-primary btn-block" href="<?php echo base_url('Backup/realizarBackup'); ?>">Realizar Backup</a>
-                    </div>
+                <div class="btn-group btn-group-justified">
+                    <a href="<?php echo base_url('Proveedores/Proveedores_view'); ?>" class="btn btn-default">Ver Proveedores</a>
                 </div>
+
 
                 <!-- /. ROW  -->           
             </div>
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

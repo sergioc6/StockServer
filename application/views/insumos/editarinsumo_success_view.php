@@ -15,50 +15,43 @@
         <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet" />
 
         <!-- GOOGLE FONTS-->
-        <link href="<?php echo base_url('assets/css/open_sans.css'); ?>" rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
     </head>
     <body>
 
-        <?php include 'navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Operario agregado con éxito</h2>   
+                        <h2>Editar Insumo</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
 
                 <div class="alert alert-success">
-                    <strong>¡Operario agregado!</strong> El nuevo operario ya se encuentra registrado en el sistema.
+                    <strong>Insumo editado con éxito!</strong> Los cambios sobre el insumo ya se encuentran registrados en el sistema.
                 </div>
 
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        
-                        <!-- Foto Socio-->
-                        <div class="form-group">
-                            <?php if ($nuevo_operario->foto_operario == NULL) { ?>
-                            <img class="img-thumbnail center-block" src="<?php echo base_url('fotos/fotos_operarios/default.png'); ?>" width="250" height="250">  
-                            <?php } else { ?>
-                            <img class="img-thumbnail center-block" src="<?php echo base_url('fotos/fotos_operarios/' . $nuevo_operario->foto_operario); ?>" width="225" height="225">  
-                            <?php } ?>
-                        </div>
-                        
                         <ul>
-                            <li><b>Apellido: </b><?php echo $nuevo_operario->apellido; ?></li>
-                            <li><b>Nombre: </b><?php echo $nuevo_operario->nombre; ?></li>
-                            <li><b>Email: </b><?php echo $nuevo_operario->email; ?></li>
+                            <li><b>Código del Insumo: </b><?php echo $insumo_edit->id_insumo; ?></li>
+                            <li><b>Nombre del Insumo: </b><?php echo $insumo_edit->nombre_insumo; ?></li>
+                            <li><b>Descripción: </b><?php echo $insumo_edit->descripcion; ?></li>
+                            <li><b>Stock mínimo: </b><?php echo $insumo_edit->stock_min; ?></li>
+                            <li><b>Stock màximo: </b><?php echo $insumo_edit->stock_max; ?></li>
+                            <li><b>Tipo de Insumo: </b><?php echo $insumo_edit->tipo; ?></li>
+                            <li><b>Sector en depósito: </b><?php echo $insumo_edit->sector_deposito; ?></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="btn-group btn-group-justified">
-                    <a href="<?php echo base_url('Operarios/agregaroperario_view'); ?>" class="btn btn-primary">Agregar otro Operarios</a>
-                    <a href="<?php echo base_url('Operarios/operarios_view'); ?>" class="btn btn-default">Ver Operario</a>
+                    <a href="<?php echo base_url('Insumos/Insumos_view'); ?>" class="btn btn-default">Ver Insumos</a>
                 </div>
 
 
@@ -67,7 +60,7 @@
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include 'footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

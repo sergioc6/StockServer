@@ -20,7 +20,7 @@
     </head>
     <body>
 
-        <?php include 'navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -83,43 +83,44 @@
                                                 <option value="<?php echo $tipo->id_tipoinsumo; ?>" selected=""><?php echo $tipo->tipo; ?></option>
                                             <?php } else { ?>
                                                 <option value="<?php echo $tipo->id_tipoinsumo; ?>"><?php echo $tipo->tipo; ?></option>
-                                        <?php } } ?>
-                                        </select>
-                                    </div>
+                                            <?php }
+                                        } ?>
+                                    </select>
                                 </div>
+                            </div>
 
 
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="localidad">Sector en Depósito:</label>  
-                                    <div class="col-md-4">
-                                        <select name="sector">
-                                            <?php foreach ($sectores as $sector) { ?>
-                                                <option value="<?php echo $sector->id_sector; ?>"><?php echo $sector->sector_deposito; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="localidad">Sector en Depósito:</label>  
+                                <div class="col-md-4">
+                                    <select name="sector">
+                                        <?php foreach ($sectores as $sector) { ?>
+                                            <option value="<?php echo $sector->id_sector; ?>"><?php echo $sector->sector_deposito; ?></option>
+<?php } ?>
+                                    </select>
                                 </div>
+                            </div>
 
 
-                                <!-- Button Submit-->
-                                <div class="form-group">
-                                    <div class="col-md-4 col-md-offset-4">
-                                        <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-block">Editar Insumo</button>
-                                    </div>
+                            <!-- Button Submit-->
+                            <div class="form-group">
+                                <div class="col-md-4 col-md-offset-4">
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-block">Editar Insumo</button>
                                 </div>
+                            </div>
 
-                                <!-- Button Volver-->
-                                <div class="form-group">
-                                    <div class="col-md-4 col-md-offset-4">
-                                        <a class="btn btn-block btn-default" href="<?php echo base_url('Insumos/Insumos_view'); ?>">Volver</a>  
-                                    </div>
+                            <!-- Button Volver-->
+                            <div class="form-group">
+                                <div class="col-md-4 col-md-offset-4">
+                                    <a class="btn btn-block btn-default" href="<?php echo base_url('Insumos/Insumos_view'); ?>">Volver</a>  
                                 </div>
+                            </div>
 
 
 
-                        </fieldset>
-                    </form>
+                    </fieldset>
+                </form>
 
 
 
@@ -127,24 +128,24 @@
 
 
 
-                    <!-- /. ROW  -->           
-                </div>
-                <!-- /. PAGE INNER  -->
+                <!-- /. ROW  -->           
             </div>
+            <!-- /. PAGE INNER  -->
+        </div>
 
-            <?php include 'footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
-            <!-- /. WRAPPER  -->
-            <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 
-            <!-- JQUERY SCRIPTS -->
-            <script src="<?php echo base_url('assets/js/jquery-1.10.2.js'); ?>"></script>
+        <!-- JQUERY SCRIPTS -->
+        <script src="<?php echo base_url('assets/js/jquery-1.10.2.js'); ?>"></script>
 
-            <!-- BOOTSTRAP SCRIPTS -->
-            <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
-            <!-- CUSTOM SCRIPTS -->
-            <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
 
     </body>
