@@ -23,13 +23,13 @@
     </head>
     <body>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Seleccionar Insumos a comprar</h2>   
+                        <h2>Realizar compra a proveedor</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
@@ -102,6 +102,13 @@
                                             <th>$<?php echo $item['precio_tot']; ?></th>
                                         </tr>
                                     <?php } ?>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th><strong>TOTAL:</strong></th>
+                                        <th>$<?php echo $this->cart->format_number($this->cart->total()); ?></th>
+                                    </tr>
                                 </tbody>    
                             </table>
 
@@ -110,7 +117,7 @@
 
                             <ul class="pager">
                                 <li><a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>">Volver</a></li>
-                                <li><a href="<?php echo base_url('Compras/Compras_view'); ?>">Siguiente</a></li>
+                                <li><a href="<?php echo base_url('Compras/confirmarCompra_view'); ?>">Siguiente</a></li>
                             </ul>
 
                     </fieldset>
@@ -122,7 +129,7 @@
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

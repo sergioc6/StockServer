@@ -29,7 +29,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Comprar a proveedor</h2>   
+                        <h2>Realizar compra a proveedor</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->

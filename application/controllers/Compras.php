@@ -20,15 +20,15 @@ class Compras extends CI_Controller {
 
     public function seleccionarProveedorCompra() {
         $id_prov = $this->input->post('proveedor');
-        redirect(base_url('Compras/cargarInsumosProv_view/' . $id_prov));
+        redirect(base_url('Compras/cargarInsumosCompraProv_view/' . $id_prov));
     }
 
-    public function cargarInsumosProv_view($id_prov) {
+    public function cargarInsumosCompraProv_view($id_prov) {
         $this->load->model('Proveedores_model');
         $this->load->model('Insumos_model');
 
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
-        $data['insumos'] = $this->Insumos_model->obtenerInsumos();
+        $data['insumos'] = $this->Insumos_model->obtenerInsumosDeProv($id_prov);
 
 
         $this->load->view('compras/cargarinsumosproveedorcompra_view', $data);
@@ -66,9 +66,20 @@ class Compras extends CI_Controller {
         $this->load->model('Insumos_model');
 
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
-        $data['insumos'] = $this->Insumos_model->obtenerInsumos();
+        $data['insumos'] = $this->Insumos_model->obtenerInsumosDeProv($id_prov);
 
         $this->load->view('compras/cargarinsumosproveedorcompra_success_view', $data);
     }
+    
+    public function confirmarCompra_view() {
+        $this->load->model('Proveedores_model');
+
+        $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
+        
+        $this->load->view('compras/confirmarcompra_view', $data);
+    }
+
+    
+    
 
 }

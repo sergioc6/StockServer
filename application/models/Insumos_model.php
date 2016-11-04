@@ -114,5 +114,14 @@ class Insumos_model extends CI_Model {
                             WHERE i.id_insumo=' . $id_insumo . ' AND ip.id_proveedor=' . $id_prov);
         return $query->result()[0];
     }
+    
+    
+    public function obtenerInsumosDeProv($id_prov) {
+        $query = $this->db->query('SELECT ip.id_insumo, i.nombre_insumo, i.id_tipoinsumo, ip.precio
+                            FROM insumoxproveedor ip
+                            LEFT JOIN insumos i ON i.id_insumo=ip.id_insumo
+                            WHERE ip.id_proveedor=' . $id_prov);
+        return $query->result();
+    }
 
 }
