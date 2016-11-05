@@ -23,10 +23,10 @@ class Compras_model extends CI_Model {
     public function obtenerSiguienteNumeroOC() {
         $query = $this->db->query('SELECT MAX(numero_oc) as mayor FROM compras');
         $resultado = $query->result();
-        if ($resultado == NULL) {
+        if ($resultado[0]->mayor == NULL) {
             return 1;
         } else {
-            return $resultado++;
+            return $resultado[0]->mayor++;
         }
     }
 

@@ -71,11 +71,12 @@ class Compras extends CI_Controller {
         $this->load->view('compras/cargarinsumosproveedorcompra_success_view', $data);
     }
     
-    public function confirmarCompra_view() {
+    public function confirmarCompra_view($id_prov) {
         $this->load->model('Proveedores_model');
+        $this->load->model('Compras_model');
 
+        $data['numero_oc'] = $this->Compras_model->obtenerSiguienteNumeroOC();
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
-        
         $this->load->view('compras/confirmarcompra_view', $data);
     }
 
