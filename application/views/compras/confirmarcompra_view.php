@@ -47,21 +47,24 @@
                     <div class="row">
                         <div class="col-xs-10">
                             <div class="text-center">
-                                <h2>Orden de Compra #33221</h2>
+                                <h2>Orden de Compra #<?php echo $numero_oc; ?></h2>
                             </div>
                             <hr>
-
-                                <!-- Datos del Proveedor -->    
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-12 col-lg-12 pull-left">
-                                        <div class="panel panel-default height">
-                                            <div class="panel-heading"><b>Datos Proveedor</b></div>
-                                            <div class="panel-body">
-                                                <strong>David Peere:</strong><br>
-                                                    1111 Army Navy Drive<br>
-                                                        Arlington<br>
-                                                            VA<br>
-                                                                <strong>22 203</strong><br>
+                                
+                                <form method="post" action="<?php echo base_url('Compras/realizarCompra'); ?>">
+                                    <input type="hidden" name="id_proveedor" value="<?php echo $numero_oc; ?>">
+                                    
+                                    <!-- Datos del Proveedor -->    
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12 pull-left">
+                                            <div class="panel panel-default height">
+                                                <div class="panel-heading text-center"><b>Datos del Proveedor</b></div>
+                                                <div class="panel-body">
+                                                    <strong><?php echo $proveedor->nombre_proveedor; ?></strong> <br>
+                                                        <?php echo $proveedor->localidad; ?> <br>
+                                                            <?php echo $proveedor->direccion; ?> <br>
+                                                                <?php echo $proveedor->telefono; ?> <br>
+                                                                    <?php echo $proveedor->email; ?>    
                                                                     </div>
                                                                     </div>
                                                                     </div>
@@ -84,36 +87,26 @@
                                                                                         <table class="table table-condensed">
                                                                                             <thead>
                                                                                                 <tr>
-                                                                                                    <td><strong>Item Name</strong></td>
-                                                                                                    <td class="text-center"><strong>Item Price</strong></td>
-                                                                                                    <td class="text-center"><strong>Item Quantity</strong></td>
-                                                                                                    <td class="text-right"><strong>Total</strong></td>
+                                                                                                    <td><strong>Insumo</strong></td>
+                                                                                                    <td class="text-center"><strong>Precio U.</strong></td>
+                                                                                                    <td class="text-center"><strong>Cantidad</strong></td>
+                                                                                                    <td class="text-right"><strong>Precio Total</strong></td>
                                                                                                 </tr>
                                                                                             </thead>
                                                                                             <tbody>
+                                                                                                <?php foreach ($this->cart->contents() as $item) { ?>
+                                                                                                    <tr>
+                                                                                                        <th><?php echo $item['name']; ?></th>
+                                                                                                        <th class="text-center"><?php echo $item['price']; ?></th>
+                                                                                                        <th class="text-center">$<?php echo $item['qty']; ?></th>
+                                                                                                        <th class="text-right">$<?php echo $item['precio_tot']; ?></th>
+                                                                                                    </tr>
+                                                                                                <?php } ?>
                                                                                                 <tr>
-                                                                                                    <td>Samsung Galaxy S5</td>
-                                                                                                    <td class="text-center">$900</td>
-                                                                                                    <td class="text-center">1</td>
-                                                                                                    <td class="text-right">$900</td>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <td>Samsung Galaxy S5 Extra Battery</td>
-                                                                                                    <td class="text-center">$30.00</td>
-                                                                                                    <td class="text-center">1</td>
-                                                                                                    <td class="text-right">$30.00</td>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <td>Screen protector</td>
-                                                                                                    <td class="text-center">$7</td>
-                                                                                                    <td class="text-center">4</td>
-                                                                                                    <td class="text-right">$28</td>
-                                                                                                </tr>
-                                                                                                <tr>
-                                                                                                    <td class="emptyrow"></td>
-                                                                                                    <td class="emptyrow"></td>
-                                                                                                    <td class="emptyrow text-center"><strong>Total</strong></td>
-                                                                                                    <td class="emptyrow text-right">$978.00</td>
+                                                                                                    <th></th>
+                                                                                                    <th></th>
+                                                                                                    <th class="text-center"><strong>TOTAL:</strong></th>
+                                                                                                    <th class="text-right">$<?php echo $this->cart->format_number($this->cart->total()); ?></th>
                                                                                                 </tr>
                                                                                             </tbody>
                                                                                         </table>
@@ -126,10 +119,10 @@
 
 
                                                                     <ul class="pager">
-                                                                        <li><a href="<?php echo base_url('Compras/cargarInsumosCompraProv_view/'); ?>">Volver</a></li>
+                                                                        <li><a href="<?php echo base_url('Compras/cargarInsumosCompraProv_view/' . $proveedor->id_proveedor); ?>">Volver</a></li>
                                                                     </ul>
 
-
+                                                                    </form>   
 
                                                                     <!-- /. ROW  -->           
                                                                     </div>

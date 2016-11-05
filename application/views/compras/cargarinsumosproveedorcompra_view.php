@@ -117,7 +117,7 @@
 
                             <ul class="pager">
                                 <li><a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>">Volver</a></li>
-                                <li><a href="<?php echo base_url('Compras/confirmarCompra_view'); ?>">Siguiente</a></li>
+                                <li class="disabled">Siguiente</a></li>
                             </ul>
 
                     </fieldset>
