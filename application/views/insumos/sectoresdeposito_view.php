@@ -23,7 +23,7 @@
     </head>
     <body>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -35,7 +35,7 @@
                 <!-- /. ROW  -->
                 <hr />
                 <div class="row text-center pad-top" style="margin-bottom: 20px;">
-                    
+
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
                             <a href="<?php echo base_url('Insumos/agregarsector_view'); ?>" >
@@ -44,9 +44,9 @@
                             </a>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
                 <table id="proveedores" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
