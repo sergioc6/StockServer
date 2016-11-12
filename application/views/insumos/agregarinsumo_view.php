@@ -20,7 +20,7 @@
     </head>
     <body>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -34,14 +34,13 @@
 
                 <form class="form-horizontal" method="post" action="<?php echo base_url('Insumos/agregarInsumo'); ?>">
                     <fieldset>
-
-
+                        
                         <!-- Text input-->
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="nombre">Nombre del Insumo:</label>  
                             <div class="col-md-4">
                                 <input id="nombre" name="nombre" type="text" placeholder="" class="form-control input-md">
-
+                                    <?php echo form_error('nombre'); ?>
                             </div>
                         </div>
 
@@ -49,7 +48,8 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="descripcion">Descripción:</label>  
                             <div class="col-md-4">
-                                <textarea name="descripcion" id="comment" class="form-control" rows="5"></textarea>
+                                <textarea name="descripcion" id="descripcion" class="form-control" rows="5"></textarea>
+                                <?php echo form_error('descripcion'); ?>
                             </div>
                         </div>
 
@@ -58,6 +58,7 @@
                             <label class="col-md-4 control-label" for="descripcion">Stock Mínimo:</label>  
                             <div class="col-md-4">
                                 <input id="stock_min" name="stock_min" type="number" placeholder="" class="form-control input-md">
+                                    <?php echo form_error('stock_min'); ?>
                             </div>
                         </div>
 
@@ -66,6 +67,7 @@
                             <label class="col-md-4 control-label" for="descripcion">Stock Máximo:</label>  
                             <div class="col-md-4">
                                 <input id="stock_max" name="stock_max" type="number" placeholder="" class="form-control input-md">
+                                    <?php echo form_error('stock_max'); ?>
                             </div>
                         </div>
 
@@ -111,6 +113,7 @@
 
 
 
+
                     </fieldset>
                 </form>
 
@@ -125,7 +128,7 @@
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

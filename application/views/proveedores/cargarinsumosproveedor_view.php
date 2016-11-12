@@ -69,18 +69,20 @@
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="nombre">Precio del Insumo ($):</label>  
+                                <label class="col-md-4 control-label" for="precio">Precio del Insumo ($):</label>  
                                 <div class="col-md-4">
                                     <input id="precio" name="precio" type="number" placeholder="" class="form-control input-md" min="0">
+                                        <?php echo form_error('precio'); ?>
 
                                 </div>
                             </div>
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="nombre">Días de demora:</label>  
+                                <label class="col-md-4 control-label" for="dias_demora">Días de demora:</label>  
                                 <div class="col-md-4">
                                     <input id="dias_demora" name="dias_demora" type="number" placeholder="" class="form-control input-md" value="0" min="0">
+                                        <?php echo form_error('dias_demora'); ?>
 
                                 </div>
                             </div>
