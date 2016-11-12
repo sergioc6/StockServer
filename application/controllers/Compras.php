@@ -79,6 +79,28 @@ class Compras extends CI_Controller {
         $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
         $this->load->view('compras/confirmarcompra_view', $data);
     }
+    
+    public function realizarCompra() {
+        
+        
+        $this->load->model('Compras_model');
+        
+        //Agrego la Compra a la DB
+        $numero_oc = $this->input->post('numero_oc');
+        $id_proveedor = $this->input->post('id_proveedor');
+        $monto = $this->cart->total();
+        $id_compra = $this->Compras_model->agregarCompra($numero_oc, $id_proveedor, $monto);
+        
+        //Cargo los Insumos a la compra
+        foreach ($this->cart->contents() as $item){
+            $cant = $item['qty'];
+            $id_insumo = $item['id'];
+            for ($index = 0; $index < $cant; $index++) {
+                $this->Compras_model->agregarInsumoACompra($id_compra, $id_insumo);
+            }
+        }
+        
+    }
 
     
     

@@ -52,7 +52,8 @@
                             <hr>
                                 
                                 <form method="post" action="<?php echo base_url('Compras/realizarCompra'); ?>">
-                                    <input type="hidden" name="id_proveedor" value="<?php echo $numero_oc; ?>">
+                                    <input type="hidden" name="numero_oc" value="<?php echo $numero_oc; ?>">
+                                    <input type="hidden" name="id_proveedor" value="<?php echo $proveedor->id_proveedor; ?>">
                                     
                                     <!-- Datos del Proveedor -->    
                                     <div class="row">
@@ -120,9 +121,11 @@
 
                                                                     <ul class="pager">
                                                                         <li><a href="<?php echo base_url('Compras/cargarInsumosCompraProv_view/' . $proveedor->id_proveedor); ?>">Volver</a></li>
+                                                                        <li><button type="submit" class="btn btn-primary btn-round">Confirmar Compra</button></li>
                                                                     </ul>
-
-                                                                    </form>   
+                                                                    
+                                                                    
+                            </form>   
 
                                                                     <!-- /. ROW  -->           
                                                                     </div>
