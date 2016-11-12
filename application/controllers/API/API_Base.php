@@ -18,9 +18,9 @@ class API_Base extends CI_Controller {
         // Validar Token aqui abajo
         $this->load->library('encrypt');
         $this->load->model('Login_model');
-        $token_encrypt = $this->input->get_request_header('token', FALSE);
+        $token_encrypt = $this->input->get_request_header('token', TRUE);
         
-              
+        
         $token_decrypt = $this->encrypt->decode($token_encrypt);
         
         

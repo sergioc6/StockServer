@@ -14,8 +14,8 @@
 class Login_model extends CI_Model {
 
     public function existeEmailUsuarioRegistrado($email) {
-        $query = $this->db->query('SELECT * FROM operarios o WHERE o.email=\'' . $email."'");
-        if (count($query->result()) != 1) {
+        $query = $this->db->query("SELECT * FROM operarios o WHERE o.email= '" . $email . "'");
+        if (count($query->result()) == 0) {
             return false;
         } else {
             return true;

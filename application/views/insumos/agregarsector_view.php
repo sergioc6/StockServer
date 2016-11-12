@@ -47,7 +47,7 @@
                             <label class="col-md-4 control-label" for="nombre">Nombre del sector:</label>  
                             <div class="col-md-4">
                                 <input id="nombre_sector" name="nombre_sector" type="text" placeholder="Nombre sector" class="form-control input-md">
-
+                                    <?php echo form_error('nombre_sector'); ?>
                             </div>
                         </div>
 
@@ -57,7 +57,9 @@
                             <fieldset class="gllpLatlonPicker">
                                 <div class="gllpMap">Google Maps</div>
                                 Latitud: <input id="latitud" name="latitud" type="text" class="gllpLatitude" value="-32.49451220840749" readonly=""/>
+                                <?php echo form_error('latitud'); ?>
                                 Longitud: <input id="longitud" name="longitud" type="text" class="gllpLongitude" value="-58.3121711781132" readonly=""/>
+                                <?php echo form_error('longitud'); ?>
                                 <input type="hidden" class="gllpZoom" value="15"/>
                             </fieldset>
                         </div>

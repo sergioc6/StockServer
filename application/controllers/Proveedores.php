@@ -23,11 +23,27 @@ class Proveedores extends CI_Controller {
         $direccion = $this->input->post('direccion');
         $telefono = $this->input->post('telefono');
 
-        $this->load->model('Proveedores_model');
-        $this->Proveedores_model->insertarProveedor($nombre, $telefono, $localidad, $direccion, $email);
-        $data['nuevo_proveedor'] = $this->Proveedores_model->obtenerProveedorPorNombre($nombre);
+        // Validamos los inputs
+        $this->form_validation->set_rules('nombre', 'El nombre del proveedor', 'required');
+        $this->form_validation->set_rules('localidad', 'La localidad del proveedor', 'required');
+        $this->form_validation->set_rules('email', 'El email del proveedor', 'required');
+        $this->form_validation->set_rules('direccion', 'La dirección del proveedor', 'required');
+        $this->form_validation->set_rules('telefono', 'El teléfono del proveedor', 'required');
 
-        $this->load->view('proveedores/agregarproveedor_success_view', $data);
+
+        // Mostramos los mensajes en un lenguaje adecuado
+        $this->form_validation->set_message('required', '%s es obligatorio/a.');
+        $this->form_validation->set_message('numeric', '%s debe ser numérico/a.');
+
+        if ($this->form_validation->run() == TRUE) {
+            $this->load->model('Proveedores_model');
+            $this->Proveedores_model->insertarProveedor($nombre, $telefono, $localidad, $direccion, $email);
+            $data['nuevo_proveedor'] = $this->Proveedores_model->obtenerProveedorPorNombre($nombre);
+
+            $this->load->view('proveedores/agregarproveedor_success_view', $data);
+        } else {
+            $this->agregarproveedor_view();
+        }
     }
 
     public function eliminarProveedor($id_prov) {
@@ -50,6 +66,8 @@ class Proveedores extends CI_Controller {
     }
 
     public function cargarInsumosProv_view($id_prov) {
+
+
         $this->load->model('Proveedores_model');
         $this->load->model('Insumos_model');
 
@@ -60,15 +78,30 @@ class Proveedores extends CI_Controller {
     }
 
     public function cargarInsumosProveedor() {
+
+
         $id_proveedor = $this->input->post('id_proveedor');
         $id_insumo = $this->input->post('insumo');
         $precio = $this->input->post('precio');
         $demora_dias = $this->input->post('dias_demora');
 
-        $this->load->model('Proveedores_model');
-        $this->Proveedores_model->cargarInsumoAProveedor($precio, $demora_dias, $id_insumo, $id_proveedor);
+        // Validamos los inputs
+        $this->form_validation->set_rules('insumo', 'El insumo del proveedor', 'required');
+        $this->form_validation->set_rules('precio', 'El precio del proveedor', 'required|numeric');
+        $this->form_validation->set_rules('dias_demora', 'Los días de demora del proveedor', 'required|numeric');
 
-        redirect(base_url('Proveedores/cargarInsumosProvSucces_view/' . $id_proveedor));
+        // Mostramos los mensajes en un lenguaje adecuado
+        $this->form_validation->set_message('required', '%s es obligatorio/a.');
+        $this->form_validation->set_message('numeric', '%s debe ser numérico/a.');
+
+        if ($this->form_validation->run() == TRUE) {
+            $this->load->model('Proveedores_model');
+            $this->Proveedores_model->cargarInsumoAProveedor($precio, $demora_dias, $id_insumo, $id_proveedor);
+
+            redirect(base_url('Proveedores/cargarInsumosProvSucces_view/' . $id_proveedor));
+        } else {
+            $this->cargarInsumosProv_view($id_proveedor);
+        }
     }
 
     public function cargarInsumosProvSucces_view($id_prov) {
@@ -98,7 +131,7 @@ class Proveedores extends CI_Controller {
 
         $this->load->model('Proveedores_model');
         $this->Proveedores_model->editarProveedor($id_proveedor, $nombre, $telefono, $localidad, $direccion, $email);
-        
+
         $data['proveedor_edit'] = $this->Proveedores_model->obtenerProveedorPorID($id_proveedor);
 
         $this->load->view('proveedores/editarproveedor_success_view', $data);

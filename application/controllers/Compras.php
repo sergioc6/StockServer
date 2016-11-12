@@ -39,6 +39,15 @@ class Compras extends CI_Controller {
         $id_insumo = $this->input->post('insumo');
         $cantidad = $this->input->post('cantidad');
 
+        
+        // Validamos los inputs
+        $this->form_validation->set_rules('cantidad', 'La cantidad del insumo', 'required|numeric');
+        
+        // Mostramos los mensajes en un lenguaje adecuado
+        $this->form_validation->set_message('required', '%s es obligatorio/a.');
+        $this->form_validation->set_message('numeric', '%s debe ser numérico/a.');
+        
+        if ($this->form_validation->run() == TRUE) {        
         //Busco el INSUMO en la BD
         $this->load->model('Insumos_model');
         $insumo = $this->Insumos_model->obtenerPrecioDeInsumoYProv($id_insumo, $id_proveedor);
@@ -47,6 +56,11 @@ class Compras extends CI_Controller {
         //var_dump($this->cart->contents());
 
         redirect(base_url('Compras/cargarInsumosProvSucces_view/' . $id_proveedor));
+        }
+        else
+        {
+            $this->cargarInsumosCompraProv_view($id_proveedor);
+        }
     }
 
     private function agregarInsumoACarrito($insumo, $cantidad, $id_proveedor) {

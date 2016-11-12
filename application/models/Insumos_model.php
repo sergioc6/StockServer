@@ -24,15 +24,15 @@ class Insumos_model extends CI_Model {
      * @param type $sector
      * @param type $tipo_insumo
      */
-    public function insertarInsumo($nombre_insumo, $descripcion, $stock_min, $stock_max, $sector, $tipo_insumo) {
+    public function insertarInsumo($nombre_insumo, $descripcion, $stock_min, $stock_max, $tipo_insumo, $sector) {
         $data = array(
             'id_insumo' => 0,
             'nombre_insumo' => $nombre_insumo,
             'descripcion' => $descripcion,
             'stock_min' => $stock_min,
             'stock_max' => $stock_max,
-            'id_tipoinsumo' => $sector,
-            'id_sector' => $tipo_insumo
+            'id_tipoinsumo' => $tipo_insumo,
+            'id_sector' => $sector
         );
 
         $this->db->insert('insumos', $data);
