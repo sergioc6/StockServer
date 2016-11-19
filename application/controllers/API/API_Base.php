@@ -19,15 +19,15 @@ class API_Base extends CI_Controller {
         $this->load->library('encrypt');
         $this->load->model('Login_model');
         $token_encrypt = $this->input->get_request_header('token', TRUE);
-        
-        
+
         $token_decrypt = $this->encrypt->decode($token_encrypt);
-        
-        
+
+
         if ($this->Login_model->existeEmailUsuarioRegistrado($token_decrypt) === false) {
+
+            $this->output->set_status_header(401);
+            exit("Token inválido");
             
-            $this->output->set_content_type('application/json');
-            $this->output->set_output(json_encode("Token Invalido"));
         }
     }
 

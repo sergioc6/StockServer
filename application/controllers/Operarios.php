@@ -44,6 +44,8 @@ class Operarios extends CI_Controller {
 
                 $this->load->model('Operarios_model');
                 $this->Operarios_model->insertarOperario($email, $pass, $apellido, $nombre, null);
+                $data['nuevo_operario'] = $this->Operarios_model->obtenerOperarioPorEmail($email);
+                $this->load->view('operarios/agregaroperario_success_view', $data);
             } else {
                 $this->load->model('Operarios_model');
                 $id_operario = $this->Operarios_model->insertarOperario($email, $pass, $apellido, $nombre, null);

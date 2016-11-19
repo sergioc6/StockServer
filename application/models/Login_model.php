@@ -21,5 +21,15 @@ class Login_model extends CI_Model {
             return true;
         }
     }
+    
+    public function existeOperario($email, $pass) {
+        $query = $this->db->query("SELECT * FROM operarios o WHERE o.email= '" . $email . "' AND o.pass= '" . $pass . "'");        
+        if (count($query->result()) == 0) {
+            return false;
+        } else {
+            return true;
+        }
+        
+    }
 
 }
