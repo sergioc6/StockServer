@@ -11,12 +11,15 @@
  *
  * @author SergioC
  */
-class Controller_Base extends CI_Controller{
-    
+class Controller_Base extends CI_Controller {
+
     public function __construct() {
         parent::__construct();
         //Aqui abajo se validará la Session
-
+        if ($this->session->userdata('logged_in') !== TRUE) {
+            $this->load->view('loginnecessary_view');
+            exit();
+        }
     }
-    
+
 }

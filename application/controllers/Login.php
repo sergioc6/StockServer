@@ -50,7 +50,7 @@ class Login extends CI_Controller {
                 );
                 $this->session->set_userdata($userdata);
 
-                redirect('Inicio');
+                redirect(base_url('Inicio'));
             } else {
                 $this->loginFailed();
             }
@@ -64,7 +64,7 @@ class Login extends CI_Controller {
 
     public function cerrarSesion() {
         $this->session->sess_destroy();
-        $this->index();
+        redirect(base_url('Login'));
     }
 
     /**
