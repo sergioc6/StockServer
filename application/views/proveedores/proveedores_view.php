@@ -84,7 +84,7 @@
                                 <td><?php echo $proveedor->telefono; ?></td>
                                 <td><?php echo $proveedor->email; ?></td>
                                 <td class="text-center">
-                                    <a title="Ver Proveedor" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-truck"></span></a> 
+                                    <a title="Ver Proveedor" class='btn btn-default btn-xs' href="<?php echo base_url('Proveedores/verFichaProveedor_view/' . $proveedor->id_proveedor); ?>"><span class="fa fa-icon fa-truck"></span></a> 
                                     <a title="Editar Proveedor" class='btn btn-info btn-xs' href="<?php echo base_url('Proveedores/editarProveedor_view/' . $proveedor->id_proveedor); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
                                     <a title="Eliminar Proveedor" href="<?php echo base_url('Proveedores/eliminarProveedor/' . $proveedor->id_proveedor); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>

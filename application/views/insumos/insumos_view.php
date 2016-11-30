@@ -85,7 +85,7 @@
                                 <td><?php echo $insumo->tipo; ?></td>
                                 <td><?php echo $insumo->sector_deposito; ?></td>
                                 <td class="text-center">
-                                    <a title="Ver Insumo" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-wrench"></span></a> 
+                                    <a title="Ver Insumo" class='btn btn-default btn-xs' href="<?php echo base_url('Insumos/verInsumos_view/' . $insumo->id_insumo); ?>"><span class="fa fa-icon fa-wrench"></span></a> 
                                     <a title="Editar Insumo" class='btn btn-info btn-xs' href="<?php echo base_url('Insumos/editarInsumo_view/' . $insumo->id_insumo); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
                                     <a title="Eliminar Insumo" href="<?php echo base_url('Insumos/eliminarInsumo/' . $insumo->id_insumo); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>

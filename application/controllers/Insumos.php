@@ -129,6 +129,13 @@ class Insumos extends CI_Controller {
 
         $this->load->view('insumos/editarinsumo_view', $data);
     }
+    
+    public function verInsumos_view($id_insumo) {
+        $this->load->model('Insumos_model');
+        $data['insumo'] = $this->Insumos_model->obtenerInsumoPorID($id_insumo);
+        
+        $this->load->view('insumos/verinsumo_view', $data);
+    }
 
     public function editarInsumo() {
         $id_insumo = $this->input->post('id_insumo');

@@ -53,4 +53,17 @@ class Operarios_model extends CI_Model {
         $this->db->where('id_operario', $id_operario);
         $this->db->update('operarios', $data);
     }
+    
+    public function editarOperario($id_op, $email_op, $pass_op, $apellido_op, $nombre_op, $foto_path) {
+        $data = array(
+            'email' => $email_op,
+            'pass' => $pass_op,
+            'apellido' => $apellido_op,
+            'nombre' => $nombre_op
+        );
+
+        $this->db->where('id_operario', $id_op);
+        $this->db->update('operarios', $data);
+        
+    }
 }

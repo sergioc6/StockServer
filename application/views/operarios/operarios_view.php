@@ -70,8 +70,8 @@
                                 <td><?php echo $operario->nombre; ?></td>
                                 <td><?php echo $operario->email; ?></td>
                                 <td class="text-center">
-                                    <a title="Ver Operario" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-truck"></span></a> 
-                                    <a title="Editar Operario" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
+                                    <a title="Ver Operario" class='btn btn-default btn-xs' href="<?php echo base_url('Operarios/verFichaOperario_view/' . $operario->id_operario); ?>"><span class="fa fa-icon fa-truck"></span></a> 
+                                    <a title="Editar Operario" class='btn btn-info btn-xs' href="<?php echo base_url('Operarios/editarOperario_view/' . $operario->id_operario); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
                                     <a title="Eliminar Operario" href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>

@@ -72,4 +72,56 @@ class Operarios extends CI_Controller {
         }
     }
 
+    public function verFichaOperario_view($id_operario) {
+
+        $this->load->model('Operarios_model');
+        $data['operario'] = $this->Operarios_model->obtenerOperarioPorID($id_operario);
+        $this->load->view('operarios/verfichaoperario_view', $data);
+    }
+
+    public function editarOperario_view($id_operario) {
+        $this->load->model('Operarios_model');
+
+        $data['operario'] = $this->Operarios_model->obtenerOperarioPorID($id_operario);
+
+        $this->load->view('operarios/editaroperario_view', $data);
+    }
+
+    public function editarOperario() {
+
+        $id_operario = $this->input->post('id_operario');
+        $apellido = $this->input->post('apellido');
+        $nombre = $this->input->post('nombre');
+        $email = $this->input->post('email');
+        $pass = $this->input->post('pass');
+
+        if ($_FILES["fotoOperario"]["error"] != 0) {
+
+            $this->load->model('Operarios_model');
+            $this->Operarios_model->editarOperario($id_operario, $email, $pass, $apellido, $nombre, null);
+            $data['operario_edit'] = $this->Operarios_model->obtenerOperarioPorEmail($email);
+            $this->load->view('operarios/editaroperario_success_view', $data);
+        } else {
+            $this->load->model('Operarios_model');
+            $id_operario = $this->Operarios_model->editarOperario($id_operario, $email, $pass, $apellido, $nombre, null);
+
+            $config['upload_path'] = './fotos/fotos_operarios/';
+            $config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
+            $config['file_name'] = $id_operario;
+            $config['overwrite'] = TRUE;
+
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('fotoOperario')) {
+                $error = array('error' => $this->upload->display_errors());
+            } else {
+                $data = array('upload_data' => $this->upload->data());
+                $foto_path = $id_operario . $this->upload->data('file_ext');
+                $this->Operarios_model->cargarFotoAOperario($id_operario, $foto_path);
+            }
+            $data['operario_edit'] = $this->Operarios_model->obtenerOperarioPorEmail($email);
+
+            $this->load->view('operarios/editaroperario_success_view', $data);
+        }
+    }
+
 }

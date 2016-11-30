@@ -67,7 +67,6 @@ class Proveedores extends CI_Controller {
 
     public function cargarInsumosProv_view($id_prov) {
 
-
         $this->load->model('Proveedores_model');
         $this->load->model('Insumos_model');
 
@@ -135,6 +134,18 @@ class Proveedores extends CI_Controller {
         $data['proveedor_edit'] = $this->Proveedores_model->obtenerProveedorPorID($id_proveedor);
 
         $this->load->view('proveedores/editarproveedor_success_view', $data);
+    }
+    
+    public function verFichaProveedor_view($id_prov) {
+
+        $this->load->model('Proveedores_model');
+        $data['proveedor'] = $this->Proveedores_model->obtenerProveedorPorID($id_prov);
+        $data['insumos_proveedor'] = $this->Proveedores_model->obtenerInsumosPorProveedor($id_prov);
+
+        $this->load->view('proveedores/verfichaproveedor_view', $data);
+        
+        
+        
     }
 
 }
