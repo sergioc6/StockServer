@@ -61,7 +61,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
                 <div class="row omb_row-sm-offset-3">
                     <div class="col-md-5 col-md-offset-3">
-                        <h3 class="omb_authTitle" style="text-align: center;">Ingreso al Sistema</h3>
+                        <h3 class="omb_authTitle" style="text-align: center;">Ingresar</h3>
 
 
 
@@ -70,13 +70,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                         <form class="omb_loginForm" action="<?php echo base_url('Login/iniciarSesion'); ?>" autocomplete="off" method="POST">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo set_value('email'); ?>">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
                             </div>
                             <span class="bold-red"><?php echo form_error('email'); ?></span>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input  type="password" class="form-control" name="contrasenia" placeholder="Contraseña" value="<?php echo set_value('contrasenia'); ?>">
+                                <input  type="password" class="form-control" name="contrasenia" placeholder="Contraseña">
                             </div>
                             <span class="bold-red"><?php echo form_error('contrasenia'); ?></span>
 
@@ -86,8 +86,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                 </div>    
                             </div>
                         </form>
-
-
+                        
+                        
                     </div>
                 </div>          
             </div>

@@ -1,6 +1,11 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Operarios extends CI_Controller {
+
+
+include 'Controller_Base.php';
+
+class Operarios extends Controller_Base {
 
     public function __construct() {
         parent::__construct();

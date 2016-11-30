@@ -1,6 +1,13 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Compras extends CI_Controller {
+
+
+
+
+include 'Controller_Base.php';
+
+class Compras extends Controller_Base {
 
     public function __construct() {
         parent::__construct();

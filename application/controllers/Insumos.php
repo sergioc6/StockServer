@@ -1,6 +1,13 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Insumos extends CI_Controller {
+
+
+
+
+include 'Controller_Base.php';
+
+class Insumos extends Controller_Base {
 
     public function __construct() {
         parent::__construct();
