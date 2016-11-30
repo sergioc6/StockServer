@@ -14,7 +14,7 @@
             </div>
 
             <span class="logout-spn" >
-                <a href="#" style="color:#fff;">SALIR</a>  
+                <a href="<?php echo base_url('Login/cerrarSesion'); ?>" style="color:#fff;">SALIR</a>  
 
             </span>
         </div>

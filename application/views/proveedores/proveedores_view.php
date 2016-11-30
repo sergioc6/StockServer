@@ -39,7 +39,7 @@
                         <div class="div-square">
                             <a href="<?php echo base_url('Proveedores/agregarproveedor_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
-                                <h6>Agregar Proveedor</h6>
+                                <h5>Agregar Proveedor</h5>
                             </a>
                         </div>
                     </div> 
@@ -48,7 +48,7 @@
                         <div class="div-square">
                             <a href="<?php echo base_url('Proveedores/selectProveedor_view'); ?>" >
                                 <i class="fa fa-wrench fa-3x"></i>
-                                <h6>Cargar Insumos a Proveedor</h6>
+                                <h5>Cargar Insumos a Proveedor</h5>
                             </a>
                         </div>
                     </div> 

@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,7 +12,9 @@
  *
  * @author SergioC
  */
-class Backup extends CI_Controller {
+include 'Controller_Base.php';
+
+class Backup extends Controller_Base {
 
     public function Backup_view() {
         $this->load->model('Backup_model');
