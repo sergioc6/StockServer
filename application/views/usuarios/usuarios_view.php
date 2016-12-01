@@ -37,7 +37,7 @@
                 <div class="row text-center pad-top" style="margin-bottom: 20px;">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="<?php echo base_url('Usuarios/agregarusuario_view'); ?>" >
+                            <a href="<?php echo base_url('Usuarios/agregarUsuario_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
                                 <h5>Agregar Usuario</h5>
                             </a>
@@ -70,9 +70,9 @@
                                 <td><?php echo $usuario->nombres_usuario; ?></td>
                                 <td><?php echo $usuario->email; ?></td>
                                 <td class="text-center">
-                                    <a title="Ver Usuario" class='btn btn-default btn-xs' href="<?php echo base_url('Operarios/verFichaOperario_view/' . $usuario->id_usuario); ?>"><span class="fa fa-icon fa-user"></span></a> 
-                                    <a title="Editar Usuario" class='btn btn-info btn-xs' href="<?php echo base_url('Operarios/editarOperario_view/' . $usuario->id_usuario); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
-                                    <a title="Eliminar Usuario" href="<?php echo base_url('Operarios/eliminarOperario/').$usuario->id_usuario ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a title="Ver Usuario" class='btn btn-default btn-xs' href="<?php echo base_url('Usuarios/verFichaUsuario_view/' . $usuario->id_usuario); ?>"><span class="fa fa-icon fa-user"></span></a> 
+                                    <a title="Editar Usuario" class='btn btn-info btn-xs' href="<?php echo base_url('Usuarios/editarUsuario_view/' . $usuario->id_usuario); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
+                                    <a title="Eliminar Usuario" href="<?php echo base_url('Usuarios/eliminarUsuario/').$usuario->id_usuario ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -101,9 +101,9 @@
 
         <script type="text/javascript">
             $(".confirm").confirm({
-                text: "¿Estás seguro que deseas eliminar al operario?",
+                text: "¿Estás seguro que deseas eliminar al usuario?",
                 title: "Confirmación requerida",
-                confirmButton: "Si, eliminar operario",
+                confirmButton: "Si, eliminar usuario",
                 cancelButton: "No",
                 confirmButtonClass: "btn-danger",
                 cancelButtonClass: "btn-default",

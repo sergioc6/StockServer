@@ -23,8 +23,8 @@ class Login_model extends CI_Model {
     }
 
     public function validarContraseniaUsuario($email_usuario, $contrasenia) {
-        $query = $this->db->query("SELECT * FROM usuarios u WHERE u.email= '" . $email_usuario . "' AND u.contrasenia= '" . $contrasenia . "'");
-        if (count($query->result()) == 0) {
+        $query = $this->db->query("SELECT * FROM usuarios u WHERE u.email= '" . $email_usuario . "'");
+        if (count($query->result()) == 0 or !password_verify($contrasenia, $query->result()[0]->contrasenia)) {
             return false;
         } else {
             return true;
