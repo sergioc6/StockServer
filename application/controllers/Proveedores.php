@@ -126,6 +126,7 @@ class Proveedores extends Controller_Base {
     }
 
     public function editarProveedor() {
+        
         $id_proveedor = $this->input->post('id_proveedor');
         $nombre = $this->input->post('nombre');
         $localidad = $this->input->post('localidad');

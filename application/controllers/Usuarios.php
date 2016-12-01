@@ -65,17 +65,69 @@ class Usuarios extends Controller_Base {
             $this->load->model('Usuarios_model');
             $id_usuario = $this->Usuarios_model->insertarUsuario($apellido, $nombres, $email, $contrasenia);
             $data['nuevo_usuario'] = $this->Usuarios_model->obtenerUsuarioPorID($id_usuario);
-            
+
             $this->load->view('usuarios/agregarusuario_success_view', $data);
         }
     }
-    
-    
+
     public function eliminarUsuario($id_usuario) {
         $this->load->model('Usuarios_model');
         $this->Usuarios_model->deleteUsuarioPorID($id_usuario);
-        
+
         redirect(base_url('Usuarios/Usuarios_view'));
+    }
+
+    public function verFichaUsuario_view($id_usuario) {
+
+        $this->load->model('Usuarios_model');
+        $data['usuario'] = $this->Usuarios_model->obtenerUsuarioPorID($id_usuario);
+        $this->load->view('usuarios/verfichausuario_view', $data);
+    }
+
+    public function editarUsuario_view($id_usuario) {
+        $this->load->model('Usuarios_model');
+
+        $data['usuario_edit'] = $this->Usuarios_model->obtenerUsuarioPorID($id_usuario);
+
+        $this->load->view('usuarios/editarusuario_view', $data);
+    }
+
+    public function editarUsuario() {
+
+
+        //Reglas de validación para el formulario
+        $this->form_validation->set_rules('apellido', 'Apellido', 'required', array(
+            'required' => 'Debe ingresar el apellido del usuario.'));
+        $this->form_validation->set_rules('nombres', 'Nombres', 'required', array(
+            'required' => 'Debe ingresar los nombres del usuario.'));
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[usuarios.email]', array(
+            'required' => 'Debe ingresar el email del usuario.',
+            'valid_email' => 'Debe ingresar un email válido.',
+            'is_unique' => 'Ya existe un usuario registrado con ese email.'));
+        $this->form_validation->set_rules('contrasenia', 'Contraseña', 'required|min_length[8]|alpha_numeric', array(
+            'required' => 'Debe ingresar la contraseña.',
+            'min_length' => 'La contraseña es muy corta.',
+            'alpha_numeric' => 'La contraseña debe contener letras y números.'));
+        $this->form_validation->set_rules('contrasenia2', 'Contraseña Repetida', 'required|min_length[8]|alpha_numeric|matches[contrasenia]', array(
+            'required' => 'Debe reescribir la contraseña.',
+            'min_length' => 'La contraseña es muy corta.',
+            'alpha_numeric' => 'La contraseña debe contener letras y números.',
+            'matches' => 'La contraseña no coincide con la anterior.'));
+
+        $id_usuario = $this->input->post('id_usuario');
+        $apellido = $this->input->post('apellido');
+        $nombre = $this->input->post('nombres');
+        $email = $this->input->post('email');
+        $pass = $this->input->post('contrasenia');
+
+        if ($this->form_validation->run($id_usuario) == FALSE) {
+            $this->editarUsuario_view($id_usuario);
+        } else {
+            $this->load->model('Usuarios_model');
+            $this->Usuarios_model->editarUsuario($id_usuario, $email, $pass, $apellido, $nombre);
+            $data['usuario_edit'] = $this->Usuarios_model->obtenerUsuarioPorID($id_usuario);
+            $this->load->view('operarios/editarusuario_success_view', $data);
+        }
     }
 
 }

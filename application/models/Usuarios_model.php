@@ -41,4 +41,17 @@ class Usuarios_model extends CI_Model {
         $this->db->delete('usuarios');
     }
 
+    public function editarUsuario($id_usuario, $email_usuario, $pass_usuario, $apellido_usuario, $nombre_usuario) {
+        $hash_contrasenia = password_hash($pass_usuario, PASSWORD_DEFAULT);
+        $data = array(
+            'email' => $email_usuario,
+            'contrasenia' => $hash_contrasenia,
+            'apellido_usuario' => $apellido_usuario,
+            'nombres_usuario' => $nombre_usuario
+        );
+
+        $this->db->where('id_usuario', $id_usuario);
+        $this->db->update('usuarios', $data);
+    }
+
 }
