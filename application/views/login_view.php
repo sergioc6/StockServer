@@ -41,7 +41,7 @@ and open the template in the editor.
             <form action="<?php echo base_url('Login/iniciarSesion'); ?>" autocomplete="off" method="POST">
 
                 <div class="content1">
-                    <input type="text" name="email" placeholder="Email" onfocus="this.value = '';" onblur="if (this.value === '') {
+                    <input type="text" name="email" value="Email" onfocus="this.value = '';" onblur="if (this.value === '') {
                                 this.value = 'Email';
                             }">
                 </div>
@@ -51,7 +51,9 @@ and open the template in the editor.
                 </div>
 
                 <div class="content2">
-                    <input type="password" name="contrasenia" placeholder="Contraseña">
+                    <input type="password" name="contrasenia" value="Contraseña" onfocus="this.value = '';" onblur="if (this.value === '') {
+                                this.value = 'Email';
+                            }">
                 </div>
 
                 <div class="password-login-error">
