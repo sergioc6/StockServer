@@ -18,8 +18,9 @@ class Controller_Base extends CI_Controller {
         //Aqui abajo se validará la Session
         if ($this->session->userdata('logged_in') !== TRUE) {
             $this->output->set_status_header(401);
-            $this->load->view('loginnecessary_view');
-            exit();
+            redirect(base_url('Login/accesoNoAutorizado'));
+            exit;
+            
         }
     }
 

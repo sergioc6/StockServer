@@ -16,6 +16,11 @@ class Login extends CI_Controller {
     public function index() {
         $this->load->view('login_view');
     }
+    
+    public function accesoNoAutorizado() {
+        $this->load->view('loginnecessary_view');
+        
+    }
 
     public function iniciarSesion() {
         //Reglas de validación para el formulario
