@@ -45,6 +45,10 @@
                 </li>
 
                 <li>
+                    <a href="<?php echo base_url('Usuarios/Usuarios_view'); ?>"><i class="fa fa-users"></i> Usuarios</a>
+                </li>
+
+                <li>
                     <a href="<?php echo base_url('Backup/Backup_view'); ?>"><i class="fa fa-download"></i> Backup</a>
                 </li>
 

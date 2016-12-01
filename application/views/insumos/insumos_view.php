@@ -23,7 +23,7 @@
     </head>
     <body>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -87,7 +87,7 @@
                                 <td class="text-center">
                                     <a title="Ver Insumo" class='btn btn-default btn-xs' href="<?php echo base_url('Insumos/verInsumos_view/' . $insumo->id_insumo); ?>"><span class="fa fa-icon fa-wrench"></span></a> 
                                     <a title="Editar Insumo" class='btn btn-info btn-xs' href="<?php echo base_url('Insumos/editarInsumo_view/' . $insumo->id_insumo); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
-                                    <a title="Eliminar Insumo" href="<?php echo base_url('Insumos/eliminarInsumo/' . $insumo->id_insumo); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a title="Eliminar Insumo" href="<?php echo base_url('Insumos/eliminarInsumo/' . $insumo->id_insumo); ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -99,7 +99,7 @@
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -109,6 +109,21 @@
 
         <!-- BOOTSTRAP SCRIPTS -->
         <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+
+        <!-- CONFIRM JS-->
+        <script src="<?php echo base_url('assets/js/jquery.confirm.min.js'); ?>"></script>
+
+        <script type="text/javascript">
+            $(".confirm").confirm({
+                text: "¿Estás seguro que deseas eliminar el insumo?",
+                title: "Confirmación requerida",
+                confirmButton: "Si, eliminar insumo",
+                cancelButton: "No",
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-default",
+                dialogClass: "modal-dialog header-danger modal-lg" // Bootstrap classes for large modal
+            });
+        </script>
 
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>

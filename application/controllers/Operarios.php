@@ -129,4 +129,11 @@ class Operarios extends Controller_Base {
         }
     }
 
+    public function eliminarOperario($id_operario) {
+        $this->load->model('Operarios_model');
+        $this->Operarios_model->deleteOperario($id_operario);
+        redirect(base_url('Operarios/Operarios_view'));
+    }
+    
+    
 }

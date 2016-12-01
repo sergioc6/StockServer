@@ -86,7 +86,7 @@
                                 <td class="text-center">
                                     <a title="Ver Proveedor" class='btn btn-default btn-xs' href="<?php echo base_url('Proveedores/verFichaProveedor_view/' . $proveedor->id_proveedor); ?>"><span class="fa fa-icon fa-truck"></span></a> 
                                     <a title="Editar Proveedor" class='btn btn-info btn-xs' href="<?php echo base_url('Proveedores/editarProveedor_view/' . $proveedor->id_proveedor); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
-                                    <a title="Eliminar Proveedor" href="<?php echo base_url('Proveedores/eliminarProveedor/' . $proveedor->id_proveedor); ?>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a title="Eliminar Proveedor" href="<?php echo base_url('Proveedores/eliminarProveedor/' . $proveedor->id_proveedor); ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -110,6 +110,21 @@
         <!-- BOOTSTRAP SCRIPTS -->
         <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
+        <!-- CONFIRM JS-->
+        <script src="<?php echo base_url('assets/js/jquery.confirm.min.js'); ?>"></script>
+
+        <script type="text/javascript">
+            $(".confirm").confirm({
+                text: "¿Estás seguro que deseas eliminar el proveedor?",
+                title: "Confirmación requerida",
+                confirmButton: "Si, eliminar proveedor",
+                cancelButton: "No",
+                confirmButtonClass: "btn-danger",
+                cancelButtonClass: "btn-default",
+                dialogClass: "modal-dialog header-danger modal-lg" // Bootstrap classes for large modal
+            });
+        </script>
+        
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 

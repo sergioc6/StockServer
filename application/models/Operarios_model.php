@@ -42,10 +42,10 @@ class Operarios_model extends CI_Model {
     }
 
     public function obtenerOperarioPorEmail($email) {
-        $query = $this->db->query('SELECT * FROM operarios WHERE email="' . $email.'"');
+        $query = $this->db->query('SELECT * FROM operarios WHERE email="' . $email . '"');
         return $query->result()[0];
     }
-    
+
     public function cargarFotoAOperario($id_operario, $foto_path) {
         $data = array(
             'foto_operario' => $foto_path
@@ -53,7 +53,7 @@ class Operarios_model extends CI_Model {
         $this->db->where('id_operario', $id_operario);
         $this->db->update('operarios', $data);
     }
-    
+
     public function editarOperario($id_op, $email_op, $pass_op, $apellido_op, $nombre_op, $foto_path) {
         $data = array(
             'email' => $email_op,
@@ -64,6 +64,11 @@ class Operarios_model extends CI_Model {
 
         $this->db->where('id_operario', $id_op);
         $this->db->update('operarios', $data);
-        
     }
+
+    public function deleteOperario($id_operario) {
+        $this->db->where('id_operario', $id_operario);
+        $this->db->delete('operarios');
+    }
+
 }

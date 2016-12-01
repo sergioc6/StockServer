@@ -160,4 +160,10 @@ class Insumos extends Controller_Base {
         $this->load->view('insumos/editarinsumo_success_view', $data);
     }
 
+    public function eliminarSectorDeposito($id_sector) {
+        $this->load->model('Insumos_model');
+        $this->Insumos_model->deleteSector($id_sector);
+        redirect(base_url('Insumos/sectoresinsumos_view'));        
+    }
+    
 }

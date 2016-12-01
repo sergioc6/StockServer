@@ -29,51 +29,50 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Sectores de Insumos</h2>   
+                        <h2>Usuarios</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
                 <div class="row text-center pad-top" style="margin-bottom: 20px;">
-
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="<?php echo base_url('Insumos/agregarsector_view'); ?>" >
+                            <a href="<?php echo base_url('Usuarios/agregarusuario_view'); ?>" >
                                 <i class="fa fa-plus fa-3x"></i>
-                                <h5>Agregar Sector</h5>
+                                <h5>Agregar Usuario</h5>
                             </a>
                         </div>
-                    </div>
+                    </div> 
 
                 </div>
 
-                <table id="proveedores" class="display" cellspacing="0" width="100%">
+                <table id="usuarios" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Sector</th>
-                            <th>Latitud</th>
-                            <th>Longitud</th>
+                            <th>Apellido</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Sector</th>
-                            <th>Latitud</th>
-                            <th>Longitud</th>
+                            <th>Apellido</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <?php foreach ($sectores as $sector) { ?>
+                        <?php foreach ($usuarios as $usuario) { ?>
                             <tr>
-                                <td><?php echo $sector->sector_deposito; ?></td>
-                                <td><?php echo $sector->latitud; ?></td>
-                                <td><?php echo $sector->longitud; ?></td>
+                                <td><?php echo $usuario->apellido_usuario; ?></td>
+                                <td><?php echo $usuario->nombres_usuario; ?></td>
+                                <td><?php echo $usuario->email; ?></td>
                                 <td class="text-center">
-                                    <a title="Ver Sector" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-truck"></span></a> 
-                                    <a title="Editar Sector" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
-                                    <a title="Eliminar Sector" href="<?php echo base_url('Insumos/eliminarSectorDeposito/' . $sector->id_sector); ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a title="Ver Usuario" class='btn btn-default btn-xs' href="<?php echo base_url('Operarios/verFichaOperario_view/' . $usuario->id_usuario); ?>"><span class="fa fa-icon fa-user"></span></a> 
+                                    <a title="Editar Usuario" class='btn btn-info btn-xs' href="<?php echo base_url('Operarios/editarOperario_view/' . $usuario->id_usuario); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
+                                    <a title="Eliminar Usuario" href="<?php echo base_url('Operarios/eliminarOperario/').$usuario->id_usuario ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -86,7 +85,7 @@
 
 
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -102,22 +101,22 @@
 
         <script type="text/javascript">
             $(".confirm").confirm({
-                text: "¿Estás seguro que deseas eliminar el Sector de Depósito?",
+                text: "¿Estás seguro que deseas eliminar al operario?",
                 title: "Confirmación requerida",
-                confirmButton: "Si, eliminar Sector",
+                confirmButton: "Si, eliminar operario",
                 cancelButton: "No",
                 confirmButtonClass: "btn-danger",
                 cancelButtonClass: "btn-default",
                 dialogClass: "modal-dialog header-danger modal-lg" // Bootstrap classes for large modal
             });
         </script>
-        
+
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
         <!-- DATATABLES SCRIPTS -->
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/dataTableProveedores.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/dataTableUsuarios.js'); ?>"></script>
 
 
     </body>
