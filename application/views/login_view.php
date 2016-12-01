@@ -36,14 +36,19 @@ and open the template in the editor.
 
     </head>
     <body>
-        <div class="content">
+        <div class="content" margin="0">
             <h1><b>Ingresar al Sistema</b></h1>
+
+            <div class="center-block">
+                <img src="<?php echo base_url('assets/img/logo.png') ?>" class="img-thumbnail center-block" alt="Sistema Stock" width="250" height="250"> 
+            </div>
+
+
+
             <form action="<?php echo base_url('Login/iniciarSesion'); ?>" autocomplete="off" method="POST">
 
                 <div class="content1">
-                    <input type="text" name="email" placeholder="Email" onfocus="this.value = '';" onblur="if (this.value === '') {
-                                this.value = 'Email';
-                            }">
+                    <input type="text" name="email" placeholder="Email" onfocus="this.value = '';" >
                 </div>
 
                 <div class="email-login-error">

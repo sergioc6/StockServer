@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2016 a las 10:28:26
+-- Tiempo de generación: 01-12-2016 a las 11:14:51
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.23
 
@@ -40,7 +40,8 @@ INSERT INTO `backups` (`id_backup`, `fecha_hora`) VALUES
 (2, '2016-10-08 08:41:36'),
 (3, '2016-10-08 08:44:03'),
 (4, '2016-10-08 08:45:15'),
-(0, '2016-11-30 08:14:10');
+(0, '2016-11-30 08:14:10'),
+(0, '2016-12-01 09:06:11');
 
 -- --------------------------------------------------------
 
@@ -801,8 +802,7 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`, `telefono`, `localidad`, `direccion`, `email`) VALUES
-(13, 'Sergio Cabral', '21321321', 'Concepcion del Uruguay', 'rocamora 1199', 'sergio_396@hotmail.com'),
-(15, 'Pichicho Flores', '435589', 'Gchu', 'Jujuy 1575', 'edu.lei50@hotmail.com');
+(13, 'Sergio Cabral', '21321321', 'Concepcion del Uruguay', 'rocamora 1199', 'sergio_396@hotmail.com');
 
 -- --------------------------------------------------------
 
@@ -825,8 +825,6 @@ CREATE TABLE `sector_insumos` (
 INSERT INTO `sector_insumos` (`id_sector`, `sector_deposito`, `latitud`, `longitud`, `foto_sector`) VALUES
 (1, 'Sector de Herramientas', 21321313213, 231321321321, NULL),
 (2, 'Sector de Ejes', 32123131, 5646512, NULL),
-(8, 'Sector de Taladros', 1111, 2222, NULL),
-(9, 'Sector de maquinaria pesada', 11111, 22222, NULL),
 (10, 'Sector insumos pequeños', 213123123, 3123123123, NULL),
 (11, 'Sector rodados', 982938, 9080958, NULL),
 (12, 'Casa de Esteban', -32.485824594181636, -58.269491866303724, NULL),
@@ -873,7 +871,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombres_usuario`, `apellido_usuario`, `email`, `contrasenia`) VALUES
-(1, 'Sergio', 'Cabral', 'sergiocabral.1990@gmail.com', 'sarasa1990');
+(10, 'Sergio', 'Cabral', 'sergiocabral.1990@gmail.com', '$2y$10$WCY92FPqfHRFnqA8lQ/n.O3a19s0Ec92YhNzxnl./eltpWGJHuVvG');
 
 --
 -- Índices para tablas volcadas
@@ -951,7 +949,8 @@ ALTER TABLE `tipo_insumo`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -981,12 +980,12 @@ ALTER TABLE `insumo_deposito`
 -- AUTO_INCREMENT de la tabla `operarios`
 --
 ALTER TABLE `operarios`
-  MODIFY `id_operario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_operario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id_proveedor` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_proveedor` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `sector_insumos`
 --
@@ -1001,7 +1000,7 @@ ALTER TABLE `tipo_insumo`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Restricciones para tablas volcadas
 --
