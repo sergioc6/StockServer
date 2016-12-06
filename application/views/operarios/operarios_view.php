@@ -44,6 +44,17 @@
                         </div>
                     </div> 
 
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                            <a href="<?php echo base_url('Operarios/agregaroperario_view'); ?>" >
+                                <i class="fa fa-tasks fa-3x"></i>
+                                <h5>Controles realizados</h5>
+                            </a>
+                        </div>
+                    </div> 
+
+
+
                 </div>
 
                 <table id="operarios" class="display" cellspacing="0" width="100%">
@@ -52,6 +63,7 @@
                             <th>Apellido</th>
                             <th>Nombre</th>
                             <th>Email</th>
+                            <th>Foto del Operario</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </thead>
@@ -60,6 +72,7 @@
                             <th>Apellido</th>
                             <th>Nombre</th>
                             <th>Email</th>
+                            <th>Foto del Operario</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </tfoot>
@@ -69,10 +82,15 @@
                                 <td><?php echo $operario->apellido; ?></td>
                                 <td><?php echo $operario->nombre; ?></td>
                                 <td><?php echo $operario->email; ?></td>
+                                <?php if ($operario->foto_operario == NULL) { ?>
+                                    <td><img src="<?php echo base_url('fotos/fotos_operarios/default.png'); ?>" class="img-thumbnail" alt="<?php echo $operario->apellido . ' ' . $operario->nombre; ?>" width="150" height="150"></td>
+                                <?php } else { ?>
+                                    <td><img src="<?php echo base_url('fotos/fotos_operarios/' . $operario->foto_operario); ?>" class="img-thumbnail" alt="<?php echo $operario->apellido . ' ' . $operario->nombre; ?>" width="150" height="150"></td>
+                                <?php } ?>
                                 <td class="text-center">
                                     <a title="Ver Operario" class='btn btn-default btn-xs' href="<?php echo base_url('Operarios/verFichaOperario_view/' . $operario->id_operario); ?>"><span class="fa fa-icon fa-truck"></span></a> 
                                     <a title="Editar Operario" class='btn btn-info btn-xs' href="<?php echo base_url('Operarios/editarOperario_view/' . $operario->id_operario); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
-                                    <a title="Eliminar Operario" href="<?php echo base_url('Operarios/eliminarOperario/').$operario->id_operario ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a title="Eliminar Operario" href="<?php echo base_url('Operarios/eliminarOperario/') . $operario->id_operario ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
                         <?php } ?>

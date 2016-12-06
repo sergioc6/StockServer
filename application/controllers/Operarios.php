@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
@@ -131,9 +132,15 @@ class Operarios extends Controller_Base {
 
     public function eliminarOperario($id_operario) {
         $this->load->model('Operarios_model');
-        $this->Operarios_model->deleteOperario($id_operario);
-        redirect(base_url('Operarios/Operarios_view'));
+        $operario = $this->Operarios_model->obtenerOperarioPorID($id_operario);
+        if ($operario->foto_operario != NULL) {
+            unlink('fotos/fotos_operarios/' . $operario->foto_operario);
+            $this->Operarios_model->deleteOperario($id_operario);
+            redirect(base_url('Operarios/Operarios_view'));
+        } else {
+            $this->Operarios_model->deleteOperario($id_operario);
+            redirect(base_url('Operarios/Operarios_view'));
+        }
     }
-    
-    
+
 }

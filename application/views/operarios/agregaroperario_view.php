@@ -96,7 +96,12 @@
                                             </div>
                                         </div>
 
-
+                                        <!-- Button -->
+                                        <div class="form-group">
+                                            <div class="col-md-4 col-md-offset-4">
+                                                <a class="btn btn-block btn-default" href="<?php echo base_url('Operarios/Operarios_view'); ?>">Volver</a>
+                                            </div>
+                                        </div>
 
                                         </fieldset>
                                         </form>

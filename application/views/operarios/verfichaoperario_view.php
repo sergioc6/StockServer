@@ -35,7 +35,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         
-                        <!-- Foto Socio-->
+                        <!-- Foto Operario-->
                         <div class="form-group">
                             <?php if ($operario->foto_operario == NULL) { ?>
                             <img class="img-thumbnail center-block" src="<?php echo base_url('fotos/fotos_operarios/default.png'); ?>" width="250" height="250">  
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="btn-group btn-group-justified">
-                    <a href="<?php echo base_url('Operarios/operarios_view'); ?>" class="btn btn-default">Ver Operario</a>
+                    <a href="<?php echo base_url('Operarios/operarios_view'); ?>" class="btn btn-default">Volver</a>
                 </div>
 
 

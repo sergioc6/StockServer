@@ -2,10 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-
-
-
 include 'Controller_Base.php';
 
 class Insumos extends Controller_Base {
@@ -107,18 +103,18 @@ class Insumos extends Controller_Base {
                 $this->load->model('Insumos_model');
                 $id_sector = $this->Insumos_model->agregarSector($nombre_sector, $latitud, $longitud, null);
 
-                $config['upload_path'] = './fotos/fotos_operarios/';
+                $config['upload_path'] = './fotos/fotos_sectores/';
                 $config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
                 $config['file_name'] = $id_sector;
                 $config['overwrite'] = TRUE;
 
                 $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('fotoOperario')) {
+                if (!$this->upload->do_upload('fotoSector')) {
                     $error = array('error' => $this->upload->display_errors());
                 } else {
                     $data = array('upload_data' => $this->upload->data());
                     $foto_path = $id_sector . $this->upload->data('file_ext');
-                    $this->Operarios_model->cargarFotoASector($id_sector, $foto_path);
+                    $this->Insumos_model->cargarFotoASector($id_sector, $foto_path);
                 }
                 $data['nuevo_sector'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
                 $this->load->view('insumos/agregarsector_success_view', $data);
@@ -179,14 +175,21 @@ class Insumos extends Controller_Base {
 
     public function eliminarSectorDeposito($id_sector) {
         $this->load->model('Insumos_model');
-        $this->Insumos_model->deleteSector($id_sector);
-        redirect(base_url('Insumos/sectoresinsumos_view'));
+        $sector = $this->Insumos_model->obtenerSectorPorID($id_sector);
+        if ($sector->foto_sector == NULL) {
+            $this->Insumos_model->deleteSector($id_sector);
+            redirect(base_url('Insumos/sectoresinsumos_view'));
+        } else {
+            unlink('fotos/fotos_sectores/' . $sector->foto_sector);
+            $this->Insumos_model->deleteSector($id_sector);
+            redirect(base_url('Insumos/sectoresinsumos_view'));
+        }
     }
-    
+
     public function verFichaSectorDeposito($id_sector) {
         $this->load->model('Insumos_model');
         $data['sector'] = $this->Insumos_model->obtenerSectorPorID($id_sector);
         $this->load->view('insumos/versector_view', $data);
     }
-    
+
 }
