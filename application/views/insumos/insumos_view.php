@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <table id="example" class="display" cellspacing="0" width="100%">
+                <table id="insumos" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Cód. Insumo</th>
@@ -130,7 +130,7 @@
 
         <!-- DATATABLES SCRIPTS -->
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/activar_datatables.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/dataTableInsumos.js'); ?>"></script>
 
     </body>
 </html>
