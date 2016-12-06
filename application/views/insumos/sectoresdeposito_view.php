@@ -47,7 +47,7 @@
 
                 </div>
 
-                <table id="proveedores" class="display" cellspacing="0" width="100%">
+                <table id="sectores" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Sector</th>
@@ -124,7 +124,7 @@
 
         <!-- DATATABLES SCRIPTS -->
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/dataTableProveedores.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/dataTableSectores.js'); ?>"></script>
 
 
     </body>
