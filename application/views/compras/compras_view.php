@@ -46,7 +46,7 @@
                 </div> 
             </div>
 
-        <table id="example" class="display" cellspacing="0" width="100%">
+        <table id="compras" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Proveedor</th>
@@ -106,7 +106,7 @@
 
         <!-- DATATABLES SCRIPTS -->
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/activar_datatables.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/dataTableCompras.js'); ?>"></script>
 
 
     </body>
