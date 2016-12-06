@@ -88,7 +88,7 @@
                                 <label class="col-md-4 control-label" for="nombre">Cantidad:</label>  
                                 <div class="col-md-4">
                                     <input id="cantidad" name="cantidad" type="number" placeholder="" class="form-control input-md" min="0">
-                                        <?php echo form_error('cantidad'); ?>
+                                        <span style="color: red;"><?php echo form_error('cantidad'); ?></span>
                                 </div>
                             </div>
 

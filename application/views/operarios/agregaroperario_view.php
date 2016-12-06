@@ -41,7 +41,7 @@
                             <label class="col-md-4 control-label" for="Apellido">Apellido:</label>  
                             <div class="col-md-4">
                                 <input id="apellido" name="apellido" type="text" placeholder="Apellido" class="form-control input-md">
-                                    <?php echo form_error('apellido'); ?>
+                                    <span style="color: red;"><?php echo form_error('apellido'); ?></span>
 
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <label class="col-md-4 control-label" for="Nombre">Nombre:</label>  
                             <div class="col-md-4">
                                 <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control input-md">
-                                    <?php echo form_error('nombre'); ?>
+                                    <span style="color: red;"><?php echo form_error('nombre'); ?></span>
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
                             <label class="col-md-4 control-label" for="Email">Email:</label>  
                             <div class="col-md-4">
                                 <input id="email" name="email" type="mail" placeholder="Email" class="form-control input-md">
-                                    <?php echo form_error('email'); ?>
+                                    <span style="color: red;"><?php echo form_error('email'); ?></span>
                             </div>
                         </div>
 
@@ -69,7 +69,7 @@
                             <label class="col-md-4 control-label" for="Password">Contraseña:</label>  
                             <div class="col-md-4">
                                 <input id="pass" name="pass" type="password" placeholder="Contraseña" class="form-control input-md">
-                                    <?php echo form_error('pass'); ?>
+                                    <span style="color: red;"><?php echo form_error('pass'); ?></span>
                             </div>
                         </div>
 

@@ -43,7 +43,7 @@
                                 <label class="col-md-4 control-label" for="nombre">Nombre del Insumo:</label>  
                                 <div class="col-md-4">
                                     <input id="nombre" name="nombre" type="text" placeholder="" class="form-control input-md" value="<?php echo $insumo->nombre_insumo; ?>">
-
+                                    <span style="color: red;"><?php echo form_error('nombre'); ?></span>    
                                 </div>
                             </div>
 
@@ -52,6 +52,7 @@
                                 <label class="col-md-4 control-label" for="descripcion">Descripción:</label>  
                                 <div class="col-md-4">
                                     <textarea name="descripcion" id="descripcion" class="form-control" rows="5"><?php echo $insumo->descripcion; ?></textarea>
+                                    <span style="color: red;"><?php echo form_error('descripcion'); ?></span>
                                 </div>
                             </div>
 
@@ -62,6 +63,7 @@
                                 <label class="col-md-4 control-label" for="descripcion">Stock Mínimo:</label>  
                                 <div class="col-md-4">
                                     <input id="stock_min" name="stock_min" type="text" placeholder="" class="form-control input-md" value="<?php echo $insumo->stock_min; ?>">
+                                    <span style="color: red;"><?php echo form_error('stock_min'); ?></span>
                                 </div>
                             </div>
 
@@ -70,6 +72,7 @@
                                 <label class="col-md-4 control-label" for="descripcion">Stock Máximo:</label>  
                                 <div class="col-md-4">
                                     <input id="stock_max" name="stock_max" type="text" placeholder="" class="form-control input-md" value="<?php echo $insumo->stock_max; ?>">
+                                    <span style="color: red;"><?php echo form_error('stock_max'); ?></span>    
                                 </div>
                             </div>
 
