@@ -39,7 +39,7 @@ and open the template in the editor.
         <div class="content" margin="0">
             <h1><b>Ingresar al Sistema</b></h1>
 
-            <div class="center-block">
+            <div class="center-block" style="margin-top: 15px;">
                 <img src="<?php echo base_url('assets/img/logo.png') ?>" class="img-thumbnail center-block" alt="Sistema Stock" width="250" height="250"> 
             </div>
 

@@ -100,10 +100,9 @@ class Usuarios extends Controller_Base {
             'required' => 'Debe ingresar el apellido del usuario.'));
         $this->form_validation->set_rules('nombres', 'Nombres', 'required', array(
             'required' => 'Debe ingresar los nombres del usuario.'));
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[usuarios.email]', array(
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email', array(
             'required' => 'Debe ingresar el email del usuario.',
-            'valid_email' => 'Debe ingresar un email válido.',
-            'is_unique' => 'Ya existe un usuario registrado con ese email.'));
+            'valid_email' => 'Debe ingresar un email válido.'));
         $this->form_validation->set_rules('contrasenia', 'Contraseña', 'required|min_length[8]|alpha_numeric', array(
             'required' => 'Debe ingresar la contraseña.',
             'min_length' => 'La contraseña es muy corta.',
@@ -126,7 +125,7 @@ class Usuarios extends Controller_Base {
             $this->load->model('Usuarios_model');
             $this->Usuarios_model->editarUsuario($id_usuario, $email, $pass, $apellido, $nombre);
             $data['usuario_edit'] = $this->Usuarios_model->obtenerUsuarioPorID($id_usuario);
-            $this->load->view('operarios/editarusuario_success_view', $data);
+            $this->load->view('usuarios/editarusuario_success_view', $data);
         }
     }
 

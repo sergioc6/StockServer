@@ -47,7 +47,7 @@
                                 <label class="col-md-4 control-label" for="nombre">Apellido del usuario:</label>  
                                 <div class="col-md-4">
                                     <input id="apellido" name="apellido" type="text" placeholder="" class="form-control input-md" value="<?php echo $usuario_edit->apellido_usuario; ?>">
-
+                                        <?php echo form_error('apellido'); ?>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                 <label class="col-md-4 control-label" for="localidad">Nombre del usuario:</label>  
                                 <div class="col-md-4">
                                     <input id="nombres" name="nombres" type="text" placeholder="" class="form-control input-md" value="<?php echo $usuario_edit->nombres_usuario; ?>">
-
+                                        <?php echo form_error('nombres'); ?>
                                 </div>
                             </div>
 
@@ -65,7 +65,7 @@
                                 <label class="col-md-4 control-label" for="email">Email:</label>  
                                 <div class="col-md-4">
                                     <input id="email" name="email" type="email" placeholder="" class="form-control input-md" value="<?php echo $usuario_edit->email; ?>">
-
+                                        <?php echo form_error('email'); ?>
                                 </div>
                             </div>
 
@@ -74,7 +74,7 @@
                                 <label class="col-md-4 control-label" for="password">Contraseña nueva:</label>  
                                 <div class="col-md-4">
                                     <input id="contrasenia" name="contrasenia" type="password" placeholder="" class="form-control input-md" value="">
-
+                                        <?php echo form_error('contrasenia'); ?>
                                 </div>
                             </div>
 
@@ -83,7 +83,7 @@
                                 <label class="col-md-4 control-label" for="password">Reescriba la contraseña:</label>  
                                 <div class="col-md-4">
                                     <input id="contrasenia2" name="contrasenia2" type="password" placeholder="" class="form-control input-md" value="">
-
+                                        <?php echo form_error('contrasenia2'); ?>
                                 </div>
                             </div>
 
