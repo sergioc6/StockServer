@@ -45,12 +45,9 @@
                     <fieldset>
 
                         <!-- Select input Proveedores-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="localidad">Seleccionar proveedor:</label>  
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="col-md-7">
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label class="col-md-4 control-label" for="localidad">Seleccionar proveedor:</label>
+                            <div class="col-md-6">
                                 <select name="proveedor" class="proveedor-select2">
                                     <?php foreach ($proveedores as $proveedor) { ?>
                                         <option value="<?php echo $proveedor->id_proveedor; ?>"><?php echo $proveedor->nombre_proveedor; ?></option>
@@ -58,10 +55,13 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        
+                            <ul class="pager">
+                                <li><input type="submit" value="Siguiente"></li>
+                            </ul>
+                      
 
-                        <ul class="pager">
-                            <li><input type="submit" value="Siguiente"></li>
-                        </ul>
 
                     </fieldset>
                 </form>

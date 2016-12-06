@@ -42,7 +42,7 @@
                 <div class="stepwizard">
                     <div class="stepwizard-row">
                         <div class="stepwizard-step">
-                            <button type="button" class="btn btn-default btn-circle">1</button>
+                            <button type="button" class="btn btn-default btn-circle" disabled="disabled">1</button>
                             <p>Seleccionar Proveedor</p>
                         </div>
                         <div class="stepwizard-step">
