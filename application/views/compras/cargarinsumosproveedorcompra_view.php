@@ -20,6 +20,9 @@
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
+        <!-- STEPWIZARD -->
+        <link href="<?php echo base_url('assets/css/stepwizard.css'); ?>" rel='stylesheet' type='text/css' />
+
     </head>
     <body>
 
@@ -29,19 +32,31 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Realizar compra a proveedor</h2>   
+                        <h2>Realizar Compra a proveedor</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
 
 
-                <ul class="nav nav-tabs">
-                    <li><a class="btn btn-link disabled" href="#">Seleccionar Proveedor</a></li>
-                    <li class="active"><a data-toggle="tab" href="#">Seleccionar insumos a comprar</a></li>
-                    <li><a class="btn btn-link disabled" href="#">Confirmar Compra</a></li>
-                </ul>
+                <div class="stepwizard">
+                    <div class="stepwizard-row">
+                        <div class="stepwizard-step">
+                            <button type="button" class="btn btn-default btn-circle">1</button>
+                            <p>Seleccionar Proveedor</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <button type="button" class="btn btn-primary btn-circle" disabled="disabled">2</button>
+                            <p>Cargar Insumos</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <button type="button" class="btn btn-default btn-circle" disabled="disabled">3</button>
+                            <p>Confirmar compra</p>
+                        </div> 
+                    </div>
+                </div>
 
+                
                 <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/cargarInsumoACompra'); ?>">
                     <fieldset>
 
