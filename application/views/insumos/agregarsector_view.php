@@ -47,7 +47,7 @@
                             <label class="col-md-4 control-label" for="nombre">Nombre del sector:</label>  
                             <div class="col-md-4">
                                 <input id="nombre_sector" name="nombre_sector" type="text" placeholder="Nombre sector" class="form-control input-md">
-                                    <?php echo form_error('nombre_sector'); ?>
+                                    <span style="color: red;"><?php echo form_error('nombre_sector'); ?></span>
                             </div>
                         </div>
 

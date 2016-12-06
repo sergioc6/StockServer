@@ -156,7 +156,7 @@ class Proveedores extends Controller_Base {
         }
         else
         {
-            $this->editarProveedor_view($id_prov);
+            $this->editarProveedor_view($id_proveedor);
         }
     }
     

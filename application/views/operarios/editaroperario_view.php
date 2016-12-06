@@ -47,6 +47,7 @@
                                 <label class="col-md-4 control-label" for="nombre">Apellido del operario:</label>  
                                 <div class="col-md-4">
                                     <input id="apellido" name="apellido" type="text" placeholder="" class="form-control input-md" value="<?php echo $operario->apellido; ?>">
+                                    <span style="color: red;"><?php echo form_error('apellido'); ?></span>
 
                                 </div>
                             </div>
@@ -56,7 +57,7 @@
                                 <label class="col-md-4 control-label" for="localidad">Nombre del operario:</label>  
                                 <div class="col-md-4">
                                     <input id="nombre" name="nombre" type="text" placeholder="" class="form-control input-md" value="<?php echo $operario->nombre; ?>">
-
+                                    <span style="color: red;"><?php echo form_error('nombre'); ?></span>
                                 </div>
                             </div>
 
@@ -65,7 +66,7 @@
                                 <label class="col-md-4 control-label" for="email">Email:</label>  
                                 <div class="col-md-4">
                                     <input id="email" name="email" type="email" placeholder="" class="form-control input-md" value="<?php echo $operario->email; ?>">
-
+                                    <span style="color: red;"><?php echo form_error('email'); ?></span>
                                 </div>
                             </div>
 
@@ -74,6 +75,7 @@
                                 <label class="col-md-4 control-label" for="password">Contraseña nueva:</label>  
                                 <div class="col-md-4">
                                     <input id="password" name="password" type="password" placeholder="" class="form-control input-md" value="">
+                                    <span style="color: red;"><?php echo form_error('password'); ?></span>
 
                                 </div>
                             </div>
