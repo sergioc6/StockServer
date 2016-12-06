@@ -23,7 +23,7 @@
     </head>
     <body>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -45,9 +45,12 @@
                     <fieldset>
 
                         <!-- Select input Proveedores-->
-                        <div class="form-group" style="margin-top: 10px;">
+                        <div class="form-group">
                             <label class="col-md-4 control-label" for="localidad">Seleccionar proveedor:</label>  
-                            <div class="col-md-6">
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-7">
                                 <select name="proveedor" class="proveedor-select2">
                                     <?php foreach ($proveedores as $proveedor) { ?>
                                         <option value="<?php echo $proveedor->id_proveedor; ?>"><?php echo $proveedor->nombre_proveedor; ?></option>
@@ -69,7 +72,7 @@
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
