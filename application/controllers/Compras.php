@@ -115,8 +115,10 @@ class Compras extends Controller_Base {
             }
         }
         
-        $data['compra'] = $this->Compras_model->obtenerCompraPorIDCompra($id_compra);
+        $data['compra'] = $this->Compras_model->obtenerCompraPorID($id_compra);
+        $data['insumos'] = $this->Compras_model->obtenerInsumosDeCompra($id_compra);
         
+        $this->load->view('compras/realizarcompra_success_view', $data);
     }
 
     

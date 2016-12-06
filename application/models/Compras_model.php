@@ -47,4 +47,23 @@ class Compras_model extends CI_Model {
         return $query->result()[0];
     }
 
+    public function obtenerInsumosDeCompra($id_compra) {
+        $query = $this->db->query('SELECT id.id_insumo, i.nombre_insumo ,ip.precio, COUNT(id.id_insumo) AS cantidad  '
+                . '                 FROM insumo_deposito id '
+                . '                 LEFT JOIN insumoxproveedor ip ON id.id_insumo=ip.id_insumo'
+                . '                 LEFT JOIN insumos i ON i.id_insumo=id.id_insumo'
+                . '                 WHERE id.id_compra=' . $id_compra . ''
+                . '                 GROUP BY id.id_insumo');
+        return $query->result();
+    }
+
+    public function obtenerCompras() {
+        $query = $this->db->query('SELECT c.id_compra, c.numero_oc, c.estado, p.nombre_proveedor, c.fecha, c.monto, COUNT(c.id_compra) AS cant_insumos
+                                    FROM compras c 
+                                    LEFT JOIN proveedores p ON c.id_prov=p.id_proveedor
+                                    LEFT JOIN insumo_deposito id ON id.id_compra=c.id_compra
+                                    GROUP BY c.id_compra');
+        return $query->result();
+    }
+
 }
