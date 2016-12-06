@@ -128,4 +128,9 @@ class Insumos_model extends CI_Model {
         $this->db->delete('sector_insumos');
     }
 
+    public function obtenerSectorPorID($id_sector) {
+        $query = $this->db->query('SELECT * FROM sector_insumos WHERE id_sector=' . $id_sector);
+        return $query->result()[0];
+    }
+
 }

@@ -53,6 +53,7 @@
                             <th>Sector</th>
                             <th>Latitud</th>
                             <th>Longitud</th>
+                            <th>Foto del Sector</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </thead>
@@ -61,6 +62,7 @@
                             <th>Sector</th>
                             <th>Latitud</th>
                             <th>Longitud</th>
+                            <th>Foto del Sector</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
                         </tr>
                     </tfoot>
@@ -70,8 +72,13 @@
                                 <td><?php echo $sector->sector_deposito; ?></td>
                                 <td><?php echo $sector->latitud; ?></td>
                                 <td><?php echo $sector->longitud; ?></td>
+                                <?php if ($sector->foto_sector == NULL) { ?>
+                                    <td><img src="<?php echo base_url('fotos/fotos_sectores/default.jpg'); ?>" class="img-thumbnail" alt="<?php echo $sector->sector_deposito; ?>" width="200" height="200"></td>
+                                <?php } else { ?>
+                                    <td><img src="<?php echo base_url('fotos/fotos_sectores/' . $sector->foto_sector); ?>" class="img-thumbnail" alt="<?php echo $sector->sector_deposito; ?>" width="200" height="200"></td>
+                                <?php } ?>
                                 <td class="text-center">
-                                    <a title="Ver Sector" class='btn btn-default btn-xs' href="#"><span class="fa fa-icon fa-truck"></span></a> 
+                                    <a title="Ver Sector" class='btn btn-default btn-xs' href="<?php echo base_url('Insumos/verFichaSectorDeposito/'.$sector->id_sector); ?>"><span class="fa fa-icon fa-truck"></span></a> 
                                     <a title="Editar Sector" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
                                     <a title="Eliminar Sector" href="<?php echo base_url('Insumos/eliminarSectorDeposito/' . $sector->id_sector); ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
@@ -86,7 +93,7 @@
 
 
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -111,7 +118,7 @@
                 dialogClass: "modal-dialog header-danger modal-lg" // Bootstrap classes for large modal
             });
         </script>
-        
+
         <!-- CUSTOM SCRIPTS -->
         <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 

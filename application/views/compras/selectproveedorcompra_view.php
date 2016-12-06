@@ -5,42 +5,59 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Control de Stock</title>
 
-        <!-- BOOTSTRAP STYLES-->
+        <!-- BOOTSTRAP STYLES -->
         <link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet" />
 
-        <!-- FONT-AWESOME STYLES-->
+        <!-- FONT-AWESOME STYLES -->
         <link href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css"/>
 
-        <!-- CUSTOM STYLES-->
+        <!-- CUSTOM STYLES -->
         <link href="<?php echo base_url('assets/css/custom.css'); ?>" rel="stylesheet" />
 
-        <!-- SELECT2 STYLES-->
+        <!-- SELECT2 STYLES -->
         <link href="<?php echo base_url('assets/css/select2.min.css'); ?>" rel="stylesheet" />
 
-        <!-- GOOGLE FONTS-->
+        <!-- GOOGLE FONTS -->
         <link href="<?php echo base_url('assets/css/open_sans.css'); ?>" rel='stylesheet' type='text/css' />
 
+        <!-- STEPWIZARD -->
+        <link href="<?php echo base_url('assets/css/stepwizard.css'); ?>" rel='stylesheet' type='text/css' />
+
+        
     </head>
     <body>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/navbar.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/navbar.php'; ?>
 
         <div id="page-wrapper" >
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Realizar compra a proveedor</h2>   
+                        <h2>Realizar Compra a proveedor</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
                 <hr />
 
 
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#">Seleccionar Proveedor</a></li>
-                    <li><a class="btn btn-link disabled" href="#">Seleccionar insumos a comprar</a></li>
-                    <li><a class="btn btn-link disabled" href="#">Confirmar Compra</a></li>
-                </ul>
+
+                <div class="stepwizard">
+                    <div class="stepwizard-row">
+                        <div class="stepwizard-step">
+                            <button type="button" class="btn btn-primary btn-circle">1</button>
+                            <p>Seleccionar Proveedor</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <button type="button" class="btn btn-default btn-circle" disabled="disabled">2</button>
+                            <p>Cargar Insumos</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <button type="button" class="btn btn-default btn-circle" disabled="disabled">3</button>
+                            <p>Confirmar compra</p>
+                        </div> 
+                    </div>
+                </div>
+
 
                 <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/seleccionarProveedorCompra'); ?>">
                     <fieldset>
@@ -58,6 +75,7 @@
                         </div>
 
                         <ul class="pager">
+                            <li><a href="<?php echo base_url('Compras/Compras_view'); ?>" class="">Volver</a></li>
                             <li><input type="submit" value="Siguiente"></li>
                         </ul>
 
@@ -70,7 +88,7 @@
             <!-- /. PAGE INNER  -->
         </div>
 
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/StockServer/application/views/footer.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/StockServer/application/views/footer.php'; ?>
 
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->

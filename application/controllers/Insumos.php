@@ -166,4 +166,10 @@ class Insumos extends Controller_Base {
         redirect(base_url('Insumos/sectoresinsumos_view'));        
     }
     
+    public function verFichaSectorDeposito($id_sector) {
+        $this->load->model('Insumos_model');
+        $data['sector'] = $this->Insumos_model->obtenerSectorPorID($id_sector);
+        $this->load->view('insumos/versector_view', $data);
+    }
+    
 }
