@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
@@ -123,7 +124,7 @@ class Insumos extends Controller_Base {
                 $this->load->view('insumos/agregarsector_success_view', $data);
             }
         } else {
-            
+
             $this->agregarsector_view();
         }
     }
@@ -136,11 +137,11 @@ class Insumos extends Controller_Base {
 
         $this->load->view('insumos/editarinsumo_view', $data);
     }
-    
+
     public function verInsumos_view($id_insumo) {
         $this->load->model('Insumos_model');
         $data['insumo'] = $this->Insumos_model->obtenerInsumoPorID($id_insumo);
-        
+
         $this->load->view('insumos/verinsumo_view', $data);
     }
 
@@ -153,17 +154,33 @@ class Insumos extends Controller_Base {
         $tipo_insumo = $this->input->post('tipo');
         $sector = $this->input->post('sector');
 
-        $this->load->model('Insumos_model');
-        $this->Insumos_model->editarInsumo($id_insumo, $nombre_insumo, $descripcion, $stock_min, $stock_max, $sector, $tipo_insumo);
+        // Validación del formulario
+        $this->form_validation->set_rules('nombre', 'Nombre del insumo', 'required');
+        $this->form_validation->set_rules('descripcion', 'Descripción', 'required');
+        $this->form_validation->set_rules('stock_min', 'Stock mínimo', 'required|numeric');
+        $this->form_validation->set_rules('stock_max', 'Stock máximo', 'required|numeric');
+        $this->form_validation->set_rules('tipo', 'Tipo insumo', 'required|numeric');
+        $this->form_validation->set_rules('sector', 'Sector depósito', 'required|numeric');
 
-        $data['insumo_edit'] = $this->Insumos_model->obtenerInsumoPorID($id_insumo);
-        $this->load->view('insumos/editarinsumo_success_view', $data);
+        // Mostramos los mensajes en un lenguaje adecuado
+        $this->form_validation->set_message('required', '%s es obligatorio.');
+        $this->form_validation->set_message('numeric', '%s debe ser numérico.');
+
+        if ($this->form_validation->run() == TRUE) {
+            $this->load->model('Insumos_model');
+            $this->Insumos_model->editarInsumo($id_insumo, $nombre_insumo, $descripcion, $stock_min, $stock_max, $sector, $tipo_insumo);
+
+            $data['insumo_edit'] = $this->Insumos_model->obtenerInsumoPorID($id_insumo);
+            $this->load->view('insumos/editarinsumo_success_view', $data);
+        } else {
+            $this->editarInsumo_view($id_insumo);
+        }
     }
 
     public function eliminarSectorDeposito($id_sector) {
         $this->load->model('Insumos_model');
         $this->Insumos_model->deleteSector($id_sector);
-        redirect(base_url('Insumos/sectoresinsumos_view'));        
+        redirect(base_url('Insumos/sectoresinsumos_view'));
     }
     
     public function verFichaSectorDeposito($id_sector) {

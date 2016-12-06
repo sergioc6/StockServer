@@ -126,19 +126,38 @@ class Proveedores extends Controller_Base {
     }
 
     public function editarProveedor() {
+        
         $id_proveedor = $this->input->post('id_proveedor');
         $nombre = $this->input->post('nombre');
         $localidad = $this->input->post('localidad');
         $email = $this->input->post('email');
         $direccion = $this->input->post('direccion');
         $telefono = $this->input->post('telefono');
+        
+        // Validamos los inputs
+        $this->form_validation->set_rules('nombre', 'El nombre del proveedor', 'required');
+        $this->form_validation->set_rules('localidad', 'La localidad del proveedor', 'required');
+        $this->form_validation->set_rules('email', 'El email del proveedor', 'required');
+        $this->form_validation->set_rules('direccion', 'La dirección del proveedor', 'required');
+        $this->form_validation->set_rules('telefono', 'El teléfono del proveedor', 'required');
 
+
+        // Mostramos los mensajes en un lenguaje adecuado
+        $this->form_validation->set_message('required', '%s es obligatorio/a.');
+        $this->form_validation->set_message('numeric', '%s debe ser numérico/a.');
+        
+        if ($this->form_validation->run() == TRUE) {
         $this->load->model('Proveedores_model');
         $this->Proveedores_model->editarProveedor($id_proveedor, $nombre, $telefono, $localidad, $direccion, $email);
 
         $data['proveedor_edit'] = $this->Proveedores_model->obtenerProveedorPorID($id_proveedor);
 
         $this->load->view('proveedores/editarproveedor_success_view', $data);
+        }
+        else
+        {
+            $this->editarProveedor_view($id_prov);
+        }
     }
     
     public function verFichaProveedor_view($id_prov) {
