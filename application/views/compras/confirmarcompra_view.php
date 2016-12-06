@@ -42,7 +42,7 @@
                 <div class="stepwizard">
                     <div class="stepwizard-row">
                         <div class="stepwizard-step">
-                            <button type="button" class="btn btn-default btn-circle">1</button>
+                            <button type="button" class="btn btn-default btn-circle" disabled="disabled">1</button>
                             <p>Seleccionar Proveedor</p>
                         </div>
                         <div class="stepwizard-step">
@@ -104,8 +104,8 @@
                                                                                             <thead>
                                                                                                 <tr>
                                                                                                     <td><strong>Insumo</strong></td>
-                                                                                                    <td class="text-center"><strong>Precio U.</strong></td>
                                                                                                     <td class="text-center"><strong>Cantidad</strong></td>
+                                                                                                    <td class="text-center"><strong>Precio U.</strong></td>
                                                                                                     <td class="text-right"><strong>Precio Total</strong></td>
                                                                                                 </tr>
                                                                                             </thead>
@@ -113,8 +113,8 @@
                                                                                                 <?php foreach ($this->cart->contents() as $item) { ?>
                                                                                                     <tr>
                                                                                                         <th><?php echo $item['name']; ?></th>
-                                                                                                        <th class="text-center"><?php echo $item['price']; ?></th>
-                                                                                                        <th class="text-center">$<?php echo $item['qty']; ?></th>
+                                                                                                        <th class="text-center"><?php echo $item['qty']; ?></th>
+                                                                                                        <th class="text-center">$<?php echo $item['price']; ?></th>
                                                                                                         <th class="text-right">$<?php echo $item['precio_tot']; ?></th>
                                                                                                     </tr>
                                                                                                 <?php } ?>

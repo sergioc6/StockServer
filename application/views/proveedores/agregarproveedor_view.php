@@ -44,7 +44,7 @@
                             <label class="col-md-4 control-label" for="nombre">Nombre del proveedor:</label>  
                             <div class="col-md-4">
                                 <input id="nombre" name="nombre" type="text" placeholder="" class="form-control input-md">
-                                    <?php echo form_error('nombre'); ?>
+                                    <span style="color:red;"><?php echo form_error('nombre'); ?></span>
                             </div>
                         </div>
 
@@ -53,7 +53,7 @@
                             <label class="col-md-4 control-label" for="localidad">Localidad:</label>  
                             <div class="col-md-4">
                                 <input id="localidad" name="localidad" type="text" placeholder="" class="form-control input-md">
-                                    <?php echo form_error('localidad'); ?>
+                                    <span style="color:red;"><?php echo form_error('localidad'); ?></span>
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@
                             <label class="col-md-4 control-label" for="email">Email:</label>  
                             <div class="col-md-4">
                                 <input id="email" name="email" type="text" placeholder="" class="form-control input-md">
-                                    <?php echo form_error('email'); ?>
+                                    <span style="color:red;"><?php echo form_error('email'); ?></span>
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                             <label class="col-md-4 control-label" for="direccion">Dirección:</label>  
                             <div class="col-md-4">
                                 <input id="direccion" name="direccion" type="text" placeholder="" class="form-control input-md">
-                                    <?php echo form_error('direccion'); ?>
+                                    <span style="color:red;"><?php echo form_error('direccion'); ?></span>
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
                             <label class="col-md-4 control-label" for="telefono">Teléfono:</label>  
                             <div class="col-md-4">
                                 <input id="telefono" name="telefono" type="text" placeholder="" class="form-control input-md">
-                                    <?php echo form_error('telefono'); ?>
+                                    <span style="color:red;"><?php echo form_error('telefono'); ?></span>
                             </div>
                         </div>
 
