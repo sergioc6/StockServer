@@ -40,4 +40,11 @@ class Compras_model extends CI_Model {
         }
     }
 
+    public function obtenerCompraPorID($id_compra) {
+        $query = $this->db->query('SELECT * FROM compras c '
+                . '                 LEFT JOIN proveedores p ON c.id_prov=p.id_proveedor'
+                . '                 WHERE c.id_compra=' . $id_compra);
+        return $query->result()[0];
+    }
+
 }

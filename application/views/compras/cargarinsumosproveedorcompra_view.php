@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                
+
                 <form class="form-horizontal" method="post" action="<?php echo base_url('Compras/cargarInsumoACompra'); ?>">
                     <fieldset>
 
@@ -133,7 +133,11 @@
 
                             <ul class="pager">
                                 <li><a href="<?php echo base_url('Compras/selectProveedorCompra_view'); ?>">Volver</a></li>
-                                <li class="disabled">Siguiente</a></li>
+                                <?php if (count($this->cart->contents()) == 0) { ?>
+                                    <li class="disabled">Siguiente</a></li>
+                                    <?php } else { ?>
+                                    <li><a href="<?php echo base_url('Compras/confirmarCompra_view/' . $proveedor->id_proveedor); ?>">Siguiente</a></li>
+                                <?php } ?>
                             </ul>
 
                     </fieldset>

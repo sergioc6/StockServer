@@ -1,10 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-
-
-
 include 'Controller_Base.php';
 
 class Compras extends Controller_Base {
@@ -102,8 +98,6 @@ class Compras extends Controller_Base {
     }
     
     public function realizarCompra() {
-        
-        
         $this->load->model('Compras_model');
         
         //Agrego la Compra a la DB
@@ -120,6 +114,8 @@ class Compras extends Controller_Base {
                 $this->Compras_model->agregarInsumoACompra($id_compra, $id_insumo);
             }
         }
+        
+        $data['compra'] = $this->Compras_model->obtenerCompraPorIDCompra($id_compra);
         
     }
 
