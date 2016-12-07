@@ -54,7 +54,7 @@
                     </div> 
                 </div>
 
-                <table id="proveedores" class="display" cellspacing="0" width="100%">
+                <table id="proveedores" class="table-responsive" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Nombre proveedor</th>

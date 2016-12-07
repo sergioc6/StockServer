@@ -32,11 +32,13 @@
                 <!-- /. ROW  -->
                 <hr />
                 
-                <?php if ($sector->foto_sector == NULL) { ?>
-                    <img src="<?php echo base_url('fotos/fotos_sectores/default.jpg'); ?>" class="img-thumbnail" alt="<?php echo $sector->sector_deposito; ?>" width="200" height="200">
-                <?php } else { ?>
-                    <img src="<?php echo base_url('fotos/fotos_sectores/' . $sector->foto_sector); ?>" class="img-thumbnail" alt="<?php echo $sector->sector_deposito; ?>" width="200" height="200">
-                <?php } ?>
+                <div class="text-center" style="margin-bottom: 10px;">
+                    <?php if ($sector->foto_sector == NULL) { ?>
+                        <img src="<?php echo base_url('fotos/fotos_sectores/default.jpg'); ?>" class="img-thumbnail" alt="<?php echo $sector->sector_deposito; ?>" width="200" height="200">
+                    <?php } else { ?>
+                        <img src="<?php echo base_url('fotos/fotos_sectores/' . $sector->foto_sector); ?>" class="img-thumbnail" alt="<?php echo $sector->sector_deposito; ?>" width="200" height="200">
+                    <?php } ?>
+                </div>
                     
                 <div class="panel panel-default">
                     <div class="panel-body">

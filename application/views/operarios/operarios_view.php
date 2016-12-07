@@ -60,8 +60,7 @@
                 <table id="operarios" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Apellido</th>
-                            <th>Nombre</th>
+                            <th>Apellido y nombre</th>
                             <th>Email</th>
                             <th>Foto del Operario</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
@@ -69,8 +68,7 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Apellido</th>
-                            <th>Nombre</th>
+                            <th>Apellido y nombre</th>
                             <th>Email</th>
                             <th>Foto del Operario</th>
                             <th><i class="fa fa-cogs" aria-hidden="true"></i></th>
@@ -79,8 +77,7 @@
                     <tbody>
                         <?php foreach ($operarios as $operario) { ?>
                             <tr>
-                                <td><?php echo $operario->apellido; ?></td>
-                                <td><?php echo $operario->nombre; ?></td>
+                                <td><?php echo $operario->apellido; ?> <?php echo $operario->nombre; ?></td>
                                 <td><?php echo $operario->email; ?></td>
                                 <?php if ($operario->foto_operario == NULL) { ?>
                                     <td><img src="<?php echo base_url('fotos/fotos_operarios/default.png'); ?>" class="img-thumbnail" alt="<?php echo $operario->apellido . ' ' . $operario->nombre; ?>" width="150" height="150"></td>

@@ -94,17 +94,10 @@
                             </div>
                         </div>
 
+                    </div>
 
-                        
-                        
-                        <div class='col-md-4 text-center container'>
-                            <a href="<?php echo base_url('Compras/Compras_view'); ?>" class="btn btn-default btn-block" role="button">Ver Compras</a>
-                        </div>
-
-
-
-
-
+                    <div class='col-md-4 col-md-offset-3'>
+                        <a href="<?php echo base_url('Compras/Compras_view'); ?>" class="btn btn-default btn-block" role="button">Ver Compras</a>
                     </div>
 
 
