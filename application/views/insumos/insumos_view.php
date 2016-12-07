@@ -47,7 +47,6 @@
                     </div> 
 
 
-
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
                             <a href="<?php echo base_url('Insumos/sectoresinsumos_view'); ?>" >
@@ -56,6 +55,18 @@
                             </a>
                         </div>                   
                     </div>
+
+
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="div-square">
+                            <a href="<?php echo base_url('Insumos/InsumosDisponibles_view'); ?>" >
+                                <i class="fa fa-check-square-o fa-3x"></i>
+                                <h5>Insumos disponibles</h5>
+                            </a>
+                        </div>                   
+                    </div>
+
+
                 </div>
 
                 <table id="insumos" class="display" cellspacing="0" width="100%">

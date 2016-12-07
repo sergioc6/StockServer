@@ -13,7 +13,6 @@
  */
 class API_Login extends CI_Controller {
 
-    
     /**
      * Función login()
      * Se crea el JSON que contiene el usuario y la contraseña desde la vista del Login.
@@ -27,23 +26,15 @@ class API_Login extends CI_Controller {
      * En caso contrario, establecemos el header con el error 401 (Acceso no autorizado)
      * y se devuelve el mensaje "Token inválido".
      */
-    
-    
-    
     public function login() {
         $login = json_decode($this->security->xss_clean($this->input->raw_input_stream));
-
         $this->load->model('Login_model');
-        //var_dump($login);
 
-        if($this->Login_model->existeOperario($login->usuario, $login->pass) === false)
-        {
+        if ($this->Login_model->existeOperario($login->usuario, $login->pass) === false) {
             $this->output->set_status_header(401);
-        }
-        else
-        {
+        } else {
             $token = array('token' => $this->encrypt->encode($login->usuario));
-            
+
             $this->output->set_content_type('application/json');
             $this->output->set_output(json_encode($token));
         }

@@ -14,12 +14,16 @@
 class Login extends CI_Controller {
 
     public function index() {
-        $this->load->view('login_view');
+        //Si existe una session creada lo mando al Inicio directamente.
+        if ($this->session->userdata('logged_in') == TRUE) {
+            redirect(base_url('Inicio/index'));
+        } else {
+            $this->load->view('login_view');
+        }
     }
-    
+
     public function accesoNoAutorizado() {
         $this->load->view('loginnecessary_view');
-        
     }
 
     public function iniciarSesion() {
