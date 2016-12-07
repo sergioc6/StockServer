@@ -20,7 +20,6 @@ class Controller_Base extends CI_Controller {
             $this->output->set_status_header(401);
             redirect(base_url('Login/accesoNoAutorizado'));
             exit;
-            
         }
     }
 

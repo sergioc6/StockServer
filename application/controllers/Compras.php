@@ -10,7 +10,10 @@ class Compras extends Controller_Base {
     }
 
     public function Compras_view() {
-        $this->load->view('compras/compras_view');
+        $this->load->model('Compras_model');
+        $data['compras'] = $this->Compras_model->obtenerCompras();
+        
+        $this->load->view('compras/compras_view', $data);
     }
 
     public function selectProveedorCompra_view() {
@@ -121,7 +124,11 @@ class Compras extends Controller_Base {
         $this->load->view('compras/realizarcompra_success_view', $data);
     }
 
-    
+    public function eliminarCompra($id_compra) {
+        $this->load->model('Compras_model');
+        $this->Compras_model->deleteCompra($id_compra);
+        redirect(base_url('Compras/Compras_view'));
+    }
     
 
 }

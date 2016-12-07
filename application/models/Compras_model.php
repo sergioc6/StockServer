@@ -31,12 +31,12 @@ class Compras_model extends CI_Model {
     }
 
     public function obtenerSiguienteNumeroOC() {
-        $query = $this->db->query('SELECT MAX(numero_oc) as mayor FROM compras');
+        $query = $this->db->query('SELECT MAX(numero_oc)+1 AS siguiente FROM compras');
         $resultado = $query->result();
-        if ($resultado[0]->mayor == NULL) {
+        if ($resultado[0]->siguiente == NULL) {
             return 1;
         } else {
-            return $resultado[0]->mayor++;
+            return ($resultado[0]->siguiente);
         }
     }
 
@@ -64,6 +64,11 @@ class Compras_model extends CI_Model {
                                     LEFT JOIN insumo_deposito id ON id.id_compra=c.id_compra
                                     GROUP BY c.id_compra');
         return $query->result();
+    }
+
+    public function deleteCompra($id_compra) {
+        $this->db->where('id_compra', $id_compra);
+        $this->db->delete('compras');
     }
 
 }
