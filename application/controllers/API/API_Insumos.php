@@ -36,5 +36,23 @@ class API_Insumos extends API_Base {
         $this->output->set_content_type('application/json');
         $this->output->set_output(json_encode($lista_insumos));
     }
+    
+    public function obtenerSectores()
+    {
+        $this->load->model('Insumos_model');
+        $lista_sectores = $this->Insumos_model->obtenerSectoresDeInsumos();
+        
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_decode($lista_sectores));
+    }
+    
+    public function obtenerTiposInsumos()
+    {
+        $this->load->model('Insumos_model');
+        $lista_tipos_insumos = $this->Insumos_model->obtenerTiposDeInsumos();
+        
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_decode($lista_tipos_insumos));
+    }
 
 }
