@@ -43,7 +43,7 @@ and open the template in the editor.
 
                 <div class="content1">
                     <input type="text" name="email" placeholder="Email" onfocus="this.value = '';" onblur="if (this.value === '');
-                            }">
+                            ">
                 </div>
 
                 <div class="email-login-error">
@@ -52,8 +52,7 @@ and open the template in the editor.
 
                 <div class="content2">
                     <input type="password" name="contrasenia" placeholder="Contraseña" onfocus="this.value = '';" onblur="if (this.value === '') {
-                                this.value = '';
-                            }">
+                                this.value = '';">
                 </div>
 
                 <div class="password-login-error">
