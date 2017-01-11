@@ -71,4 +71,19 @@ class Compras_model extends CI_Model {
         $this->db->delete('compras');
     }
 
+    public function obtenerCompraPorNumOC($numOC) {
+        $query = $this->db->query('SELECT * FROM compras c '
+                . '                 LEFT JOIN proveedores p ON c.id_prov=p.id_proveedor'
+                . '                 WHERE c.numero_oc=' . $numOC);
+        return $query->result()[0];
+    }
+
+    public function confirmarRecepcionOC($numOC) {
+        $data = array(
+            'estado' => "Recibida"
+        );
+        $this->db->where('numero_oc', $numOC);
+        $this->db->update('compras', $data);
+    }
+
 }

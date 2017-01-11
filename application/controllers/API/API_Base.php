@@ -19,7 +19,7 @@ class API_Base extends CI_Controller {
         //Se carga la libreria Encrypt y el modelo Login_model
         $this->load->library('encrypt');
         $this->load->model('Login_model');
-        
+
         //Se obtiene el token encriptado del header
         $token_encrypt = $this->input->get_request_header('token', TRUE);
         //Se desencripta el token
