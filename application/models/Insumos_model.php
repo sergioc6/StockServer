@@ -18,13 +18,13 @@ class Insumos_model extends CI_Model {
     }
     
     public function obtenerIDTipoInsumoPorNombre($nombre_insumo) {
-        $query = $this->db->query('SELECT id_insumo FROM tipo_insumo WHERE tipo = "' . $nombre_insumo . '"');
-        return $query->result();
+        $query = $this->db->query('SELECT id_tipoinsumo FROM tipo_insumo WHERE tipo = "' . $nombre_insumo . '"');
+        return $query->result()[0]->id_tipoinsumo;
     }
     
     public function obtenerIDSectorPorNombre($nombre_sector) {
         $query = $this->db->query('SELECT id_sector FROM sector_insumos WHERE sector_deposito = "' . $nombre_sector .'"');
-        return $query->result();        
+        return $query->result()[0]->id_sector;        
     }
 
     /**
