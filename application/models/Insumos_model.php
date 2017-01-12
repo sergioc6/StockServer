@@ -16,6 +16,16 @@ class Insumos_model extends CI_Model {
         $query = $this->db->query('SELECT * FROM sector_insumos');
         return $query->result();
     }
+    
+    public function obtenerIDTipoInsumoPorNombre($nombre_insumo) {
+        $query = $this->db->query('SELECT id_insumo FROM tipo_insumo WHERE tipo = "' . $nombre_insumo . '"');
+        return $query->result();
+    }
+    
+    public function obtenerIDSectorPorNombre($nombre_sector) {
+        $query = $this->db->query('SELECT id_sector FROM sector_insumos WHERE sector_deposito = "' . $nombre_sector .'"');
+        return $query->result();        
+    }
 
     /**
      * Inserta un nuevo insumo en la BD.

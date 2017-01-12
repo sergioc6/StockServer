@@ -24,9 +24,11 @@ class API_Insumos extends API_Base {
     public function insertarInsumo() {
         $insumos = json_decode($this->security->xss_clean($this->input->raw_input_stream));
 
-
         $this->load->model('Insumos_model');
-        $this->Insumos_model->insertarInsumo($insumos->nombre_insumo, $insumos->descripcion, $insumos->stock_min, $insumos->stock_max, $insumos->sector, $insumos->tipo_insumo);
+        $id_tipo_insumo = $this->Insumos_model->obtenerIDTipoInsumoPorNombre($insumos->tipo_insumo);
+        $id_sector_insumo = $this->Insumos_model->obtenerIDSectorPorNombre($insumos->sector);
+        
+        $this->Insumos_model->insertarInsumo($insumos->nombre_insumo, $insumos->descripcion, $insumos->stock_min, $insumos->stock_max, $id_sector_insumo, $id_tipo_insumo);
     }
 
     public function obtenerInsumos() {
