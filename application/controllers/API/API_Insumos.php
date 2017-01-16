@@ -57,4 +57,25 @@ class API_Insumos extends API_Base {
         $this->output->set_output(json_encode($lista_tipos_insumos));
     }
 
+    public function obtenerCantidadesDeInsumos() {
+        
+        $this->load->model('Insumos_model');
+        $lista_cant_insumos = $this->Insumos_model->obtenerCantidadesInsumos();
+        
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($lista_cant_insumos));
+    }
+    
+    
+    public function obtenerCantidadDeInsumo() {
+        $cod_insumo = json_decode($this->security->xss_clean($this->input->raw_input_stream));
+        
+        $this->load->model('Insumos_model');
+        $lista_cant_insumos = $this->Insumos_model->obtenerCantidadDeInsumo($cod_insumo->cod_insumo);
+        
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($lista_cant_insumos));
+    }
+    
+    
 }

@@ -142,5 +142,25 @@ class Insumos_model extends CI_Model {
         $query = $this->db->query('SELECT * FROM sector_insumos WHERE id_sector=' . $id_sector);
         return $query->result()[0];
     }
+    
+    
+    public function obtenerCantidadesInsumos() {
+        $query = $this->db->query('SELECT i.id_insumo, i.nombre_insumo, i.descripcion, i.stock_min, i.stock_max, i.id_tipoinsumo, i.id_sector, COUNT(if(c.estado = "Recibida", 1, NULL)) as cantidad
+                                    FROM insumos i
+                                    LEFT JOIN insumo_deposito id ON i.id_insumo=id.id_insumo
+                                    LEFT JOIN compras c ON id.id_compra=c.id_compra
+                                    GROUP BY i.id_insumo');
+        return $query->result();
+    }
+    
+    public function obtenerCantidadDeInsumo($id_insumo) {
+        $query = $this->db->query('SELECT i.id_insumo, i.nombre_insumo, i.descripcion, i.stock_min, i.stock_max, i.id_tipoinsumo, i.id_sector, COUNT(if(c.estado = "Recibida", 1, NULL)) as cantidad
+                                    FROM insumos i
+                                    LEFT JOIN insumo_deposito id ON i.id_insumo=id.id_insumo
+                                    LEFT JOIN compras c ON id.id_compra=c.id_compra
+                                    WHERE i.id_insumo='.$id_insumo.'
+                                    GROUP BY i.id_insumo');
+        return $query->result()[0];
+    }
 
 }
