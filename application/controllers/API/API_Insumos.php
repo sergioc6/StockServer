@@ -56,6 +56,15 @@ class API_Insumos extends API_Base {
         $this->output->set_content_type('application/json');
         $this->output->set_output(json_encode($lista_tipos_insumos));
     }
+    
+    public function buscarInsumo($id_insumo)
+    {
+        $this->load->model('Insumos_model');
+        $insumo = $this->Insumos_model->obtenerInsumoPorID($id_insumo);
+        
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($insumo));
+    }
 
     public function obtenerCantidadesDeInsumos() {
         
