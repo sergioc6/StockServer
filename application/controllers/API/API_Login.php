@@ -29,12 +29,17 @@ class API_Login extends CI_Controller {
     public function login() {
         $login = json_decode($this->security->xss_clean($this->input->raw_input_stream));
         $this->load->model('Login_model');
+        $this->load->model('Operarios_model');
 
         if ($this->Login_model->existeOperario($login->usuario, $login->pass) === false) {
             $this->output->set_status_header(401);
         } else {
-            $token = array('token' => $this->encrypt->encode($login->usuario));
-
+            $foto_base64 = $this->Operarios_model->obtenerFotoBase64DeOperario($login->usuario);
+            
+            $token = new stdClass();
+            $token->{"token"}=$this->encrypt->encode($login->usuario);
+            $token->{"foto_base64"}=$foto_base64;
+            
             $this->output->set_content_type('application/json');
             $this->output->set_output(json_encode($token));
         }

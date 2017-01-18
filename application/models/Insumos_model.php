@@ -16,15 +16,15 @@ class Insumos_model extends CI_Model {
         $query = $this->db->query('SELECT * FROM sector_insumos');
         return $query->result();
     }
-    
+
     public function obtenerIDTipoInsumoPorNombre($nombre_insumo) {
         $query = $this->db->query('SELECT id_tipoinsumo FROM tipo_insumo WHERE tipo = "' . $nombre_insumo . '"');
         return $query->result()[0]->id_tipoinsumo;
     }
-    
+
     public function obtenerIDSectorPorNombre($nombre_sector) {
-        $query = $this->db->query('SELECT id_sector FROM sector_insumos WHERE sector_deposito = "' . $nombre_sector .'"');
-        return $query->result()[0]->id_sector;        
+        $query = $this->db->query('SELECT id_sector FROM sector_insumos WHERE sector_deposito = "' . $nombre_sector . '"');
+        return $query->result()[0]->id_sector;
     }
 
     /**
@@ -142,8 +142,7 @@ class Insumos_model extends CI_Model {
         $query = $this->db->query('SELECT * FROM sector_insumos WHERE id_sector=' . $id_sector);
         return $query->result()[0];
     }
-    
-    
+
     public function obtenerCantidadesInsumos() {
         $query = $this->db->query('SELECT i.id_insumo, i.nombre_insumo, i.descripcion, i.stock_min, i.stock_max, i.id_tipoinsumo, i.id_sector, COUNT(if(c.estado = "Recibida", 1, NULL)) as cantidad
                                     FROM insumos i
@@ -152,15 +151,27 @@ class Insumos_model extends CI_Model {
                                     GROUP BY i.id_insumo');
         return $query->result();
     }
-    
+
     public function obtenerCantidadDeInsumo($id_insumo) {
         $query = $this->db->query('SELECT i.id_insumo, i.nombre_insumo, i.descripcion, i.stock_min, i.stock_max, i.id_tipoinsumo, i.id_sector, COUNT(if(c.estado = "Recibida", 1, NULL)) as cantidad
                                     FROM insumos i
                                     LEFT JOIN insumo_deposito id ON i.id_insumo=id.id_insumo
                                     LEFT JOIN compras c ON id.id_compra=c.id_compra
-                                    WHERE i.id_insumo='.$id_insumo.'
+                                    WHERE i.id_insumo=' . $id_insumo . '
                                     GROUP BY i.id_insumo');
         return $query->result()[0];
+    }
+
+    public function obtenerSectorDeInsumo($id_insumo) {
+        $query = $this->db->query('SELECT s.id_sector, s.sector_deposito, s.latitud, s.longitud, s.foto_sector
+                                    FROM insumos i
+                                    LEFT JOIN sector_insumos s ON i.id_sector=s.id_sector
+                                    WHERE i.id_insumo=' . $id_insumo);
+        if ($query->result() != NULL) {
+            return $query->result()[0];
+        } else {
+            return NULL;
+        }
     }
 
 }

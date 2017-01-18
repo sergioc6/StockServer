@@ -70,5 +70,24 @@ class Operarios_model extends CI_Model {
         $this->db->where('id_operario', $id_operario);
         $this->db->delete('operarios');
     }
+    
+    public function obtenerFotoBase64DeOperario($email_operario) {
+        $query = $this->db->query('SELECT * FROM operarios WHERE email="' . $email_operario . '"');
+        if ($query->result() == NULL) {
+            return NULL;
+        } else {
+            $operario = $query->result()[0];
+            if ($operario->foto_operario == NULL){
+                $path = 'fotos/fotos_operarios/default.png';
+                $data = file_get_contents($path);
+                $base64 = base64_encode($data);
+            } else {
+                $path = 'fotos/fotos_operarios/'.$operario->foto_operario;
+                $data = file_get_contents($path);
+                $base64 = base64_encode($data);
+            }
+            return $base64;
+        }
+    }
 
 }
