@@ -28,7 +28,11 @@ class API_Insumos extends API_Base {
         $id_tipo_insumo = $this->Insumos_model->obtenerIDTipoInsumoPorNombre($insumos->tipo_insumo);
         $id_sector_insumo = $this->Insumos_model->obtenerIDSectorPorNombre($insumos->sector);
 
-        $this->Insumos_model->insertarInsumo($insumos->nombre_insumo, $insumos->descripcion, $insumos->stock_min, $insumos->stock_max, $id_tipo_insumo, $id_sector_insumo);
+        $id_insumo_insertado = $this->Insumos_model->insertarInsumo($insumos->nombre_insumo, $insumos->descripcion, $insumos->stock_min, $insumos->stock_max, $id_tipo_insumo, $id_sector_insumo);
+        
+        $insumo = $this->Insumos_model->obtenerInsumoPorID($id_insumo_insertado);
+        $this->output->set_content_type('application/json');
+        $this->output->set_output(json_encode($insumo));
     }
 
     public function obtenerInsumos() {
