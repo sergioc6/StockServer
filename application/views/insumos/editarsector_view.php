@@ -32,7 +32,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Agregar Sector</h2>   
+                        <h2>Editar Sector</h2>   
                     </div>
                 </div>              
                 <!-- /. ROW  -->
