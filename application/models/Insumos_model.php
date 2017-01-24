@@ -116,6 +116,17 @@ class Insumos_model extends CI_Model {
         $this->db->where('id_insumo', $id_insumo);
         $this->db->update('insumos', $data);
     }
+    
+    public function editarSector($id_sector, $sector_deposito, $latitud, $longitud) {
+        $data = array (
+            'sector_deposito' => $sector_deposito,
+            'latitud' => $latitud,
+            'longitud' => $longitud
+        );
+        
+        $this->db->where('id_sector', $id_sector);
+        $this->db->update('sector_insumos', $data);
+    }
 
     public function obtenerPrecioDeInsumoYProv($id_insumo, $id_prov) {
         $query = $this->db->query('SELECT i.id_insumo, i.nombre_insumo, i.id_tipoinsumo, ip.precio

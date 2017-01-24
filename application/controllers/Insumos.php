@@ -98,7 +98,7 @@ class Insumos extends Controller_Base {
                 $this->Insumos_model->agregarSector($nombre_sector, $latitud, $longitud, null);
 
                 $data['nuevo_sector'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
-                $this->load->view('insumos/agregarsector_success_view', $data);
+                $this->load->view('insumos/editarsector_success_view', $data);
             } else {
                 $this->load->model('Insumos_model');
                 $id_sector = $this->Insumos_model->agregarSector($nombre_sector, $latitud, $longitud, null);
@@ -132,6 +132,12 @@ class Insumos extends Controller_Base {
         $data['tipos_insumos'] = $this->Insumos_model->obtenerTiposDeInsumos();
 
         $this->load->view('insumos/editarinsumo_view', $data);
+    }
+    
+    public function editarSector_view($id_sector) {
+        $this->load->model('Insumos_model');
+        $data['sectores'] = $this->Insumos_model->obtenerSectorPorID($id_sector);
+        $this->load->view('insumos/editarsector_view', $data);        
     }
 
     public function verInsumos_view($id_insumo) {
@@ -171,6 +177,57 @@ class Insumos extends Controller_Base {
         } else {
             $this->editarInsumo_view($id_insumo);
         }
+    }
+    
+    public function editarSector() {
+        $id_sector = $this->input->post('id_sector');
+        $nombre_sector = $this->input->post('nombre_sector');
+        $latitud = $this->input->post('latitud');
+        $longitud = $this->input->post('longitud');
+
+        // Validación del formulario
+        $this->form_validation->set_rules('nombre_sector', 'Nombre del sector', 'required');
+        $this->form_validation->set_rules('latitud', 'Latitud', 'required|numeric');
+        $this->form_validation->set_rules('longitud', 'Longitud', 'required|numeric');
+
+        // Mostramos los mensajes en un lenguaje adecuado
+        $this->form_validation->set_message('required', '%s es obligatorio.');
+        $this->form_validation->set_message('numeric', '%s debe ser numérico.');
+
+        // Verificamos si están todos los datos cargados
+        if ($this->form_validation->run() == TRUE) {
+
+            if ($_FILES["fotoSector"]["error"] != 0) {
+
+                $this->load->model('Insumos_model');
+                $this->Insumos_model->editarSector($id_sector, $nombre_sector, $latitud, $longitud, null);
+
+                $data['sector_edit'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
+                $this->load->view('insumos/editarsector_success_view', $data);
+            } else {
+                $this->load->model('Insumos_model');
+                $id_sector = $this->Insumos_model->editarSector($id_sector, $nombre_sector, $latitud, $longitud, null);
+
+                $config['upload_path'] = './fotos/fotos_sectores/';
+                $config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
+                $config['file_name'] = $id_sector;
+                $config['overwrite'] = TRUE;
+
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('fotoSector')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $data = array('upload_data' => $this->upload->data());
+                    $foto_path = $id_sector . $this->upload->data('file_ext');
+                    $this->Insumos_model->cargarFotoASector($id_sector, $foto_path);
+                }
+                $data['sector_edit'] = $this->Insumos_model->obtenerSectorPorNombre($nombre_sector);
+                $this->load->view('insumos/editarsector_success_view', $data);
+            }
+        } else {
+
+            $this->agregarsector_view();
+        }        
     }
 
     public function eliminarSectorDeposito($id_sector) {

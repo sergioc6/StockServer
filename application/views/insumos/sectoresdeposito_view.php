@@ -79,7 +79,7 @@
                                 <?php } ?>
                                 <td class="text-center">
                                     <a title="Ver Sector" class='btn btn-default btn-xs' href="<?php echo base_url('Insumos/verFichaSectorDeposito/'.$sector->id_sector); ?>"><span class="fa fa-icon fa-truck"></span></a> 
-                                    <a title="Editar Sector" class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span></a> 
+                                    <a title="Editar Sector" class='btn btn-info btn-xs' href="<?php echo base_url('Insumos/editarSector_view/' . $sector->id_sector); ?>"><span class="glyphicon glyphicon-edit"></span></a> 
                                     <a title="Eliminar Sector" href="<?php echo base_url('Insumos/eliminarSectorDeposito/' . $sector->id_sector); ?>" class="btn btn-danger btn-xs confirm"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
